@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "lib": ["esnext"]
+  },
+  "include": ["**/*.d.ts"],
+  "exclude": ["node_modules"]
+}
