@@ -14,6 +14,7 @@
 /// <reference path="./class/player.d.ts" />
 /// <reference path="./class/query-handle.d.ts" />
 /// <reference path="./class/radararea.d.ts" />
+/// <reference path="./class/request.d.ts" />
 /// <reference path="./class/resource.d.ts" />
 /// <reference path="./class/team.d.ts" />
 /// <reference path="./class/text/text-display.d.ts" />

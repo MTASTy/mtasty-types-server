@@ -145,13 +145,12 @@ declare function getPedWeapon(thePed: Ped, weaponSlot?: number): number | false;
  **/
 declare function getPedWeaponSlot(thePed: Ped): number | false;
 
-// TODO: Fix types
 /**
  * This function returns all valid ped models.
  * @returns Returns a table with all valid ped models.
  * @see https://wiki.mtasa.com/wiki/GetValidPedModels
  **/
-declare function getValidPedModels(): object[];
+declare function getValidPedModels(): number[];
 
 /**
  * This function checks if the specified ped is choking (coughing) or not.

@@ -7,22 +7,20 @@
  **/
 declare function forcePlayerMap(thePlayer: Player, forceOn: boolean): boolean;
 
-// TODO: Fix types
 /**
  * This function returns a table of all the alive players on the server.
  * Opposite function of getDeadPlayers.
  * @returns Returns a table of all the alive players.
  * @see https://wiki.mtasa.com/wiki/GetAlivePlayers
  **/
-declare function getAlivePlayers(): object;
+declare function getAlivePlayers(): Player[];
 
-// TODO: Fix types
 /**
  * This function returns a table of all currently dead players on the server.
  * @returns Returns a table of all the dead players.
  * @see https://wiki.mtasa.com/wiki/GetDeadPlayers
  **/
-declare function getDeadPlayers(): object;
+declare function getDeadPlayers(): Player[];
 
 // TODO: Fix types
 // TODO: This function is deprecated. This means that its use is discouraged and that it might not exist in future versions.

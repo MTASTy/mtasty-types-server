@@ -172,7 +172,6 @@ declare function decodeString(algorithm: string, input: string, options: object)
  **/
 declare function encodeString(algorithm: string, input: string, options: object): string | false;
 
-// TODO: Check
 /**
  * This function parses a JSON formatted string into variables.
  * You can use toJSON to encode variables into a JSON string that can be read by this function.
@@ -180,9 +179,8 @@ declare function encodeString(algorithm: string, input: string, options: object)
  * @param json A JSON formatted string.
  * @returns Returns variables read from the JSON string.
  * @see https://wiki.mtasa.com/wiki/FromJSON
- * @tupleReturn
  **/
-declare function fromJSON(json: string): [...any[]] | [false];
+declare function fromJSON(json: string): Object;
 
 /**
  * This function will extract Red, Green, Blue and Alpha values from a hex string you provide it. These strings follow the same format as used in HTML, with addition of the Alpha values.
@@ -306,7 +304,6 @@ declare function getTickCount(): number;
  **/
 declare function getTimerDetails(theTimer: Timer): [number, number, number] | [false];
 
-// TODO: Fix types
 /**
  * This function returns a table of all active timers that the resource that calls it has created.
  * Alternatively, only the timers with a remaining time less than or equal to a certain value can be retrieved.
@@ -314,7 +311,7 @@ declare function getTimerDetails(theTimer: Timer): [number, number, number] | [f
  * @returns Returns a table of all the active timers.
  * @see https://wiki.mtasa.com/wiki/GetTimers
  **/
-declare function getTimers(theTime?: number): object;
+declare function getTimers(theTime?: number): Timer[];
 
 /**
  * This function splits a string using the given separating character and returns one specified substring.
@@ -372,15 +369,13 @@ declare function inspect(arg: any, options: object): string;
  **/
 declare function interpolateBetween(x1: number, y1: number, z1: number, x2: number, y2: number, z2: number, fProgress: number, strEasingType: string, fEasingPeriod?: number, fEasingAmplitude?: number, fEasingOvershoot?: number): [number, number, number] | [false];
 
-// TODO: Check returns values
 /**
  * This function intelligently outputs debug messages into the Debug Console.
- * @param arg A variable of any type to print intelligent information for.
- * @param args Another variable to be output. An unlimited number of arguments can be supplied.
+ * @param args A variable of any type to print intelligent information for.
  * @returns Always returns undefined.
  * @see https://wiki.mtasa.com/wiki/Iprint
  **/
-declare function iprint(arg: any, ...args: any[]): boolean | undefined;
+declare function iprint(...args: any[]): undefined;
 
 /**
  * This function checks whether OOP (Object Oriented Programming) is enabled in the current resource or not.
@@ -456,7 +451,6 @@ declare function passwordVerify(password: string, hash: string, options: object,
  **/
 declare function pregFind(subject: string, pattern: string, flags: number | string): boolean;
 
-// TODO: Fix types
 /**
  * This function returns all matches.
  * - Warning: When declaring a pattern string in quotes, the backslash character should be doubled up. e.g. "(" will match a single bracket.
@@ -468,7 +462,7 @@ declare function pregFind(subject: string, pattern: string, flags: number | stri
  * @returns Returns a object if one or more match is found, false otherwise.
  * @see https://wiki.mtasa.com/wiki/PregMatch
  **/
-declare function pregMatch(base: string, pattern: string, flags?: unknown, maxResults?: number): object | false;
+declare function pregMatch(base: string, pattern: string, flags?: unknown, maxResults?: number): string[] | false;
 
 /**
  * This function performs a regular expression search and replace and returns the replaced string.
@@ -553,7 +547,6 @@ declare function setTimer(theFunction: SimpleHandler, timeInterval: number, time
  **/
 declare function sha256(str: string): string | false;
 
-// TODO: Fix types
 /**
  * This function splits a string into substrings.
  * You specify a character that will act as a separating character; this will determine where to split the sub-strings.
@@ -565,7 +558,7 @@ declare function sha256(str: string): string | false;
  * @returns Returns a table of substrings split from the original string if successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/Split
  **/
-declare function split(stringToSplit: string, separatingChar: string | number): object | false;
+declare function split(stringToSplit: string, separatingChar: string | number): string[] | false;
 
 /**
  * This function decrypts given base64 representation of encrypted data using the Tiny Encryption Algorithm.

@@ -154,7 +154,6 @@ declare function getTrainTrack(train: Vehicle): number | false;
  **/
 declare function getVehicleColor(theVehicle: Vehicle, bRGB: boolean): [number, number, number, number, number, number, number, number, number, number, number, number] | [false];
 
-// TODO: Fix types
 /**
  * This function returns a table of all the compatible upgrades (or all for a specified slot, optionally) for a specified vehicle.
  * @param theVehicle the vehicle you wish to retrieve the list of compatible upgrades of.
@@ -162,7 +161,7 @@ declare function getVehicleColor(theVehicle: Vehicle, bRGB: boolean): [number, n
  * @returns Returns a object with all the compatible upgrades, or false if invalid arguments are passed.
  * @see https://wiki.mtasa.com/wiki/GetVehicleCompatibleUpgrades
  **/
-declare function getVehicleCompatibleUpgrades(theVehicle: Vehicle, slot?: number): object | false;
+declare function getVehicleCompatibleUpgrades(theVehicle: Vehicle, slot?: number): number[] | false;
 
 /**
  * This function is used to get the player in control of the specified vehicle which includes somebody who is trying to enter the drivers seat.
@@ -199,7 +198,7 @@ declare function getVehicleDoorState(theVehicle: Vehicle, door: 0 | 1 | 2 | 3 | 
  **/
 declare function getVehicleEngineState(theVehicle: Vehicle): boolean;
 
-// TODO: FIx types
+// TODO: Fix types
 /**
  * This function returns a table of the current vehicle handling data.
  * @param theVehicle the vehicle you wish to get the handling data of.
@@ -278,14 +277,13 @@ declare function getVehicleNameFromModel(model: number): string | false;
  **/
 declare function getVehicleOccupant(theVehicle: Vehicle, seat?: number): Player | false;
 
-// TODO: Fix types
 /**
- * This function gets all players sitting in the specified vehicle.
+ * This function gets all peds sitting in the specified vehicle.
  * @param theVehicle the vehicle of which you wish to retrieve the occupants.
  * @returns Returns a object with seat ID as an index and the occupant as an element. Returns false if an invalid vehicle was passed or if the vehicle has no seats (like a trailer).
  * @see https://wiki.mtasa.com/wiki/GetVehicleOccupants
  **/
-declare function getVehicleOccupants(theVehicle: Vehicle): object | false;
+declare function getVehicleOccupants(theVehicle: Vehicle): {[seat: number]: Ped} | false;
 
 /**
  * This function is used to find out the current state of the override-lights setting of a vehicle.
@@ -339,23 +337,46 @@ declare function getVehicleRespawnPosition(theVehicle: Vehicle): [number, number
  **/
 declare function getVehicleRespawnRotation(theVehicle: Vehicle): [number, number, number] | [false];
 
-// TODO: Fix types
+declare interface SirenParams {
+  SirenCount: number
+  SirenType: number;
+  Flags: {
+    ["360"]: boolean;
+    DoLOSCheck: boolean;
+    UseRandomiser: boolean;
+    Silent: boolean;
+  }
+}
+
 /**
  * This function get the parameters of a vehicles siren.
  * @param theVehicle The vehicle to get the siren parameters of.
  * @returns Returns a object with the siren count, siren type and a sub table for the four flags. False otherwise.
  * @see https://wiki.mtasa.com/wiki/GetVehicleSirenParams
  **/
-declare function getVehicleSirenParams(theVehicle: Vehicle): object | false;
+declare function getVehicleSirenParams(theVehicle: Vehicle): SirenParams | false;
 
-// TODO: Fix types
+declare interface SirenData {
+  [sirentPoint: number]: {
+    x: number;
+    y: number;
+    z: number;
+
+    Red: number;
+    Green: number;
+    Blue: number;
+    Alpha: number;
+    Min_Alpha: number;
+  };
+}
+
 /**
  * This function gets the properties of a vehicle's sirens.
  * @param theVehicle The vehicle to get siren information of.
  * @returns If the vehicle is invalid, it returns false. Otherwise, returns a object with sub tables.
  * @see https://wiki.mtasa.com/wiki/GetVehicleSirens
  **/
-declare function getVehicleSirens(theVehicle: Vehicle): object | false;
+declare function getVehicleSirens(theVehicle: Vehicle): SirenData | false;
 
 /**
  * This function returns whether the sirens are turned on for the specified vehicle.
@@ -425,14 +446,13 @@ declare function getVehicleUpgradeOnSlot(theVehicle: Vehicle, slot: number): num
  **/
 declare function getVehicleUpgradeSlotName(slotOrUpgrade: number): string | false;
 
-// TODO: Fix types
 /**
  * This function returns a table of all the upgrades on a specifed vehicle.
  * @param theVehicle The vehicle you wish to retrieve the upgrades of.
  * @returns Returns a object of all the upgrades on each slot of a vehicle, which may be empty, or false if a valid vehicle is not passed.
  * @see https://wiki.mtasa.com/wiki/GetVehicleUpgrades
  **/
-declare function getVehicleUpgrades(theVehicle: Vehicle): object | false;
+declare function getVehicleUpgrades(theVehicle: Vehicle): number[] | false;
 
 /**
  * This function gets the variant of a specified vehicle.
@@ -455,14 +475,13 @@ declare function getVehicleVariant(theVehicle: Vehicle): [number, number] | [fal
  **/
 declare function getVehicleWheelStates(theVehicle: Vehicle): [number, number, number, number] | [false];
 
-// TODO: Fix types
 /**
  * This function scans through all the current vehicles and returns the ones matching the given model.
  * @param model The model of vehicles you want.
  * @returns Returns a table of existing vehicles matching the specified model.
  * @see https://wiki.mtasa.com/wiki/GetVehiclesOfType
  **/
-declare function getVehiclesOfType(model: number): object;
+declare function getVehiclesOfType(model: number): Vehicle[];
 
 /**
  * This function will check if a train or tram is derailable.

@@ -64,14 +64,13 @@ declare function textDisplayAddObserver(display: TextDisplay, playerToAdd: Playe
  **/
 declare function textDisplayAddText(displayToAddTo: TextDisplay, itemToAdd: TextItem): void;
 
-// TODO: Fix types
 /**
  * This function can be used to retrieve all the players currently observing a specified textdisplay.
  * @param theDisplay The textdisplay of which observers you want to get.
  * @returns Returns a object of players that are observers of the display or false if invalid textdisplay is passed.
  * @see https://wiki.mtasa.com/wiki/TextDisplayGetObservers
  **/
-declare function textDisplayGetObservers(theDisplay: TextDisplay): object | false;
+declare function textDisplayGetObservers(theDisplay: TextDisplay): Player[] | false;
 
 /**
  * This function checks if a player can see the specified textdisplay.

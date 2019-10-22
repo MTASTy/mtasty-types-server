@@ -83,13 +83,12 @@ declare function getBanTime(theBan: Ban): number | false;
  **/
 declare function getBanUsername(theBan: Ban): string | false;
 
-// TODO: fix types
 /**
  * This function will return a table containing all the bans present in the server's banlist.xml.
  * @returns Returns a table containing all the bans.
  * @see https://wiki.mtasa.com/wiki/GetBans
  **/
-declare function getBans(): [];
+declare function getBans(): Ban[];
 
 /**
  * This function will return the unbanning time of the specified ban in seconds.

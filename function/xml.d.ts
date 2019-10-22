@@ -76,16 +76,14 @@ declare function xmlLoadString(xmlString: string): XML | false;
  **/
 declare function xmlNodeGetAttribute(node: XML, name: string): string | false;
 
-// TODO: Fix types
 /**
  * Returns all the attributes of a specific XML node.
  * @param node the XML node to get the attributes of.
  * @returns If successful, returns a object with as keys the names of the attributes and as values the corresponding attribute values. If the node has no attributes, returns an empty object. In case of failure, returns false.
  * @see https://wiki.mtasa.com/wiki/XmlNodeGetAttributes
  **/
-declare function xmlNodeGetAttributes(node: XML): object | false;
+declare function xmlNodeGetAttributes(node: XML): { [key: string]: any } | false;
 
-// TODO: Fix types
 /**
  * This function returns all children of a particular XML node, or a particular child node.
  * @param parent This is the xmlnode you want to retrieve one or all child nodes of.
@@ -93,7 +91,7 @@ declare function xmlNodeGetAttributes(node: XML): object | false;
  * @returns If index isn't specified, returns a object containing all child nodes. If index is specified, returns the corresponding child node if it exists. If no nodes are found, it returns an empty object. Returns false in case of failure.
  * @see https://wiki.mtasa.com/wiki/XmlNodeGetChildren
  **/
-declare function xmlNodeGetChildren(parent: XML, index?: number): object | XML | false;
+declare function xmlNodeGetChildren(parent: XML, index?: number): XML[] | XML | false;
 
 /**
  * Gets the tag name of the specified XML node.

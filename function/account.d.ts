@@ -62,32 +62,29 @@ declare function getAccountPlayer(theAccount: Account): Player | false;
  **/
 declare function getAccountSerial(theAccount: Account): string | false;
 
-// TODO: Fix types
 /**
  * This function returns a table over all the accounts that exist in the server internal.db file.
  * - (Note: accounts.xml is no longer used after version 1.0.4)
  * @returns A table over the accounts that exist in the server internal.db file. This table might be empty.
  * @see https://wiki.mtasa.com/wiki/GetAccounts
  **/
-declare function getAccounts(): object;
+declare function getAccounts(): Account[];
 
-// TODO: Fix types
 /**
  * This function returns a table containing all accounts that were logged onto from specified serial. If the serial is empty string, it will return all accounts that were never logged onto.
  * @param serial The serial to get accounts from
  * @returns Returns table containing the accounts associated with specified serial. Returns false if invalid arguments were specified.
  * @see https://wiki.mtasa.com/wiki/GetAccountsBySerial
  **/
-declare function getAccountsBySerial(serial: string): object | false;
+declare function getAccountsBySerial(serial: string): Account[] | false;
 
-// TODO: Fix types
 /**
  * This function returns a table containing all the user data for the account provided
  * @param theAccount The account you wish to retrieve all data from.
  * @returns A table containing all the user data. This table might be empty.
  * @see https://wiki.mtasa.com/wiki/GetAllAccountData
  **/
-declare function getAllAccountData(theAccount: Account): object;
+declare function getAllAccountData(theAccount: Account): {[key: string]: any};
 
 /**
  * This function returns the specified player's account.
