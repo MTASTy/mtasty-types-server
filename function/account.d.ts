@@ -179,7 +179,6 @@ declare function getAccountID(theAccount: Account): number | false;
  **/
 declare function getAccountIP(theAccount: Account): string | false;
 
-// TODO: Fix types
 /**
  * This function returns a table containing all accounts with specified dataName and value (set with setAccountData).
  * @param dataName The name of the data
@@ -187,16 +186,15 @@ declare function getAccountIP(theAccount: Account): string | false;
  * @returns Returns table containing the accounts associated with specified value at dataName. Returns false if invalid arguments were specified.
  * @see https://wiki.mtasa.com/wiki/GetAccountsByData
  **/
-declare function getAccountsByData(dataName: string, value: string | number | boolean): object | false;
+declare function getAccountsByData(dataName: string, value: string | number | boolean): Account[] | false;
 
-// TODO: Fix types
 /**
  * This function returns a table containing all accounts that were logged onto from specified IP-address.
  * @param ip The IP to get accounts from
  * @returns Returns table containing the accounts associated with specified IP-address. Returns false if invalid arguments were specified.
  * @see https://wiki.mtasa.com/wiki/GetAccountsByIP
  **/
-declare function getAccountsByIP(ip: string): object | false;
+declare function getAccountsByIP(ip: string): Account[] | false;
 
 /**
  * This function sets the name of an account.
