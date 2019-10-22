@@ -22,18 +22,6 @@ declare function getAlivePlayers(): Player[];
  **/
 declare function getDeadPlayers(): Player[];
 
-// TODO: Fix types
-// TODO: This function is deprecated. This means that its use is discouraged and that it might not exist in future versions.
-/**
- * This function returns anti-cheat info for a player.
- * The info returned by this function can change over time, so use the server event onPlayerACInfo instead.
- * - Note: This function is deprecated. This means that its use is discouraged and that it might not exist in future versions.
- * @param thePlayer The player whose anti-cheat info you want to check.
- * @returns Returns a table.
- * @see https://wiki.mtasa.com/wiki/GetPlayerACInfo
- **/
-declare function getPlayerACInfo(thePlayer: Player): object;
-
 /**
  * This function retrieves a players ASE announce value under a certain key.
  * @param thePlayer This is the Player whos value you want to retrieve.

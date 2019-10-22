@@ -1,5 +1,6 @@
 declare type CommandHandler = (thePlayer: Player, commandName: string, ...args: any[]) => void;
 declare type BindHandler = (thePlayer: Player, key: string, keyState: string, ...args: any[]) => void;
+declare type SimpleHandler = () => void;
 
 /**
  * This function will attach a scripting function (handler) to a console command, so that whenever a player or administrator uses the command the function is called.
@@ -54,14 +55,13 @@ declare function bindKey(thePlayer: Player, key: string, keyState: "up" | "down"
  **/
 declare function executeCommandHandler(commandName: string, thePlayer: Player, ...args: any[]): boolean;
 
-// TODO: Fix types
 /**
  * This function is used to retrieve a list of all the registered command handlers of a given resource (or of all resources).
  * @param theResource The resource from which you wish to retrieve all command handlers.Or leave it empty to retrieve command handlers of all resources.
  * @returns Returns a table containing all the commands of the given resource or a table with subtables containing the command and theResource pointer ( { "command", theResource } ).
  * @see https://wiki.mtasa.com/wiki/GetCommandHandlers
  **/
-declare function getCommandHandlers(theResource: Resource): object;
+declare function getCommandHandlers(theResource: Resource): {[key: number]: {[key: number]: {command: string, theResource: Resource}}};
 
 /**
  * This function will check if a player is pressing a particular control.
@@ -77,7 +77,6 @@ declare function getCommandHandlers(theResource: Resource): object;
  **/
 declare function getControlState(thePlayer: Player, controlName: string): boolean;
 
-// TODO: Fix types
 /**
  * Gets the functions bound to a key.
  * To bind a function to a key use the bindKey function
@@ -87,9 +86,7 @@ declare function getControlState(thePlayer: Player, controlName: string): boolea
  * @returns Returns a table of the key function(s).
  * @see https://wiki.mtasa.com/wiki/GetFunctionsBoundToKey
  **/
-declare function getFunctionsBoundToKey(thePlayer: Player, key: string, keyState: "up" | "down" | "both"): object;
-
-type SimpleHandler = () => void;
+declare function getFunctionsBoundToKey(thePlayer: Player, key: string, keyState: "up" | "down" | "both"): {[key: number]: SimpleHandler};
 
 /**
  * getKeyBoundToFunction allows retrieval of the first key bound to a function.

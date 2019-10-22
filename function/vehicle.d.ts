@@ -1,3 +1,39 @@
+interface VehicleHandling {
+  mass: number;
+  turnMass: number;
+  dragCoeff: number;
+  centerOfMass: {1: number, 2: number, 3: number};
+  percentSubmerged: number;
+  tractionMultiplier: number;
+  tractionLoss: number;
+  tractionBias: number;
+  numberOfGears: number;
+  maxVelocity: number;
+  engineAcceleration: number;
+  engineInertia: number;
+  driveType: "rwd" | "fwd" | "awd";
+  engineType: "petrol" | "diesel" | "electric";
+  brakeDeceleration: number;
+  brakeBias: number;
+  ABS: boolean;
+  steeringLock: number;
+  suspensionForceLevel: number;
+  suspensionDamping: number;
+  suspensionHighSpeedDamping: number;
+  suspensionUpperLimit: number;
+  suspensionLowerLimit: number;
+  suspensionFrontRearBias: number;
+  suspensionAntiDiveMultiplier: number;
+  seatOffsetDistance: number;
+  collisionDamageMultiplier: number;
+  monetary: number;
+  modelFlags: number;
+  handlingFlags: number;
+  headLight: "long" | "small" | "big" | "tall";
+  tailLight: "long" | "small" | "big" | "tall";
+  animGroup: number;
+}
+
 /**
  * This function adds sirens to a vehicle.
  * @param theVehicle The vehicle to add sirens.
@@ -90,7 +126,6 @@ declare function detachTrailerFromVehicle(theVehicle: Vehicle, theTrailer?: Vehi
  **/
 declare function fixVehicle(theVehicle: Vehicle): boolean;
 
-// TODO: Fix types
 /**
  * This function returns a table containing the handling data of the specified vehicle model.
  * - Note: the data returned may not reflect the actual handling of a particular vehicle, since this may be overriden by the setVehicleHandling function.
@@ -98,9 +133,8 @@ declare function fixVehicle(theVehicle: Vehicle): boolean;
  * @returns Returns a table containing all the handling data, false if an invalid vehicle model is specified.
  * @see https://wiki.mtasa.com/wiki/GetModelHandling
  **/
-declare function getModelHandling(modelId: number): object;
+declare function getModelHandling(modelId: number): VehicleHandling | false;
 
-// TODO: Fix types
 /**
  * This function returns a table of the original vehicle handling.
  * Use getVehicleHandling if you wish to get the current handling of a vehicle, or getModelHandling for a specific vehicle model.
@@ -108,7 +142,7 @@ declare function getModelHandling(modelId: number): object;
  * @returns Returns a table containing all the handling data, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GetOriginalHandling
  **/
-declare function getOriginalHandling(modelID: number): object;
+declare function getOriginalHandling(modelID: number): VehicleHandling | false;
 
 /**
  * Gets the direction in which a train is driving (clockwise or counterclockwise).
@@ -198,14 +232,13 @@ declare function getVehicleDoorState(theVehicle: Vehicle, door: 0 | 1 | 2 | 3 | 
  **/
 declare function getVehicleEngineState(theVehicle: Vehicle): boolean;
 
-// TODO: Fix types
 /**
  * This function returns a table of the current vehicle handling data.
  * @param theVehicle the vehicle you wish to get the handling data of.
  * @returns Returns a object containing all the handling data, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GetVehicleHandling
  **/
-declare function getVehicleHandling(theVehicle: Vehicle): object | false;
+declare function getVehicleHandling(theVehicle: Vehicle): VehicleHandling | false;
 
 /**
  * This function will get the headlight color of a vehicle.

@@ -108,16 +108,14 @@ declare function aclGroupGetName(aclGroup: AclGroup): string | false | undefined
  **/
 declare function aclGroupList(): object | false | undefined;
 
-// TODO: Fix types
 /**
  * This function returns a table over all the ACL's that exist in a given ACL group.
  * @param theGroup The ACL group to get the ACL elements from
  * @returns Returns a table of the ACL elements in the given ACL group. This table might be empty. Returns false or undefined if theGroup is invalid or it fails for some other reason.
  * @see https://wiki.mtasa.com/wiki/AclGroupListACL
  **/
-declare function aclGroupListACL(theGroup: AclGroup): object | false | undefined;
+declare function aclGroupListACL(theGroup: AclGroup): Acl[] | false | undefined;
 
-// TODO: Fix types
 /**
  * This function returns a table over all the objects that exist in a given ACL group.
  * These are objects like players and resources.
@@ -125,7 +123,7 @@ declare function aclGroupListACL(theGroup: AclGroup): object | false | undefined
  * @returns Returns a table of strings in the given ACL group. This table might be empty. Returns false or undefined if theGroup is invalid or it fails for some other reason.
  * @see https://wiki.mtasa.com/wiki/AclGroupListObjects
  **/
-declare function aclGroupListObjects(theGroup: AclGroup): object | false | undefined;
+declare function aclGroupListObjects(theGroup: AclGroup): string[] | false | undefined;
 
 /**
  * This function removes the given ACL from the given ACL group.
@@ -147,15 +145,13 @@ declare function aclGroupRemoveACL(theGroup: AclGroup, theACL: Acl): boolean | u
  **/
 declare function aclGroupRemoveObject(theGroup: AclGroup, theObjectString: string): boolean | undefined;
 
-// TODO: Fix types
 /**
  * This function returns a list of all the ACLs.
  * @returns Returns a table of all the ACLs. This table can be empty if no ACLs exist. It can also return false/undefined if it failed for some reason.
  * @see https://wiki.mtasa.com/wiki/AclList
  **/
-declare function aclList(): object | false | undefined;
+declare function aclList(): Acl[] | false | undefined;
 
-// TODO: Fix types
 /**
  * This function returns a table of all the rights that a given ACL has.
  * @param theACL The ACL to get the rights from
@@ -163,7 +159,7 @@ declare function aclList(): object | false | undefined;
  * @returns Returns a table over the rights as strings in the given ACL. This table might be empty. Returns false or undefined if theACL is invalid or it fails for some other reason.
  * @see https://wiki.mtasa.com/wiki/AclListRights
  **/
-declare function aclListRights(theACL: Acl, allowedType: string): object | false | undefined;
+declare function aclListRights(theACL: Acl, allowedType: string): string[] | false | undefined;
 
 /**
  * This function reloads the ACL's and the ACL groups from the ACL XML file.

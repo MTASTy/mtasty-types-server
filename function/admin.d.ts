@@ -12,20 +12,20 @@
  **/
 declare function addBan(IP: string | undefined, Username: string | undefined, Serial: string | undefined, player?: Player, reason?: string, seconds?: number): Ban | false;
 
-// TODO: has not responsibleElement
 /**
  * This function will ban the specified player by either IP, serial or username
  * This function will ban the specified player from the server by IP.
  * @param bannedPlayer The player that will be banned from the server.
- * @param [IP=true] IP Will player be banned by IP?
- * @param [Username=false] Username Will player be banned by username?
- * @param [Serial=false] Serial Will player be banned by serial?
+ * @param [ip=true] IP Will player be banned by IP?
+ * @param [username=false] Username Will player be banned by username?
+ * @param [serial=false] Serial Will player be banned by serial?
+ * @param [responsibleElement=undefined] The element that is responsible for banning the player. This can be a player (Maximum 30 characters if using a string).
  * @param reason The reason the player will be banned from the server.
  * @param [seconds=0] The amount of seconds the player will be banned from the server for. This can be 0 for an infinite amount of time.
  * @returns Returns a ban object if banned successfully, or false if unsuccessful.
  * @see https://wiki.mtasa.com/wiki/BanPlayer
  **/
-declare function banPlayer(bannedPlayer: Player, IP?: boolean, Username?: boolean, Serial?: boolean, reason?: string, seconds?: number): Ban | false;
+declare function banPlayer(bannedPlayer: Player, ip?: boolean, username?: boolean, serial?: boolean, responsibleElement?: Player | string, reason?: string, seconds?: number): Ban | false;
 
 /**
  * This function will return the responsible admin (nickname of the admin) of the specified ban.

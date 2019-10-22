@@ -40,13 +40,43 @@ declare function getServerPassword(): string | undefined;
  **/
 declare function getServerPort(): number;
 
-// TODO: Fix types
+interface VersionInformation {
+  // The MTA server or client version (depending where the function was called) in pure numerical form, e.g. "256"
+  number: number;
+
+  // The MTA server or client version (depending where the function was called) in textual form, e.g. "1.0"
+  mta: number;
+
+  // The full MTA product name, either "MTA:SA Server" or "MTA:SA Client"
+  name: "MTA:SA Server" | "MTA:SA Client";
+
+  // The netcode version number
+  netcode: number;
+
+  // Returns the operating system on which the server or client is running
+  os: string;
+
+  /*
+  The type of build. can be:
+  "Nightly rX" - A nightly development build. X represents the nightly build revision
+  "Custom" - A build compiled manually
+  "Release" - A build that is publicly released (provisional)
+   */
+  type: "Nightly rX" | "Custom" | "Release";
+
+  // The build tag (from 1.0.3 onwards). Contains infomation about the underlying version used. i.e. The final version of 1.0.3 has the build tag of "1.0.3 rc-9" (This can be confirmed by using the console command 'ver')
+  tag: string;
+
+  // A 15 character sortable version string (from 1.0.4 onwards). Format of the string is described in getPlayerVersion.
+  sortable: string;
+}
+
 /**
  * This function gives you various version information about MTA and the operating system.
- * @returns Returns a object with version information.
+ * @returns Returns a table with version information.
  * @see https://wiki.mtasa.com/wiki/GetVersion
  **/
-declare function getVersion(): object;
+declare function getVersion(): VersionInformation;
 
 /**
  * This function retrieves whether San Andreas game glitches are enabled or not, set by using setGlitchEnabled.

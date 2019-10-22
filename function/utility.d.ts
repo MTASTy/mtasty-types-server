@@ -1,4 +1,3 @@
-// TODO: Fix types
 /**
  * This function allows tracing of MTA functions and events.
  * It should only be used when debugging scripts as it may degrade script performance.
@@ -9,7 +8,7 @@
  * @returns Returns true if the hook was successfully added, or false otherwise.
  * @see https://wiki.mtasa.com/wiki/AddDebugHook
  **/
-declare function addDebugHook(hookType: string, callbackFunction: SimpleHandler, nameList?: object): boolean;
+declare function addDebugHook(hookType: string, callbackFunction: SimpleHandler, nameList?: string[]): boolean;
 
 /**
  * This function returns the decrypted data from base64 representation of the encrypted block.
@@ -148,7 +147,6 @@ declare function bitReplace(arg: number, replaceValue: number, field: number, wi
  **/
 declare function debugSleep(sleep: number): boolean;
 
-// TODO: Fix types
 /**
  * This function decodes an encoded string using the specified algorithm.
  * The counterpart of this function is encodeString.
@@ -158,9 +156,8 @@ declare function debugSleep(sleep: number): boolean;
  * @returns Returns the decoded string if successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/DecodeString
  **/
-declare function decodeString(algorithm: string, input: string, options: object): string | false;
+declare function decodeString(algorithm: string, input: string, options: any[]): string | false;
 
-// TODO: Fix types
 /**
  * This function encodes a string using the specified algorithm.
  * The counterpart of this function is decodeString.
@@ -170,7 +167,7 @@ declare function decodeString(algorithm: string, input: string, options: object)
  * @returns Returns the encoded string if successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/EncodeString
  **/
-declare function encodeString(algorithm: string, input: string, options: object): string | false;
+declare function encodeString(algorithm: string, input: string, options: any[]): string | false;
 
 /**
  * This function parses a JSON formatted string into variables.
@@ -238,24 +235,21 @@ declare function getDistanceBetweenPoints3D(x1: number, y1: number, z1: number, 
  **/
 declare function getEasingValue(fProgress: number, strEasingType: string, fEasingPeriod?: number, fEasingAmplitude?: number, fEasingOvershoot?: number): number | false;
 
-// TODO: Fix types
 /**
  * This function returns network status information.
  * @param [thePlayer=undefined] The player you want to retrieve network stats from.
  * @returns Returns a table.
  * @see https://wiki.mtasa.com/wiki/GetNetworkStats
  **/
-declare function getNetworkStats(thePlayer?: Element): object | false;
+declare function getNetworkStats(thePlayer?: Element): {[key: string]: any} | false;
 
-// TODO: Fix types
 /**
  * This function returns a table containing network usage information about inbound and outbound packets.
  * @returns Returns a table with two fields: "in" and "out". Each of these contain a table with two fields: "bits" and "count". Each of these contain a table with 256 numeric fields ranging from 0 to 255, containing the appropriate network usage data for such packet id.
  * @see https://wiki.mtasa.com/wiki/GetNetworkUsageData
  **/
-declare function getNetworkUsageData(): object;
+declare function getNetworkUsageData(): {in: {bits: number[], count: number[]}, out: {bits: number[], count: number[]}};
 
-// TODO: Fix types
 /**
  * This function returns performance information.
  * @param category Performance statistics category. If empty string is given, list of all categories is returned. See categories for more information.
@@ -265,9 +259,40 @@ declare function getNetworkUsageData(): object;
  * @see https://wiki.mtasa.com/wiki/GetPerformanceStats
  * @tupleReturn
  **/
-declare function getPerformanceStats(category: string, options?: string, filter?: string): [object, object] | [false];
+declare function getPerformanceStats(category: string, options?: string, filter?: string): [any[], any[]] | [false];
 
-// TODO: Fix types
+interface RealTime {
+  // Seconds after the minute
+  seconds: number;
+
+  // Minutes after the hour
+  minute: number;
+
+  // Hours since midnight
+  hour: number;
+
+  // Day of the month
+  monthday: number;
+
+  // Months since January
+  month: number;
+
+  // Years since 1900
+  year: number;
+
+  // Days since Sunday
+  weekday: number;
+
+  // Days since January 1
+  yearday: number;
+
+  // Daylight Saving Time flag
+  isdst: number;
+
+  // Seconds since 1970 (Ignoring set timezone)
+  timestamp: number;
+}
+
 /**
  * This function gets the server or client (if used client sided it returns time as set on client's computer) real time and returns it in a table.
  * If you want to get the in-game time (shown on GTA's clock) use getTime.
@@ -276,7 +301,7 @@ declare function getPerformanceStats(category: string, options?: string, filter?
  * @returns Returns a table of substrings with different time format or false if the seconds argument is out of range. * second is generally 0-59. Extra range to accommodate for leap seconds in certain systems.
  * @see https://wiki.mtasa.com/wiki/GetRealTime
  **/
-declare function getRealTime(seconds?: number, localTime?: boolean): object | false;
+declare function getRealTime(seconds?: number, localTime?: boolean): RealTime | false;
 
 /**
  * This function retrieves server settings which are usually stored in the mtaserver.conf file.
@@ -340,7 +365,6 @@ declare function getUserdataType(value: any): string | false;
  **/
 declare function hash(algorithm:  "md5" | "sha1" | "sha224" | "sha256" | "sha384" | "sha512", dataToHash: string): string | false;
 
-// TODO: Fix types
 /**
  * This function returns human-readable representations of tables and MTA datatypes as a string.
  * @param arg A variable of any datatype.
@@ -348,7 +372,7 @@ declare function hash(algorithm:  "md5" | "sha1" | "sha224" | "sha256" | "sha384
  * @returns Always returns a string.
  * @see https://wiki.mtasa.com/wiki/Inspect
  **/
-declare function inspect(arg: any, options: object): string;
+declare function inspect(arg: any, options: any[]): string;
 
 /**
  * Interpolates a 3D Vector between a source value and a target value using either linear interpolation or any other easing function. It can also be used to interpolate 2D vectors or scalars by only setting some of the x, y, z values and putting 0 to the others.
@@ -411,7 +435,6 @@ declare function killTimer(theTimer: Timer): boolean;
  **/
 declare function md5(str: string): string | false;
 
-// TODO: Fix types
 /**
  * This function creates a new password hash using a specified hashing algorithm.
  * - Note: Using passwordHash is the recommended way of storing passwords.
@@ -423,9 +446,8 @@ declare function md5(str: string): string | false;
  * @returns Returns the hash as a string if hashing was successful, false otherwise. If a callback was provided, the aforementioned values are arguments to the callback, and this function will always return true.
  * @see https://wiki.mtasa.com/wiki/PasswordHash
  **/
-declare function passwordHash(password: string, algorithm: "bcrypt", options: object, callback: SimpleHandler): string | false;
+declare function passwordHash(password: string, algorithm: "bcrypt", options: {} | {const: number, salt: string}, callback?: SimpleHandler): string | false;
 
-// TODO: Fix types
 /**
  * This function verifies whether a password matches a password hash.
  * - Note: Using passwordHash is the recommended way of storing passwords.
@@ -437,7 +459,7 @@ declare function passwordHash(password: string, algorithm: "bcrypt", options: ob
  * @returns Returns true if the password matches the hash. Returns false if the password does not match, or if an unknown hash was passed. If a callback was provided, the aforementioned values are arguments to the callback, and this function will always return true.
  * @see https://wiki.mtasa.com/wiki/PasswordVerify
  **/
-declare function passwordVerify(password: string, hash: string, options: object, callback: SimpleHandler): boolean;
+declare function passwordVerify(password: string, hash: string, options?: {} | {insecureBcrypt: boolean}, callback?: SimpleHandler): boolean;
 
 /**
  * This function stops at the first occurrence of the pattern in the input string and returns the result of the search.

@@ -4,7 +4,7 @@
  * @param pass The password to set for this account for future logins.
  * @param [allowCaseVariations=false] Whether the username is case sensitive (if this is set to true, usernames "Bob" and "bob" will refer to different accounts)
  * @returns Returns an account or false if the account already exists or an error occured.
- * @see https://wiki.mtasa.com/wiki/AddAccount
+ * @see https://wiki.mtasa.com/wiki/AddAccountgetAllAccountData
  **/
 declare function addAccount(name: string, pass: string, allowCaseVariations?: boolean): Account | false;
 

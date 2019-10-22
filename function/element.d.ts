@@ -97,14 +97,13 @@ declare function destroyElement(elementToDestroy: Element): boolean;
  **/
 declare function detachElements(theElement: Element, theAttachToElement: Element): boolean;
 
-// TODO: Fix types
 /**
  * Returns a table of all element data of an element.
  * @param theElement the element you want to get the element data of.
  * @returns If successful, returns a table with as keys the names of the element data and as values the corresponding element data values. Returns false in case of failure.
  * @see https://wiki.mtasa.com/wiki/GetAllElementData
  **/
-declare function getAllElementData(theElement: Element): object | false;
+declare function getAllElementData(theElement: Element): { [key: string]: any } | false;
 
 /**
  * This function returns a table of all the elements attached to the specified element
@@ -252,7 +251,6 @@ declare function getElementID(theElement: Element): string | false;
  **/
 declare function getElementInterior(theElement: Element): number | false;
 
-// TODO: Fix types
 /**
  * This function gets an element's transform matrix.
  * This contains 16 number values that multiplied to a point will give you the point transformed.
@@ -265,7 +263,7 @@ declare function getElementInterior(theElement: Element): number | false;
  * @returns Returns a multi-dimensional array (which can be transformed into a proper matrix class using Matrix.create method) containing a 4x4 matrix. Returns false if the element is not streamed in, and not a vehicle, ped or object.
  * @see https://wiki.mtasa.com/wiki/GetElementMatrix
  **/
-declare function getElementMatrix(theElement: Element, legacy?: boolean): object | false;
+declare function getElementMatrix(theElement: Element, legacy?: boolean): { [key: number]: number } | false;
 
 /**
  * Returns the model ID of a given element.
@@ -313,7 +311,6 @@ declare function getElementRotation(theElement: Element, rotOrder?: string): [nu
  **/
 declare function getElementSyncer(theElement: Element): Element | false;
 
-// TODO: Fix types (add ElementType enum)
 /**
  * This function is used to retrieve the type of an element.
  * @param theElement The element you wish to get the type of.

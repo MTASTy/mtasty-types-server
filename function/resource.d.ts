@@ -314,7 +314,6 @@ interface FetchRemoteOptions {
   formFields: { [key: string]: string };
 }
 
-// TODO: Fix types
 /**
  * This function allows you to post and receive data from HTTP servers.
  * The calls are asynchronous so you do not get an immediate result from the call, instead a callback function you specify is called when the download completes.
@@ -325,13 +324,12 @@ interface FetchRemoteOptions {
  * @param URL A full URL in the format http://hostname/path/file.ext. A port can be specified with a colon followed by a port number appended to the hostname.
  * @param options A table containing any request options (queueName, connectionAttempts, connectTimeout, postData, postIsBinary, method, headers, maxRedirects, username, password, formFields).
  * @param callbackFunction This is the function that should receive the data returned from the remote server.
- * @param callbackArguments The arguments that were passed into fetchRemote
+ * @param callbackArguments The arguments that were passed into fetchRemote.
  * @returns Returns a request value which can be used with getRemoteRequestInfo or abortRemoteRequest (if the arguments are correct, false otherwise).
  * @see https://wiki.mtasa.com/wiki/FetchRemote
  **/
-declare function fetchRemote(URL: string, options: FetchRemoteOptions, callbackFunction: SimpleHandler, callbackArguments?: object): Request | false;
+declare function fetchRemote(URL: string, options: FetchRemoteOptions, callbackFunction: SimpleHandler, callbackArguments?: any[]): Request | false;
 
-// TODO: Fix types
 /**
  * This function allows you to post and receive data from HTTP servers.
  * The calls are asynchronous so you do not get an immediate result from the call, instead a callback function you specify is called when the download completes.
@@ -341,20 +339,19 @@ declare function fetchRemote(URL: string, options: FetchRemoteOptions, callbackF
  * - Warning: function won't trigger inside another fetchRemote function.
  * @param URL A full URL in the format http://hostname/path/file.ext. A port can be specified with a colon followed by a port number appended to the hostname.
  * @param callbackFunction This is the function that should receive the data returned from the remote server.
- * @param callbackArguments The arguments that were passed into fetchRemote
+ * @param callbackArguments The arguments that were passed into fetchRemote.
  * @returns Returns a request value which can be used with getRemoteRequestInfo or abortRemoteRequest (if the arguments are correct, false otherwise).
  * @see https://wiki.mtasa.com/wiki/FetchRemote
  **/
-declare function fetchRemote(URL: string, callbackFunction: SimpleHandler, callbackArguments?: object): Request | false;
+declare function fetchRemote(URL: string, callbackFunction: SimpleHandler, callbackArguments?: any[]): Request | false;
 
-// TODO: Fix types
 /**
  * This function retrieves the ACL request section from the meta.xml file of the given resource.
  * @param theResource the resource to get the ACL requests for.
  * @returns Returns a table with the ACL requests for the given resource, or false if the resource is not valid. A valid resource with no ACL requests will return an empty table.
  * @see https://wiki.multitheftauto.com/wiki/GetResourceACLRequests
  **/
-declare function getResourceACLRequests(theResource: Resource): object | false;
+declare function getResourceACLRequests(theResource: Resource): Request[] | false;
 
 /**
  * This function is used to return the root node of a configuration file. Config files must be predefined in a resource's meta file. An alternative way to load XML files is to use xmlLoadFile.
@@ -602,7 +599,6 @@ declare function stopResource(theResource: Resource): boolean;
  **/
 declare function updateResourceACLRequest(theResource: Resource, rightName: string, access: boolean, byWho?: string): boolean;
 
-// TODO: Fix types
 /**
  * Gets all fetchRemote and callRemote requests currently running.
  * @param [theResource=undefined] the resource to get all requests from.
