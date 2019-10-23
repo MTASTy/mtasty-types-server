@@ -235,13 +235,44 @@ declare function getDistanceBetweenPoints3D(x1: number, y1: number, z1: number, 
  **/
 declare function getEasingValue(fProgress: number, strEasingType: string, fEasingPeriod?: number, fEasingAmplitude?: number, fEasingOvershoot?: number): number | false;
 
+interface NetworkStatsFormant {
+  // Total number of bytes received since the connection was started
+  bytesReceived: number;
+
+  // Total number of bytes sent since the connection was started
+  bytesSent: number;
+
+  // Total number of packets received since the connection was started
+  packetsReceived: number;
+
+  // Total number of packets sent since the connection was started
+  packetsSent: number;
+
+  // (0-100) Total packet loss percentage of sent data, since the connection was started
+  packetlossTotal: number;
+
+  // (0-100) Packet loss percentage of sent data, during the previous second
+  packetlossLastSecond: number;
+
+  messagesInSendBuffer: number;
+
+  // Number of packets queued to be resent (due to packet loss)
+  messagesInResendBuffer: number;
+
+  isLimitedByCongestionControl: boolean;
+
+  isLimitedByOutgoingBandwidthLimit: boolean;
+
+  encryptionStatus: any;
+}
+
 /**
  * This function returns network status information.
  * @param [thePlayer=undefined] The player you want to retrieve network stats from.
  * @returns Returns a table.
  * @see https://wiki.mtasa.com/wiki/GetNetworkStats
  **/
-declare function getNetworkStats(thePlayer?: Element): {[key: string]: any} | false;
+declare function getNetworkStats(thePlayer?: Element): NetworkStatsFormant | false;
 
 /**
  * This function returns a table containing network usage information about inbound and outbound packets.
@@ -484,7 +515,7 @@ declare function pregFind(subject: string, pattern: string, flags: number | stri
  * @returns Returns a object if one or more match is found, false otherwise.
  * @see https://wiki.mtasa.com/wiki/PregMatch
  **/
-declare function pregMatch(base: string, pattern: string, flags?: unknown, maxResults?: number): string[] | false;
+declare function pregMatch(base: string, pattern: string, flags?: number | string, maxResults?: number): string[] | false;
 
 /**
  * This function performs a regular expression search and replace and returns the replaced string.
