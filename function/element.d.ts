@@ -98,17 +98,17 @@ declare function destroyElement(elementToDestroy: Element): boolean;
 declare function detachElements(theElement: Element, theAttachToElement: Element): boolean;
 
 /**
- * Returns a table of all element data of an element.
+ * Returns an array of all element data of an element.
  * @param theElement the element you want to get the element data of.
- * @returns If successful, returns a table with as keys the names of the element data and as values the corresponding element data values. Returns false in case of failure.
+ * @returns If successful, returns an array with as keys the names of the element data and as values the corresponding element data values. Returns false in case of failure.
  * @see https://wiki.mtasa.com/wiki/GetAllElementData
  **/
-declare function getAllElementData(theElement: Element): { [key: string]: any } | false;
+declare function getAllElementData(theElement: Element): {[key: string]: any} | false;
 
 /**
- * This function returns a table of all the elements attached to the specified element
+ * This function returns an array of all the elements attached to the specified element
  * @param theElement The element which you require the information from.
- * @returns Returns a table of all the elements attached to the specified element.
+ * @returns Returns an array of all the elements attached to the specified element.
  * @see https://wiki.mtasa.com/wiki/GetAttachedElements
  **/
 declare function getAttachedElements(theElement: Element): Element[] | false;
@@ -182,7 +182,7 @@ declare function getElementChild(parent: Element, index: number): Element | fals
  * - Note that it will only return direct children and not elements that are further down the element tree.
  * @param parent Supply this argument with the parent of the children you want returned.
  * @param [theType=undefined] The type of element you want a list of. This is the same as the tag name in the .map file, so this can be used with a custom element type if desired. Built in types are
- * @returns This function returns a table that contains a list of elements that the parent has. If the element has no children, it will return an empty table. It will return false if the parent element does not exist.
+ * @returns This function returns an array that contains a list of elements that the parent has. If the element has no children, it will return an empty array. It will return false if the parent element does not exist.
  * @see https://wiki.mtasa.com/wiki/GetElementChildren
  **/
 declare function getElementChildren(parent: Element, theType?: string): Element[] | false;
@@ -343,7 +343,7 @@ declare function getElementZoneName(theElement: Element, citiesonly?: boolean): 
  * This function is used to retrieve a list of all elements of the specified type. This can be useful, as it disregards where in the element tree it is. It can be used with either the built in types (listed below) or with any custom type used in a .map file. For example, if there is an element of type "flag" (e.g. <flag />) in the .map file, the using "flag" as the type argument would find it.
  * @param theType The type of element you want a list of. This is the same as the tag name in the .map file, so this can be used with a custom element type if desired.
  * @param [startat=getRootElement()] The element the search should start at. Children of this element are searched, siblings or parents will not be found. By default, this is the root element which should suit most uses.
- * @returns Returns a table containing all the elements of the specified type. Returns an empty table if there are no elements of the specified type. Returns false if the string specified is invalid (or not a string).
+ * @returns Returns an array containing all the elements of the specified type. Returns an empty array if there are no elements of the specified type. Returns false if the string specified is invalid (or not a string).
  * @see https://wiki.multitheftauto.com/wiki/GetElementsByType
  **/
 declare function getElementsByType(theType: string, startat?: Element): Element[] | false;
@@ -354,7 +354,7 @@ declare function getElementsByType(theType: string, startat?: Element): Element[
  * * This function doesn't verify whether elements are in the same dimension and interior, additional checks could be implemented manually if they are needed.
  * @param theShape The colshape you want to get the elements from.
  * @param [elemType=undefined] The type of element you want a list of. This can be any element type, the common ones being
- * @returns Returns a table containing all the elements inside the colshape, of the specified type. Returns an empty table if there are no elements inside. Returns false if the colshape is invalid.
+ * @returns Returns an array containing all the elements inside the colshape, of the specified type. Returns an empty array if there are no elements inside. Returns false if the colshape is invalid.
  * @see https://wiki.mtasa.com/wiki/GetElementsWithinColShape
  **/
 declare function getElementsWithinColShape(theShape: ColShape, elemType?: string): Element[] | false;
@@ -550,13 +550,13 @@ declare function setElementCollisionsEnabled(theElement: Element, enabled: boole
  * The data can contain server created elements, but you should avoid passing data that is not able to be synced such as xmlnodes, acls, aclgroups etc.
  * As element data is synced to all clients, it can generate a lot of network traffic and be heavy on performance.
  * Events are much more efficient for sending data from a client to the server only, or from the server to a specific client.
- * Usage of element data should be discouraged where your goal can be achieved with events like above, and tables for storing and retrieving data.
+ * Usage of element data should be discouraged where your goal can be achieved with events like above, and arrays for storing and retrieving data.
  * - Tip: A simple and efficient way to make a variable known to the server and clients is to use setElementData on the root element.
  * - Note: See Script security for tips on preventing cheaters when using events and element data.
  * - Note: For performance reasons, never use setElementData in events that fire often (like onClientRender) without further optimization or conditions.
  * @param theElement The element you wish to attach the data to.
  * @param key The key you wish to store the data under. (Maximum 31 characters.)
- * @param value The value you wish to store. See element data for a list of acceptable data types.
+ * @param value The value you wish to store.
  * @param [synchronize=true] Determines whether or not the data will be synchronized with the clients(server-side variation) or server(client-side variation).
  * @returns Returns true if the data was set successfully, false otherwise.
  * @see https://wiki.mtasa.com/wiki/SetElementData

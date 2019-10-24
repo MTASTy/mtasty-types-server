@@ -207,14 +207,14 @@ declare function getZoneName(x: number, y: number, z: number, citiesonly?: boole
 declare function isGarageOpen(garageID: number): boolean;
 
 /**
- * This function is used to remove a world object.
- * @param modelID A whole number specifying the GTASA object model ID.
+ * This function is used to remove a world map object.
+ * @param modelID A whole number specifying the GTASA map object model ID.
  * @param radius A floating point number representing the radius that will be eliminated.
  * @param x A floating point number representing the X coordinate on the map.
  * @param y A floating point number representing the Y coordinate on the map.
  * @param z A floating point number representing the Z coordinate on the map.
- * @param [interior=0] The interior ID to apply the removal to (some objects in interior 13 show in all interiors so if you want to remove everything in interior 0 also remove everything in interior 13).
- * @returns Returns true if the object was removed, false if invalid arguments were passed.
+ * @param [interior=0] The interior ID to apply the removal to (some map objects in interior 13 show in all interiors so if you want to remove everything in interior 0 also remove everything in interior 13).
+ * @returns Returns true if the map object was removed, false if invalid arguments were passed.
  * @see https://wiki.mtasa.com/wiki/RemoveWorldModel
  **/
 declare function removeWorldModel(modelID: number, radius: number, x: number, y: number, z: number, interior?: number): boolean;
@@ -286,21 +286,21 @@ declare function resetSunSize(): boolean;
 declare function resetWindVelocity(): boolean;
 
 /**
- * This function allows restoring of all world objects,which were removed with RemoveWorldModel.
- * @returns Returns true if the world objects were restored, false otherwise.
+ * This function allows restoring of all world map objects,which were removed with RemoveWorldModel.
+ * @returns Returns true if the world map objects were restored, false otherwise.
  * @see https://wiki.mtasa.com/wiki/RestoreAllWorldModels
  **/
 declare function restoreAllWorldModels(): boolean;
 
 /**
- * This function allows restoring of world object,which was removed with RemoveWorldModel.
- * @param modelID A whole number specifying the GTASA object model ID.
+ * This function allows restoring of world map object,which was removed with RemoveWorldModel.
+ * @param modelID A whole number specifying the GTASA map object model ID.
  * @param radius A fnumber representing the radius that will be eliminated.
  * @param x A number representing the X coordinate on the map.
  * @param y A number representing the Y coordinate on the map.
  * @param z A number representing the Z coordinate on the map.
  * @param [interior=1] Interior.
- * @returns Returns true if the world object was restored, false otherwise.
+ * @returns Returns true if the world map object was restored, false otherwise.
  * @see https://wiki.mtasa.com/wiki/RestoreWorldModel
  **/
 declare function restoreWorldModel(modelID: number, radius: number, x: number, y: number, z: number, interior?: number): boolean;

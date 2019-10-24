@@ -1,6 +1,6 @@
 /**
  * This function is used to forcefully show a player's radar map.
- * @param thePlayer A player object referencing the specified player.
+ * @param thePlayer A player element referencing the specified player.
  * @param forceOn A boolean value representing whether or not the players radar map will be forced on.
  * @returns Returns true if the player's radar map was forced on, false otherwise.
  * @see https://wiki.mtasa.com/wiki/ForcePlayerMap
@@ -8,16 +8,16 @@
 declare function forcePlayerMap(thePlayer: Player, forceOn: boolean): boolean;
 
 /**
- * This function returns a table of all the alive players on the server.
+ * This function returns an array of all the alive players on the server.
  * Opposite function of getDeadPlayers.
- * @returns Returns a table of all the alive players.
+ * @returns Returns an array of all the alive players.
  * @see https://wiki.mtasa.com/wiki/GetAlivePlayers
  **/
 declare function getAlivePlayers(): Player[];
 
 /**
- * This function returns a table of all currently dead players on the server.
- * @returns Returns a table of all the dead players.
+ * This function returns an array of all currently dead players on the server.
+ * @returns Returns an array of all the dead players.
  * @see https://wiki.mtasa.com/wiki/GetDeadPlayers
  **/
 declare function getDeadPlayers(): Player[];
@@ -123,7 +123,7 @@ declare function getPlayerScriptDebugLevel(thePlayer: Player): number | false;
 
 /**
  * This function returns the serial for a specified player.
- * @param thePlayer A player object referencing the specified player.
+ * @param thePlayer A player element referencing the specified player.
  * @returns Returns the serial as a string if it was found, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GetPlayerSerial
  **/
@@ -139,9 +139,8 @@ declare function getPlayerTeam(thePlayer: Player): Team | false;
 
 /**
  * This function gets the client version of the specified player as a sortable string.
- * An example of a version string would be: 1.0.4-9.01746.0
  * Where the first three numbers represent the major/minor/maintenance version, i.e.
- * 1.0.4 The fourth number is 9, which means it's a release build, (Development and beta builds have lower numbers here).
+ * The fourth number is 9, which means it's a release build, (Development and beta builds have lower numbers here).
  * And the fifth and sixth numbers represent the build number.
  * @param thePlayer The player whose client version you wish to get.
  * @returns Returns a string containing the client version, or false if the player is invalid.
@@ -152,7 +151,7 @@ declare function getPlayerVersion(thePlayer: Player): string | false;
 /**
  * This function gets a player's current wanted level.
  * The wanted level is indicated by the amount of stars a player has on the GTA HUD.
- * @param thePlayer The player whose wanted level you wish to get
+ * @param thePlayer The player whose wanted level you wish to get.
  * @returns Returns an int from 0 to 6 representing the player's wanted level, false if the player does not exist.
  * @see https://wiki.mtasa.com/wiki/GetPlayerWantedLevel
  **/
@@ -177,7 +176,7 @@ declare function givePlayerMoney(thePlayer: Player, amount: number): boolean;
 
 /**
  * This function checks if the specified player's radar map has been forced on or not.
- * @param thePlayer A player object referencing the specified player.
+ * @param thePlayer A player element referencing the specified player.
  * @returns Returns true if the local player's radar map is forced on, false otherwise.
  * @see https://wiki.mtasa.com/wiki/IsPlayerMapForced
  **/
@@ -219,7 +218,7 @@ declare function redirectPlayer(thePlayer: Player, serverIP?: string, serverPort
 
 /**
  * This function will force the specified player to resend their AC info, triggering the onPlayerACInfo event again.
- * @param thePlayer A player object referencing the specified player.
+ * @param thePlayer A player element referencing the specified player.
  * @returns Returns true if the AC info will be resent, false otherwise.
  * @see https://wiki.mtasa.com/wiki/ResendPlayerACInfo
  **/
@@ -227,7 +226,7 @@ declare function resendPlayerACInfo(thePlayer: Player): boolean;
 
 /**
  * This function will force the specified player to resend their mod info, triggering the onPlayerModInfo event again.
- * @param thePlayer A player object referencing the specified player.
+ * @param thePlayer A player element referencing the specified player.
  * @returns Returns true if the mod info will be resent, false otherwise.
  * @see https://wiki.mtasa.com/wiki/ResendPlayerModInfo
  **/
@@ -360,21 +359,21 @@ declare function setPlayerTeam(thePlayer: Player, theTeam: Team | undefined): bo
  * This function allows you to change who can hear the voice of a player.
  * - Important note: This function should only be used as a low-level function for advanced users.
  * @param thePlayer The player you wish to change.
- * @param broadcastTo Element or table of elements who should hear the voice from this player.
+ * @param broadcastTo Element or array of elements who should hear the voice from this player.
  * @returns Returns true if the value was set successfully, false otherwise.
  * @see https://wiki.mtasa.com/wiki/SetPlayerVoiceBroadcastTo
  **/
-declare function setPlayerVoiceBroadcastTo(thePlayer: Player, broadcastTo: any): boolean;
+declare function setPlayerVoiceBroadcastTo(thePlayer: Player, broadcastTo: Element | Element[]): boolean;
 
 /**
  * This function allows you to mute voices for a player.
  * - Important note: This function should only be used as a low-level function for advanced users.
  * @param thePlayer The player you wish to change.
- * @param ignoreFrom Element or table of elements which the player should not hear voices from. Use undefined if no one should be ignored.
+ * @param ignoreFrom Element or array of elements which the player should not hear voices from. Use undefined if no one should be ignored.
  * @returns Returns true if the value was set successfully, false otherwise.
  * @see https://wiki.mtasa.com/wiki/SetPlayerVoiceIgnoreFrom
  **/
-declare function setPlayerVoiceIgnoreFrom(thePlayer: Player, ignoreFrom: any): boolean;
+declare function setPlayerVoiceIgnoreFrom(thePlayer: Player, ignoreFrom: Element | Element[]): boolean;
 
 /**
  * This function is used to set a player's wanted level.

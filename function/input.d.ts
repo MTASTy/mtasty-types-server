@@ -58,7 +58,7 @@ declare function executeCommandHandler(commandName: string, thePlayer: Player, .
 /**
  * This function is used to retrieve a list of all the registered command handlers of a given resource (or of all resources).
  * @param theResource The resource from which you wish to retrieve all command handlers.Or leave it empty to retrieve command handlers of all resources.
- * @returns Returns a table containing all the commands of the given resource or a table with subtables containing the command and theResource pointer ( { "command", theResource } ).
+ * @returns Returns an array containing all the commands of the given resource or an array with subarrays containing the command and theResource pointer ( { "command", theResource } ).
  * @see https://wiki.mtasa.com/wiki/GetCommandHandlers
  **/
 declare function getCommandHandlers(theResource: Resource): {[key: number]: {[key: number]: {command: string, theResource: Resource}}};
@@ -83,7 +83,7 @@ declare function getControlState(thePlayer: Player, controlName: string): boolea
  * @param thePlayer The player to get the functions from a key.
  * @param key The key you wish to check the functions from.
  * @param keyState A string that has one of the following values
- * @returns Returns a table of the key function(s).
+ * @returns Returns an array of the key function(s).
  * @see https://wiki.mtasa.com/wiki/GetFunctionsBoundToKey
  **/
 declare function getFunctionsBoundToKey(thePlayer: Player, key: string, keyState: "up" | "down" | "both"): {[key: number]: SimpleHandler};

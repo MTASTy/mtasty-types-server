@@ -152,7 +152,7 @@ declare function debugSleep(sleep: number): boolean;
  * The counterpart of this function is encodeString.
  * @param algorithm The algorithm to use.
  * @param input The input to decode.
- * @param options A table with options and other neccessary data for the algorithm, as detailed below.
+ * @param options An array with options and other neccessary data for the algorithm, as detailed below.
  * @returns Returns the decoded string if successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/DecodeString
  **/
@@ -163,7 +163,7 @@ declare function decodeString(algorithm: string, input: string, options: any[]):
  * The counterpart of this function is decodeString.
  * @param algorithm The algorithm to use.
  * @param input The input to encode.
- * @param options A table with options and other neccessary data for the algorithm, as detailed below.
+ * @param options An array with options and other neccessary data for the algorithm, as detailed below.
  * @returns Returns the encoded string if successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/EncodeString
  **/
@@ -269,14 +269,14 @@ interface NetworkStatsFormant {
 /**
  * This function returns network status information.
  * @param [thePlayer=undefined] The player you want to retrieve network stats from.
- * @returns Returns a table.
+ * @returns Returns an object.
  * @see https://wiki.mtasa.com/wiki/GetNetworkStats
  **/
 declare function getNetworkStats(thePlayer?: Element): NetworkStatsFormant | false;
 
 /**
- * This function returns a table containing network usage information about inbound and outbound packets.
- * @returns Returns a table with two fields: "in" and "out". Each of these contain a table with two fields: "bits" and "count". Each of these contain a table with 256 numeric fields ranging from 0 to 255, containing the appropriate network usage data for such packet id.
+ * This function returns an object containing network usage information about inbound and outbound packets.
+ * @returns Returns an object with two fields: "in" and "out". Each of these contain an object with two fields: "bits" and "count". Each of these contain an object with 256 numeric fields ranging from 0 to 255, containing the appropriate network usage data for such packet id.
  * @see https://wiki.mtasa.com/wiki/GetNetworkUsageData
  **/
 declare function getNetworkUsageData(): {in: {bits: number[], count: number[]}, out: {bits: number[], count: number[]}};
@@ -286,7 +286,7 @@ declare function getNetworkUsageData(): {in: {bits: number[], count: number[]}, 
  * @param category Performance statistics category. If empty string is given, list of all categories is returned. See categories for more information.
  * @param [options=""] Category specific ',' separated options. All categories supports 'h' option for help.
  * @param [filter=""] Case-sensitive filter used to select returned rows. Only 'name' column is filtered.
- * @returns Returns two tables. First contains column names. The second contains result rows. Each row is table of cells.
+ * @returns Returns two arrays. First contains column names. The second contains result rows. Each row is array of cells.
  * @see https://wiki.mtasa.com/wiki/GetPerformanceStats
  * @tupleReturn
  **/
@@ -325,11 +325,11 @@ interface RealTime {
 }
 
 /**
- * This function gets the server or client (if used client sided it returns time as set on client's computer) real time and returns it in a table.
+ * This function gets the server or client (if used client sided it returns time as set on client's computer) real time.
  * If you want to get the in-game time (shown on GTA's clock) use getTime.
  * @param [seconds=current] A count in seconds from the year 1970. Useful for storing points in time, or for retrieving time information for getBanTime. The valid range of this argument is 0 to 32,000,000,000.
  * @param [localTime=true] Set to true to adjust for the locally set timezone.
- * @returns Returns a table of substrings with different time format or false if the seconds argument is out of range. * second is generally 0-59. Extra range to accommodate for leap seconds in certain systems.
+ * @returns Returns an object of substrings with different time format or false if the seconds argument is out of range. * second is generally 0-59. Extra range to accommodate for leap seconds in certain systems.
  * @see https://wiki.mtasa.com/wiki/GetRealTime
  **/
 declare function getRealTime(seconds?: number, localTime?: boolean): RealTime | false;
@@ -361,10 +361,10 @@ declare function getTickCount(): number;
 declare function getTimerDetails(theTimer: Timer): [number, number, number] | [false];
 
 /**
- * This function returns a table of all active timers that the resource that calls it has created.
+ * This function returns an array of all active timers that the resource that calls it has created.
  * Alternatively, only the timers with a remaining time less than or equal to a certain value can be retrieved.
  * @param [theTime=undefined] The maximum time left (in milliseconds) on the timers you wish to retrieve.
- * @returns Returns a table of all the active timers.
+ * @returns Returns an array of all the active timers.
  * @see https://wiki.mtasa.com/wiki/GetTimers
  **/
 declare function getTimers(theTime?: number): Timer[];
@@ -397,9 +397,9 @@ declare function getUserdataType(value: any): string | false;
 declare function hash(algorithm:  "md5" | "sha1" | "sha224" | "sha256" | "sha384" | "sha512", dataToHash: string): string | false;
 
 /**
- * This function returns human-readable representations of tables and MTA datatypes as a string.
+ * This function returns human-readable representations of arrays and MTA datatypes as a string.
  * @param arg A variable of any datatype.
- * @param options A table of options. It is not mandatory, but when it is provided, it must be a table.
+ * @param options An array of options. It is not mandatory, but when it is provided, it must be an array.
  * @returns Always returns a string.
  * @see https://wiki.mtasa.com/wiki/Inspect
  **/
@@ -472,7 +472,7 @@ declare function md5(str: string): string | false;
  * Warning: It is strongly recommended to use the async version of the function (i.e. provide a callback function). Otherwise, you will experience short freezes due to the slow nature of the bcrypt algorithm.
  * @param password The password to hash.
  * @param algorithm The algorithm to use.
- * @param options table with options for the hashing algorithm, as detailed below.
+ * @param options object with options for the hashing algorithm, as detailed below.
  * @param callback providing a callback will run this function asynchronously, the arguments to the callback are the same as the returned values below.
  * @returns Returns the hash as a string if hashing was successful, false otherwise. If a callback was provided, the aforementioned values are arguments to the callback, and this function will always return true.
  * @see https://wiki.mtasa.com/wiki/PasswordHash
@@ -512,7 +512,7 @@ declare function pregFind(subject: string, pattern: string, flags: number | stri
  * @param pattern The pattern for match in base string.
  * @param [flags=0] Conjuncted value that contains flags (1 - ignorecase, 2 - multiline, 4 - dotall, 8 - extended, 16 - unicode) or (i - Ignore case, m - Multiline, d - Dotall, e - Extended, u - Unicode).
  * @param [maxResults=100000] Maximum number of results to return.
- * @returns Returns a object if one or more match is found, false otherwise.
+ * @returns Returns an array if one or more match is found, false otherwise.
  * @see https://wiki.mtasa.com/wiki/PregMatch
  **/
 declare function pregMatch(base: string, pattern: string, flags?: number | string, maxResults?: number): string[] | false;
@@ -584,7 +584,7 @@ declare function setServerConfigSetting(name: string, value: string, bSave?: boo
  * @param theFunction The function you wish the timer to call.
  * @param timeInterval The number of milliseconds that should elapse before the function is called (the minimum is 50 (0 on 1.5.6 r16715) 1000 milliseconds = 1 second).
  * @param timesToExecute The number of times you want the timer to execute, or 0 for infinite repetitions.
- * @param arguments Any arguments you wish to pass to the function can be listed after the timesToExecute argument.Note that any tables you want to pass will get cloned, whereas metatables and functions/function references in that passed table will get lost.Also changes you make in the original table before the function gets called won't get transferred.
+ * @param arguments Any arguments you wish to pass to the function can be listed after the timesToExecute argument.
  * @returns Returns a timer pointer if the timer was set successfully, false if the arguments are invalid or the timer could not be set.
  * @see https://wiki.mtasa.com/wiki/SetTimer
  **/
@@ -608,7 +608,7 @@ declare function sha256(str: string): string | false;
  * This may be faster for one-off lookups, but considerably slower if you are going to check each token in a long string.
  * @param stringToSplit The string you wish to split into parts.
  * @param separatingChar A string of the character you want to split, or the ASCII number representing the character you want to use to split.
- * @returns Returns a table of substrings split from the original string if successful, false otherwise.
+ * @returns Returns an array of substrings split from the original string if successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/Split
  **/
 declare function split(stringToSplit: string, separatingChar: string | number): string[] | false;
@@ -646,7 +646,7 @@ declare function teaEncode(text: string, key: string): string | false;
 declare function tocolor(red: number, green: number, blue: number, alpha?: number): number;
 
 /**
- * This function converts a single value (preferably a Lua table) into a JSON encoded string.
+ * This function converts a single value into a JSON encoded string.
  * You can use this to store the data and then load it again using fromJSON.
  * @param arg An argument of any type. Arguments that are elements will be stored as element IDs that are liable to change between sessions. As such, do not save elements across sessions as you will get unpredictable results.
  * @param [compact=false] a boolean representing whether the string will contain whitespaces. To remove whitespaces from JSON string, use true.String will contain whitespaces per default.

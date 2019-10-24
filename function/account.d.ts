@@ -63,25 +63,25 @@ declare function getAccountPlayer(theAccount: Account): Player | false;
 declare function getAccountSerial(theAccount: Account): string | false;
 
 /**
- * This function returns a table over all the accounts that exist in the server internal.db file.
+ * This function returns an array over all the accounts that exist in the server internal.db file.
  * - (Note: accounts.xml is no longer used after version 1.0.4)
- * @returns A table over the accounts that exist in the server internal.db file. This table might be empty.
+ * @returns A array over the accounts that exist in the server internal.db file. This array might be empty.
  * @see https://wiki.mtasa.com/wiki/GetAccounts
  **/
 declare function getAccounts(): Account[];
 
 /**
- * This function returns a table containing all accounts that were logged onto from specified serial. If the serial is empty string, it will return all accounts that were never logged onto.
+ * This function returns an array containing all accounts that were logged onto from specified serial. If the serial is empty string, it will return all accounts that were never logged onto.
  * @param serial The serial to get accounts from
- * @returns Returns table containing the accounts associated with specified serial. Returns false if invalid arguments were specified.
+ * @returns Returns array containing the accounts associated with specified serial. Returns false if invalid arguments were specified.
  * @see https://wiki.mtasa.com/wiki/GetAccountsBySerial
  **/
 declare function getAccountsBySerial(serial: string): Account[] | false;
 
 /**
- * This function returns a table containing all the user data for the account provided
+ * This function returns an array containing all the user data for the account provided
  * @param theAccount The account you wish to retrieve all data from.
- * @returns A table containing all the user data. This table might be empty.
+ * @returns A array containing all the user data. This array might be empty.
  * @see https://wiki.mtasa.com/wiki/GetAllAccountData
  **/
 declare function getAllAccountData(theAccount: Account): {[key: string]: any};
@@ -180,18 +180,18 @@ declare function getAccountID(theAccount: Account): number | false;
 declare function getAccountIP(theAccount: Account): string | false;
 
 /**
- * This function returns a table containing all accounts with specified dataName and value (set with setAccountData).
+ * This function returns an array containing all accounts with specified dataName and value (set with setAccountData).
  * @param dataName The name of the data
  * @param value The value the dataName should have
- * @returns Returns table containing the accounts associated with specified value at dataName. Returns false if invalid arguments were specified.
+ * @returns Returns array containing the accounts associated with specified value at dataName. Returns false if invalid arguments were specified.
  * @see https://wiki.mtasa.com/wiki/GetAccountsByData
  **/
 declare function getAccountsByData(dataName: string, value: string | number | boolean): Account[] | false;
 
 /**
- * This function returns a table containing all accounts that were logged onto from specified IP-address.
+ * This function returns an array containing all accounts that were logged onto from specified IP-address.
  * @param ip The IP to get accounts from
- * @returns Returns table containing the accounts associated with specified IP-address. Returns false if invalid arguments were specified.
+ * @returns Returns array containing the accounts associated with specified IP-address. Returns false if invalid arguments were specified.
  * @see https://wiki.mtasa.com/wiki/GetAccountsByIP
  **/
 declare function getAccountsByIP(ip: string): Account[] | false;

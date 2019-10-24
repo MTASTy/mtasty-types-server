@@ -8,7 +8,7 @@ type DbQueryCallbackFunction = (queryHandle: QueryHandle, ...args: any[]) => voi
  * - Note: This function only acts upon registry.db. Use dbQuery to query a custom SQL database.
  * @param query An SQL query. Positions where parameter values will be inserted are marked with a "?".
  * @param params Params in SQL query.
- * @returns Returns a table with the result of the query if it was a SELECT query, or false if otherwise. In case of a SELECT query the result table may be empty (if there are no result rows). The table is of the form: A subsequent table represents the next row.
+ * @returns Returns an array with the result of the query if it was a SELECT query, or false if otherwise. In case of a SELECT query the result array may be empty (if there are no result rows). The array is of the form: A subsequent array represents the next row.
  * @see https://wiki.mtasa.com/wiki/ExecuteSQLQuery
  **/
 declare function executeSQLQuery(query: string, ...params: DbQueryParams): DbQueryResult | false;
@@ -73,7 +73,7 @@ declare function dbPrepareString(databaseConnection: Connection, query: string, 
  * Use the returned query handle with dbPoll to get the result, or dbFree if you don't want the result.
  * - Tip: The server command debugdb 2 will output verbose information on each query to a logging file (usually logs/db.log).
  * @param callbackFunction An optional function to be called when a result is ready. The function will only be called if the result has not already been read with dbPoll. The function is called with the query handle as the first argument. (Notice
- * @param callbackArguments An optional table containing extra arguments to be sent to the callback function.
+ * @param callbackArguments An optional array containing extra arguments to be sent to the callback function.
  * @param databaseConnection A database connection element previously returned from dbConnect.
  * @param query An SQL query. Positions where parameter values will be inserted are marked with a "?".
  * @param params Params in SQL query.

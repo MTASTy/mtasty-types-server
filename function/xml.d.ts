@@ -25,7 +25,7 @@ declare function xmlCreateChild(parentNode: XML, tagName: string): XML | false;
  * - Tip: If you do not want to share the content of the created file with other servers, prepend the file path with @ (See filepath for more information).
  * @param filePath The filepath of the file in the following format: ":resourceName/path". 'resourceName' is the name of the resource the file will be in, and 'path' is the path from the root directory of the resource to the file.
  * @param rootNodeName the name of the root node in the XML document.
- * @returns Returns the root xmlnode object of the new XML file if successful, or false otherwise.
+ * @returns Returns the root xmlnode element of the new XML file if successful, or false otherwise.
  * @see https://wiki.mtasa.com/wiki/XmlCreateFile
  **/
 declare function xmlCreateFile(filePath: string, rootNodeName: string): XML | false;
@@ -54,7 +54,7 @@ declare function xmlFindChild(parent: XML, tagName: string, index: number): XML 
  * - Note: To prevent memory leaks, ensure each call to xmlLoadFile has a matching call to xmlUnloadFile.
  * @param filePath The filepath of the file in the following format: ":resourceName/path". 'resourceName' is the name of the resource the file is in, and 'path' is the path from the root directory of the resource to the file.
  * @param [readOnly=false] By default, the XML file is opened with reading and writing access.You can specify true for this parameter if you only need reading access.
- * @returns Returns the root xmlnode object of an xml file if successful, or false otherwise.
+ * @returns Returns the root xmlnode element of an xml file if successful, or false otherwise.
  * @see https://wiki.mtasa.com/wiki/XmlLoadFile
  **/
 declare function xmlLoadFile(filePath: string, readOnly?: boolean): XML | false;
@@ -62,7 +62,7 @@ declare function xmlLoadFile(filePath: string, readOnly?: boolean): XML | false;
 /**
  * This function creates an Xmlnode from a string input.
  * @param xmlString A string containing XML data.
- * @returns Returns the root xmlnode object of an xml string if successful, or false otherwise (invalid XML string).
+ * @returns Returns the root xmlnode element of an xml string if successful, or false otherwise (invalid XML string).
  * @see https://wiki.mtasa.com/wiki/XmlLoadString
  **/
 declare function xmlLoadString(xmlString: string): XML | false;
@@ -79,7 +79,7 @@ declare function xmlNodeGetAttribute(node: XML, name: string): string | false;
 /**
  * Returns all the attributes of a specific XML node.
  * @param node the XML node to get the attributes of.
- * @returns If successful, returns a object with as keys the names of the attributes and as values the corresponding attribute values. If the node has no attributes, returns an empty object. In case of failure, returns false.
+ * @returns If successful, returns an element with as keys the names of the attributes and as values the corresponding attribute values. If the node has no attributes, returns an empty element. In case of failure, returns false.
  * @see https://wiki.mtasa.com/wiki/XmlNodeGetAttributes
  **/
 declare function xmlNodeGetAttributes(node: XML): { [key: string]: any } | false;
@@ -88,7 +88,7 @@ declare function xmlNodeGetAttributes(node: XML): { [key: string]: any } | false
  * This function returns all children of a particular XML node, or a particular child node.
  * @param parent This is the xmlnode you want to retrieve one or all child nodes of.
  * @param index If you only want to retrieve one particular child node, specify its (0-based) index here.For example if you only want the first node, specify 0; the fifth node has index 4, etc.
- * @returns If index isn't specified, returns a object containing all child nodes. If index is specified, returns the corresponding child node if it exists. If no nodes are found, it returns an empty object. Returns false in case of failure.
+ * @returns If index isn't specified, returns an element containing all child nodes. If index is specified, returns the corresponding child node if it exists. If no nodes are found, it returns an empty element. Returns false in case of failure.
  * @see https://wiki.mtasa.com/wiki/XmlNodeGetChildren
  **/
 declare function xmlNodeGetChildren(parent: XML, index?: number): XML[] | XML | false;

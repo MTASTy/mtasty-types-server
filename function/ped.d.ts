@@ -51,9 +51,9 @@ declare function getPedArmor(thePed: Ped): number;
 declare function getPedClothes(thePed: Ped, clothesType: number): [string, string] | [false];
 
 /**
- * This function detects the element a ped is standing on. This can be a vehicle or an object.
+ * This function detects the element a ped is standing on. This can be a vehicle or an map object.
  * @param thePed The ped of which you want to get the element he is standing on.
- * @returns Returns an object or a vehicle if the ped is standing on one, false if he is touching none or an invalid element was passed.
+ * @returns Returns an map object or a vehicle if the ped is standing on one, false if he is touching none or an invalid element was passed.
  * @see https://wiki.mtasa.com/wiki/GetPedContactElement
  **/
 declare function getPedContactElement(thePed: Ped): Vehicle | MapObject | false;
@@ -147,7 +147,7 @@ declare function getPedWeaponSlot(thePed: Ped): number | false;
 
 /**
  * This function returns all valid ped models.
- * @returns Returns a table with all valid ped models.
+ * @returns Returns an array with all valid ped models.
  * @see https://wiki.mtasa.com/wiki/GetValidPedModels
  **/
 declare function getValidPedModels(): number[];
@@ -214,7 +214,7 @@ declare function isPedOnFire(thePed: Ped): boolean;
  * This function is used to determine whether or not a ped is on the ground.
  * This is for on-foot usage only.
  * @param thePed The ped you are checking.
- * @returns Returns true if the ped is on foot and on the ground, false otherwise, even if he is in a car that stands still or on object outside world map.
+ * @returns Returns true if the ped is on foot and on the ground, false otherwise, even if he is in a car that stands still or on map object outside world map.
  * @see https://wiki.mtasa.com/wiki/IsPedOnGround
  **/
 declare function isPedOnGround(thePed: Ped): boolean;

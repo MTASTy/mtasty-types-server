@@ -68,7 +68,7 @@ declare function getWeaponProperty(weaponName: string, weaponSkill: "pro" | "std
  * There is an optional argument to specify ammunition.
  * For example, a melee weapon doesn't need an ammo argument.
  * - Note: When setting ammo for weapons in slot 0,1,10,11 or 12, the ammo max is 1. When setting ammo for weapons in slot 3,4,5, the ammo is added. When setting ammo for weapons in slot 2,6,7,8,9 and the slot weapon is changing, the ammo is replaced.
- * @param thePlayer A player or ped object referencing the specified player (or ped).
+ * @param thePlayer A player or ped element referencing the specified player (or ped).
  * @param weapon A whole number that refers to a Weapon ID. Click here for a list of possible weapon IDs.
  * @param [ammo=30] A whole number serving as the ammo amount for the given weapon. For weapons that do not require ammo, such as melee, this should be at least 1.
  * @param [setAsCurrent=false] A boolean value determining whether or not the weapon will be set as the players current.
@@ -79,7 +79,7 @@ declare function giveWeapon(thePlayer: Ped, weapon: number, ammo?: number, setAs
 
 /**
  * Sets the ammo to a certain amount for a specified weapon (if they already have it), regardless of current ammo.
- * @param thePlayer A player object referencing the specified player.
+ * @param thePlayer A player element referencing the specified player.
  * @param theWeapon A whole number that refers to a weapon ID.
  * @param totalAmmo A whole number serving as the total ammo amount for the given weapon (including ammo in clip).
  * @param [ammoInClip=0] The amount of ammo to set in the player's clip. This will be taken from the main ammo. If left unspecified or set to 0, the current clip will remain.
@@ -121,7 +121,7 @@ declare function takeAllWeapons(thePed: Ped): boolean;
 
 /**
  * This function removes a specified weapon or ammo from a certain player's inventory.
- * @param thePlayer A player object referencing the specified player.
+ * @param thePlayer A player element referencing the specified player.
  * @param weaponId A number that refers to a weapon that you wish to remove.
  * @param ammo If used, this amount of ammo will be taken instead and the weapon will not be removed.
  * @returns Returns a true if the weapon/ammo was removed successfully, false otherwise.

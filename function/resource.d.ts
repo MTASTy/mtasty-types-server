@@ -47,7 +47,7 @@ declare function call(...arguments: any[]): any;
  * @param [connectionAttempts=10] Number of times to retry if the remote host does not respond. In the case of a non-responding remote server, each connection attempt will timeout after 6 seconds. Therefore, the default setting of 10 connection attempts means it will be 60 seconds before your script gets a callback about the error. Reducing this value to 2 for example, will decrease that period to 12 seconds.
  * @param [connectTimeout=10000] Number of milliseconds each connection attempt will take before timing out.
  * @param callbackFunction This is the function that should receive the data returned from the remote function call. The argument list should match the format of the data returned. The callback function will be passed a string containing "ERROR" followed by an integer indicating the error code when an error occurs calling the function. A list of error codes can be found here.
- * @param arguments Any arguments you may want to pass to the function when it is called. Any number of arguments of can be specified, each being passed to the designated function.Most data types can be passed, including tables.The only values that cannot be passed are 'userdata' values such as xmlnodes - elements and resources can be passed though may be misinterpreted on other game servers (or cause warnings).
+ * @param arguments Any arguments you may want to pass to the function when it is called. Any number of arguments of can be specified, each being passed to the designated function.Most data types can be passed, including arrays.The only values that cannot be passed are 'userdata' values such as xmlnodes - elements and resources can be passed though may be misinterpreted on other game servers (or cause warnings).
  * @returns Returns true if the function has been called, false otherwise.
  * @see https://wiki.mtasa.com/wiki/CallRemote
  **/
@@ -59,7 +59,7 @@ declare function callRemote(URL: string, queueName: string, connectionAttempts: 
  * @param [connectionAttempts=10] Number of times to retry if the remote host does not respond. In the case of a non-responding remote server, each connection attempt will timeout after 6 seconds. Therefore, the default setting of 10 connection attempts means it will be 60 seconds before your script gets a callback about the error. Reducing this value to 2 for example, will decrease that period to 12 seconds.
  * @param [connectTimeout=10000] Number of milliseconds each connection attempt will take before timing out.
  * @param callbackFunction This is the function that should receive the data returned from the remote function call. The argument list should match the format of the data returned. The callback function will be passed a string containing "ERROR" followed by an integer indicating the error code when an error occurs calling the function. A list of error codes can be found here.
- * @param arguments Any arguments you may want to pass to the function when it is called. Any number of arguments of can be specified, each being passed to the designated function.Most data types can be passed, including tables.The only values that cannot be passed are 'userdata' values such as xmlnodes - elements and resources can be passed though may be misinterpreted on other game servers (or cause warnings).
+ * @param arguments Any arguments you may want to pass to the function when it is called. Any number of arguments of can be specified, each being passed to the designated function.Most data types can be passed, including arrays.The only values that cannot be passed are 'userdata' values such as xmlnodes - elements and resources can be passed though may be misinterpreted on other game servers (or cause warnings).
  * @returns Returns true if the function has been called, false otherwise.
  * @see https://wiki.mtasa.com/wiki/CallRemote
  **/
@@ -71,7 +71,7 @@ declare function callRemote(URL: string, connectionAttempts: number, connectTime
  * @param [queueName=default] Name of the queue to use. Any name can be used. If not set, the queue name is "default". Requests in the same queue are processed in order, one at a time.
  * @param [connectTimeout=10000] Number of milliseconds each connection attempt will take before timing out.
  * @param callbackFunction This is the function that should receive the data returned from the remote function call. The argument list should match the format of the data returned. The callback function will be passed a string containing "ERROR" followed by an integer indicating the error code when an error occurs calling the function. A list of error codes can be found here.
- * @param arguments Any arguments you may want to pass to the function when it is called. Any number of arguments of can be specified, each being passed to the designated function.Most data types can be passed, including tables.The only values that cannot be passed are 'userdata' values such as xmlnodes - elements and resources can be passed though may be misinterpreted on other game servers (or cause warnings).
+ * @param arguments Any arguments you may want to pass to the function when it is called. Any number of arguments of can be specified, each being passed to the designated function.Most data types can be passed, including arrays.The only values that cannot be passed are 'userdata' values such as xmlnodes - elements and resources can be passed though may be misinterpreted on other game servers (or cause warnings).
  * @returns Returns true if the function has been called, false otherwise.
  * @see https://wiki.mtasa.com/wiki/CallRemote
  **/
@@ -83,7 +83,7 @@ declare function callRemote(URL: string, queueName: string, connectTimeout: numb
  * @param [queueName=default] Name of the queue to use. Any name can be used. If not set, the queue name is "default". Requests in the same queue are processed in order, one at a time.
  * @param [connectionAttempts=10] Number of times to retry if the remote host does not respond. In the case of a non-responding remote server, each connection attempt will timeout after 6 seconds. Therefore, the default setting of 10 connection attempts means it will be 60 seconds before your script gets a callback about the error. Reducing this value to 2 for example, will decrease that period to 12 seconds.
  * @param callbackFunction This is the function that should receive the data returned from the remote function call. The argument list should match the format of the data returned. The callback function will be passed a string containing "ERROR" followed by an integer indicating the error code when an error occurs calling the function. A list of error codes can be found here.
- * @param arguments Any arguments you may want to pass to the function when it is called. Any number of arguments of can be specified, each being passed to the designated function.Most data types can be passed, including tables.The only values that cannot be passed are 'userdata' values such as xmlnodes - elements and resources can be passed though may be misinterpreted on other game servers (or cause warnings).
+ * @param arguments Any arguments you may want to pass to the function when it is called. Any number of arguments of can be specified, each being passed to the designated function.Most data types can be passed, including arrays.The only values that cannot be passed are 'userdata' values such as xmlnodes - elements and resources can be passed though may be misinterpreted on other game servers (or cause warnings).
  * @returns Returns true if the function has been called, false otherwise.
  * @see https://wiki.mtasa.com/wiki/CallRemote
  **/
@@ -94,7 +94,7 @@ declare function callRemote(URL: string, queueName: string, connectionAttempts: 
  * @param URL A full URL in the format http://hostname/path/file.ext. A port can be specified with a colon followed by a port number appended to the hostname.
  * @param [connectTimeout=10000] Number of milliseconds each connection attempt will take before timing out.
  * @param callbackFunction This is the function that should receive the data returned from the remote function call. The argument list should match the format of the data returned. The callback function will be passed a string containing "ERROR" followed by an integer indicating the error code when an error occurs calling the function. A list of error codes can be found here.
- * @param arguments Any arguments you may want to pass to the function when it is called. Any number of arguments of can be specified, each being passed to the designated function.Most data types can be passed, including tables.The only values that cannot be passed are 'userdata' values such as xmlnodes - elements and resources can be passed though may be misinterpreted on other game servers (or cause warnings).
+ * @param arguments Any arguments you may want to pass to the function when it is called. Any number of arguments of can be specified, each being passed to the designated function.Most data types can be passed, including arrays.The only values that cannot be passed are 'userdata' values such as xmlnodes - elements and resources can be passed though may be misinterpreted on other game servers (or cause warnings).
  * @returns Returns true if the function has been called, false otherwise.
  * @see https://wiki.mtasa.com/wiki/CallRemote
  **/
@@ -105,7 +105,7 @@ declare function callRemote(URL: string, connectTimeout: number, callbackFunctio
  * @param URL A full URL in the format http://hostname/path/file.ext. A port can be specified with a colon followed by a port number appended to the hostname.
  * @param [queueName=default] Name of the queue to use. Any name can be used. If not set, the queue name is "default". Requests in the same queue are processed in order, one at a time.
  * @param callbackFunction This is the function that should receive the data returned from the remote function call. The argument list should match the format of the data returned. The callback function will be passed a string containing "ERROR" followed by an integer indicating the error code when an error occurs calling the function. A list of error codes can be found here.
- * @param arguments Any arguments you may want to pass to the function when it is called. Any number of arguments of can be specified, each being passed to the designated function.Most data types can be passed, including tables.The only values that cannot be passed are 'userdata' values such as xmlnodes - elements and resources can be passed though may be misinterpreted on other game servers (or cause warnings).
+ * @param arguments Any arguments you may want to pass to the function when it is called. Any number of arguments of can be specified, each being passed to the designated function.Most data types can be passed, including arrays.The only values that cannot be passed are 'userdata' values such as xmlnodes - elements and resources can be passed though may be misinterpreted on other game servers (or cause warnings).
  * @returns Returns true if the function has been called, false otherwise.
  * @see https://wiki.mtasa.com/wiki/CallRemote
  **/
@@ -116,7 +116,7 @@ declare function callRemote(URL: string, queueName: string, callbackFunction: Si
  * @param URL A full URL in the format http://hostname/path/file.ext. A port can be specified with a colon followed by a port number appended to the hostname.
  * @param [connectionAttempts=10] Number of times to retry if the remote host does not respond. In the case of a non-responding remote server, each connection attempt will timeout after 6 seconds. Therefore, the default setting of 10 connection attempts means it will be 60 seconds before your script gets a callback about the error. Reducing this value to 2 for example, will decrease that period to 12 seconds.
  * @param callbackFunction This is the function that should receive the data returned from the remote function call. The argument list should match the format of the data returned. The callback function will be passed a string containing "ERROR" followed by an integer indicating the error code when an error occurs calling the function. A list of error codes can be found here.
- * @param arguments Any arguments you may want to pass to the function when it is called. Any number of arguments of can be specified, each being passed to the designated function.Most data types can be passed, including tables.The only values that cannot be passed are 'userdata' values such as xmlnodes - elements and resources can be passed though may be misinterpreted on other game servers (or cause warnings).
+ * @param arguments Any arguments you may want to pass to the function when it is called. Any number of arguments of can be specified, each being passed to the designated function.Most data types can be passed, including arrays.The only values that cannot be passed are 'userdata' values such as xmlnodes - elements and resources can be passed though may be misinterpreted on other game servers (or cause warnings).
  * @returns Returns true if the function has been called, false otherwise.
  * @see https://wiki.mtasa.com/wiki/CallRemote
  **/
@@ -126,7 +126,7 @@ declare function callRemote(URL: string, connectionAttempts: number, callbackFun
  * You can use this function to access a standard web page on a server you own by specifying the URL.
  * @param URL A full URL in the format http://hostname/path/file.ext. A port can be specified with a colon followed by a port number appended to the hostname.
  * @param callbackFunction This is the function that should receive the data returned from the remote function call. The argument list should match the format of the data returned. The callback function will be passed a string containing "ERROR" followed by an integer indicating the error code when an error occurs calling the function. A list of error codes can be found here.
- * @param arguments Any arguments you may want to pass to the function when it is called. Any number of arguments of can be specified, each being passed to the designated function.Most data types can be passed, including tables.The only values that cannot be passed are 'userdata' values such as xmlnodes - elements and resources can be passed though may be misinterpreted on other game servers (or cause warnings).
+ * @param arguments Any arguments you may want to pass to the function when it is called. Any number of arguments of can be specified, each being passed to the designated function.Most data types can be passed, including arrays.The only values that cannot be passed are 'userdata' values such as xmlnodes - elements and resources can be passed though may be misinterpreted on other game servers (or cause warnings).
  * @returns Returns true if the function has been called, false otherwise.
  * @see https://wiki.mtasa.com/wiki/CallRemote
  **/
@@ -152,7 +152,7 @@ declare function callRemote(URL: string, callbackFunction: SimpleHandler, ...arg
  * @param resourceName This is a name of the resource that contains the exported function you want to call.
  * @param functionName This is a string with the name of the function which you want to call.
  * @param callbackFunction This is the function that should receive the data returned from the remote function call. The argument list should match the format of the data returned. The callback function will be passed a string containing "ERROR" followed by an integer indicating the error code when an error occurs calling the function. A list of error codes can be found here.
- * @param arguments Any arguments you may want to pass to the function when it is called. Any number of arguments of can be specified, each being passed to the designated function.Most data types can be passed, including tables.The only values that cannot be passed are 'userdata' values such as xmlnodes - elements and resources can be passed though may be misinterpreted on other game servers (or cause warnings).
+ * @param arguments Any arguments you may want to pass to the function when it is called. Any number of arguments of can be specified, each being passed to the designated function.Most data types can be passed, including arrays.The only values that cannot be passed are 'userdata' values such as xmlnodes - elements and resources can be passed though may be misinterpreted on other game servers (or cause warnings).
  * @returns Returns true if the function has been called, false otherwise.
  * @see https://wiki.mtasa.com/wiki/CallRemote
  **/
@@ -166,7 +166,7 @@ declare function callRemote(host: string, queueName: string, connectionAttempts:
  * @param resourceName This is a name of the resource that contains the exported function you want to call.
  * @param functionName This is a string with the name of the function which you want to call.
  * @param callbackFunction This is the function that should receive the data returned from the remote function call. The argument list should match the format of the data returned. The callback function will be passed a string containing "ERROR" followed by an integer indicating the error code when an error occurs calling the function. A list of error codes can be found here.
- * @param arguments Any arguments you may want to pass to the function when it is called. Any number of arguments of can be specified, each being passed to the designated function.Most data types can be passed, including tables.The only values that cannot be passed are 'userdata' values such as xmlnodes - elements and resources can be passed though may be misinterpreted on other game servers (or cause warnings).
+ * @param arguments Any arguments you may want to pass to the function when it is called. Any number of arguments of can be specified, each being passed to the designated function.Most data types can be passed, including arrays.The only values that cannot be passed are 'userdata' values such as xmlnodes - elements and resources can be passed though may be misinterpreted on other game servers (or cause warnings).
  * @returns Returns true if the function has been called, false otherwise.
  * @see https://wiki.mtasa.com/wiki/CallRemote
  **/
@@ -180,7 +180,7 @@ declare function callRemote(host: string, queueName: string, connectTimeout: num
  * @param resourceName This is a name of the resource that contains the exported function you want to call.
  * @param functionName This is a string with the name of the function which you want to call.
  * @param callbackFunction This is the function that should receive the data returned from the remote function call. The argument list should match the format of the data returned. The callback function will be passed a string containing "ERROR" followed by an integer indicating the error code when an error occurs calling the function. A list of error codes can be found here.
- * @param arguments Any arguments you may want to pass to the function when it is called. Any number of arguments of can be specified, each being passed to the designated function.Most data types can be passed, including tables.The only values that cannot be passed are 'userdata' values such as xmlnodes - elements and resources can be passed though may be misinterpreted on other game servers (or cause warnings).
+ * @param arguments Any arguments you may want to pass to the function when it is called. Any number of arguments of can be specified, each being passed to the designated function.Most data types can be passed, including arrays.The only values that cannot be passed are 'userdata' values such as xmlnodes - elements and resources can be passed though may be misinterpreted on other game servers (or cause warnings).
  * @returns Returns true if the function has been called, false otherwise.
  * @see https://wiki.mtasa.com/wiki/CallRemote
  **/
@@ -193,7 +193,7 @@ declare function callRemote(host: string, queueName: string, connectionAttempts:
  * @param resourceName This is a name of the resource that contains the exported function you want to call.
  * @param functionName This is a string with the name of the function which you want to call.
  * @param callbackFunction This is the function that should receive the data returned from the remote function call. The argument list should match the format of the data returned. The callback function will be passed a string containing "ERROR" followed by an integer indicating the error code when an error occurs calling the function. A list of error codes can be found here.
- * @param arguments Any arguments you may want to pass to the function when it is called. Any number of arguments of can be specified, each being passed to the designated function.Most data types can be passed, including tables.The only values that cannot be passed are 'userdata' values such as xmlnodes - elements and resources can be passed though may be misinterpreted on other game servers (or cause warnings).
+ * @param arguments Any arguments you may want to pass to the function when it is called. Any number of arguments of can be specified, each being passed to the designated function.Most data types can be passed, including arrays.The only values that cannot be passed are 'userdata' values such as xmlnodes - elements and resources can be passed though may be misinterpreted on other game servers (or cause warnings).
  * @returns Returns true if the function has been called, false otherwise.
  * @see https://wiki.mtasa.com/wiki/CallRemote
  **/
@@ -207,7 +207,7 @@ declare function callRemote(host: string, queueName: string, resourceName: strin
  * @param resourceName This is a name of the resource that contains the exported function you want to call.
  * @param functionName This is a string with the name of the function which you want to call.
  * @param callbackFunction This is the function that should receive the data returned from the remote function call. The argument list should match the format of the data returned. The callback function will be passed a string containing "ERROR" followed by an integer indicating the error code when an error occurs calling the function. A list of error codes can be found here.
- * @param arguments Any arguments you may want to pass to the function when it is called. Any number of arguments of can be specified, each being passed to the designated function.Most data types can be passed, including tables.The only values that cannot be passed are 'userdata' values such as xmlnodes - elements and resources can be passed though may be misinterpreted on other game servers (or cause warnings).
+ * @param arguments Any arguments you may want to pass to the function when it is called. Any number of arguments of can be specified, each being passed to the designated function.Most data types can be passed, including arrays.The only values that cannot be passed are 'userdata' values such as xmlnodes - elements and resources can be passed though may be misinterpreted on other game servers (or cause warnings).
  * @returns Returns true if the function has been called, false otherwise.
  * @see https://wiki.mtasa.com/wiki/CallRemote
  **/
@@ -220,7 +220,7 @@ declare function callRemote(host: string, connectionAttempts: number, connectTim
  * @param resourceName This is a name of the resource that contains the exported function you want to call.
  * @param functionName This is a string with the name of the function which you want to call.
  * @param callbackFunction This is the function that should receive the data returned from the remote function call. The argument list should match the format of the data returned. The callback function will be passed a string containing "ERROR" followed by an integer indicating the error code when an error occurs calling the function. A list of error codes can be found here.
- * @param arguments Any arguments you may want to pass to the function when it is called. Any number of arguments of can be specified, each being passed to the designated function.Most data types can be passed, including tables.The only values that cannot be passed are 'userdata' values such as xmlnodes - elements and resources can be passed though may be misinterpreted on other game servers (or cause warnings).
+ * @param arguments Any arguments you may want to pass to the function when it is called. Any number of arguments of can be specified, each being passed to the designated function.Most data types can be passed, including arrays.The only values that cannot be passed are 'userdata' values such as xmlnodes - elements and resources can be passed though may be misinterpreted on other game servers (or cause warnings).
  * @returns Returns true if the function has been called, false otherwise.
  * @see https://wiki.mtasa.com/wiki/CallRemote
  **/
@@ -233,7 +233,7 @@ declare function callRemote(host: string, connectTimeout: number, resourceName: 
  * @param resourceName This is a name of the resource that contains the exported function you want to call.
  * @param functionName This is a string with the name of the function which you want to call.
  * @param callbackFunction This is the function that should receive the data returned from the remote function call. The argument list should match the format of the data returned. The callback function will be passed a string containing "ERROR" followed by an integer indicating the error code when an error occurs calling the function. A list of error codes can be found here.
- * @param arguments Any arguments you may want to pass to the function when it is called. Any number of arguments of can be specified, each being passed to the designated function.Most data types can be passed, including tables.The only values that cannot be passed are 'userdata' values such as xmlnodes - elements and resources can be passed though may be misinterpreted on other game servers (or cause warnings).
+ * @param arguments Any arguments you may want to pass to the function when it is called. Any number of arguments of can be specified, each being passed to the designated function.Most data types can be passed, including arrays.The only values that cannot be passed are 'userdata' values such as xmlnodes - elements and resources can be passed though may be misinterpreted on other game servers (or cause warnings).
  * @returns Returns true if the function has been called, false otherwise.
  * @see https://wiki.mtasa.com/wiki/CallRemote
  **/
@@ -245,7 +245,7 @@ declare function callRemote(host: string, connectionAttempts: number, resourceNa
  * @param resourceName This is a name of the resource that contains the exported function you want to call.
  * @param functionName This is a string with the name of the function which you want to call.
  * @param callbackFunction This is the function that should receive the data returned from the remote function call. The argument list should match the format of the data returned. The callback function will be passed a string containing "ERROR" followed by an integer indicating the error code when an error occurs calling the function. A list of error codes can be found here.
- * @param arguments Any arguments you may want to pass to the function when it is called. Any number of arguments of can be specified, each being passed to the designated function.Most data types can be passed, including tables.The only values that cannot be passed are 'userdata' values such as xmlnodes - elements and resources can be passed though may be misinterpreted on other game servers (or cause warnings).
+ * @param arguments Any arguments you may want to pass to the function when it is called. Any number of arguments of can be specified, each being passed to the designated function.Most data types can be passed, including arrays.The only values that cannot be passed are 'userdata' values such as xmlnodes - elements and resources can be passed though may be misinterpreted on other game servers (or cause warnings).
  * @returns Returns true if the function has been called, false otherwise.
  * @see https://wiki.mtasa.com/wiki/CallRemote
  **/
@@ -298,7 +298,7 @@ interface FetchRemoteOptions {
   // A string specifying the request method. (Defaults to GET or POST)
   method?: string;
 
-  // A table containing HTTP request headers. e.g.{ Pragma="no-cache" }
+  // An array containing HTTP request headers. e.g.{ Pragma="no-cache" }
   headers?: { [key: string]: string }
 
   // An integer limiting the number of HTTP redirections to automatically follow. (Defaults to 8)
@@ -310,7 +310,7 @@ interface FetchRemoteOptions {
   // A string specifying the password for protected pages.
   password?: string;
 
-  // A table containing form items to submit. e.g.{ name="bob", email="bob@example.com" }
+  // An array containing form items to submit. e.g.{ name="bob", email="bob@example.com" }
   formFields: { [key: string]: string };
 }
 
@@ -322,7 +322,7 @@ interface FetchRemoteOptions {
  * If you are using fetchRemote to connect to a PHP script, you can use file_get_contents("php://input") to read the postData sent from this function.
  * - Warning: function won't trigger inside another fetchRemote function.
  * @param URL A full URL in the format http://hostname/path/file.ext. A port can be specified with a colon followed by a port number appended to the hostname.
- * @param options A table containing any request options (queueName, connectionAttempts, connectTimeout, postData, postIsBinary, method, headers, maxRedirects, username, password, formFields).
+ * @param options An object containing any request options (queueName, connectionAttempts, connectTimeout, postData, postIsBinary, method, headers, maxRedirects, username, password, formFields).
  * @param callbackFunction This is the function that should receive the data returned from the remote server.
  * @param callbackArguments The arguments that were passed into fetchRemote.
  * @returns Returns a request value which can be used with getRemoteRequestInfo or abortRemoteRequest (if the arguments are correct, false otherwise).
@@ -348,7 +348,7 @@ declare function fetchRemote(URL: string, callbackFunction: SimpleHandler, callb
 /**
  * This function retrieves the ACL request section from the meta.xml file of the given resource.
  * @param theResource the resource to get the ACL requests for.
- * @returns Returns a table with the ACL requests for the given resource, or false if the resource is not valid. A valid resource with no ACL requests will return an empty table.
+ * @returns Returns an array with the ACL requests for the given resource, or false if the resource is not valid. A valid resource with no ACL requests will return an empty array.
  * @see https://wiki.multitheftauto.com/wiki/GetResourceACLRequests
  **/
 declare function getResourceACLRequests(theResource: Resource): Request[] | false;
@@ -371,10 +371,10 @@ declare function getResourceConfig(filePath: string): XML | false;
 declare function getResourceDynamicElementRoot(theResource: Resource): Element | false;
 
 /**
- * Returns a table containing the names of the functions that a resource exports.
+ * Returns an array containing the names of the functions that a resource exports.
  * It will return the exports of the current resource if there is no argument passed in.
  * @param [theResource=currentResource] the resource of which you want to know the exported functions.
- * @returns Returns a table of function names if successful, false otherwise.
+ * @returns Returns an array of function names if successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GetResourceExportedFunctions
  **/
 declare function getResourceExportedFunctions(theResource?: Resource): string[] | false;
@@ -474,8 +474,8 @@ declare enum ResourceState {
 declare function getResourceState(theResource: Resource): ResourceState | false;
 
 /**
- * This function retrieves a table of all the resources that exist on the server.
- * @returns Returns a table of resources.
+ * This function retrieves an array of all the resources that exist on the server.
+ * @returns Returns an array of resources.
  * @see https://wiki.mtasa.com/wiki/GetResources
  **/
 declare function getResources(): Resource[];
@@ -602,7 +602,7 @@ declare function updateResourceACLRequest(theResource: Resource, rightName: stri
 /**
  * Gets all fetchRemote and callRemote requests currently running.
  * @param [theResource=undefined] the resource to get all requests from.
- * @returns Returns a table with all requests, false if an invalid resource was provided.
+ * @returns Returns an array with all requests, false if an invalid resource was provided.
  * @see https://wiki.mtasa.com/wiki/GetRemoteRequests
  **/
 declare function getRemoteRequests(theResource?: Resource): Request[] | false;
@@ -641,8 +641,8 @@ interface RemoteRequestInfo {
   // A string containing the request post data as declared in the fetchRemote call
   postData: string;
 
-  // A table containing the request HTTP headers as declared in the fetchRemote call
-  headers: { [key: string]: string };
+  // An array containing the request HTTP headers as declared in the fetchRemote call
+  headers: {[key: string]: string};
 }
 
 /**
@@ -650,7 +650,7 @@ interface RemoteRequestInfo {
  * @param theRequest returned from fetchRemote, callRemote or getRemoteRequests.
  * @param [postDataLength=0] post data length.
  * @param [includeHeaders=false] include headers.
- * @returns Returns a table when valid, false otherwise.
+ * @returns Returns an object when valid, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GetRemoteRequestInfo
  **/
 declare function getRemoteRequestInfo(theRequest: Request, postDataLength?: number, includeHeaders?: boolean): RemoteRequestInfo | false;

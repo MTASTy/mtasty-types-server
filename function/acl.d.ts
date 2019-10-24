@@ -36,7 +36,7 @@ declare function aclDestroyGroup(aclGroup: AclGroup): boolean;
 
 /**
  * Get the ACL with the given name.
- * If need to get most of the ACL's, you should consider using aclList to get a table of them all.
+ * If need to get most of the ACL's, you should consider using aclList to get an array of them all.
  * @param aclName The name to get the ACL belonging to
  * @returns Returns the ACL with that name if it could be retrieved, false/undefined if the ACL does not exist or it fails for some other reason.
  * @see https://wiki.mtasa.com/wiki/AclGet
@@ -45,7 +45,7 @@ declare function aclGet(aclName: string): Acl | false | undefined;
 
 /**
  * This function is used to get the ACL group with the given name.
- * If you need most of the groups you should consider using aclGroupList instead to get a table containing them all.
+ * If you need most of the groups you should consider using aclGroupList instead to get an array containing them all.
  * @param groupName The name to get the ACL group from
  * @returns Returns the ACL group if it could be found. Returns false/undefined if it did not exist or failed for some reason.
  * @see https://wiki.mtasa.com/wiki/AclGetGroup
@@ -102,25 +102,25 @@ declare function aclGroupAddObject(theGroup: AclGroup, theObjectName: string): b
 declare function aclGroupGetName(aclGroup: AclGroup): string | false | undefined;
 
 /**
- * This function returns a table of all the ACL groups.
- * @returns Returns a table of all the ACL groups if successful, returns an empty table if no ACL groups exist. false/undefined can be returned if this function fails for some other reason.
+ * This function returns a a of all the ACL groups.
+ * @returns Returns an array of all the ACL groups if successful, returns an empty array if no ACL groups exist. false/undefined can be returned if this function fails for some other reason.
  * @see https://wiki.mtasa.com/wiki/AclGroupList
  **/
-declare function aclGroupList(): object | false | undefined;
+declare function aclGroupList(): AclGroup[] | false | undefined;
 
 /**
- * This function returns a table over all the ACL's that exist in a given ACL group.
+ * This function returns an array over all the ACL's that exist in a given ACL group.
  * @param theGroup The ACL group to get the ACL elements from
- * @returns Returns a table of the ACL elements in the given ACL group. This table might be empty. Returns false or undefined if theGroup is invalid or it fails for some other reason.
+ * @returns Returns an array of the ACL elements in the given ACL group. This array might be empty. Returns false or undefined if theGroup is invalid or it fails for some other reason.
  * @see https://wiki.mtasa.com/wiki/AclGroupListACL
  **/
 declare function aclGroupListACL(theGroup: AclGroup): Acl[] | false | undefined;
 
 /**
- * This function returns a table over all the objects that exist in a given ACL group.
+ * This function returns an array over all the objects that exist in a given ACL group.
  * These are objects like players and resources.
  * @param theGroup The ACL group to get the objects from
- * @returns Returns a table of strings in the given ACL group. This table might be empty. Returns false or undefined if theGroup is invalid or it fails for some other reason.
+ * @returns Returns an array of strings in the given ACL group. This array might be empty. Returns false or undefined if theGroup is invalid or it fails for some other reason.
  * @see https://wiki.mtasa.com/wiki/AclGroupListObjects
  **/
 declare function aclGroupListObjects(theGroup: AclGroup): string[] | false | undefined;
@@ -147,16 +147,16 @@ declare function aclGroupRemoveObject(theGroup: AclGroup, theObjectString: strin
 
 /**
  * This function returns a list of all the ACLs.
- * @returns Returns a table of all the ACLs. This table can be empty if no ACLs exist. It can also return false/undefined if it failed for some reason.
+ * @returns Returns an array of all the ACLs. This array can be empty if no ACLs exist. It can also return false/undefined if it failed for some reason.
  * @see https://wiki.mtasa.com/wiki/AclList
  **/
 declare function aclList(): Acl[] | false | undefined;
 
 /**
- * This function returns a table of all the rights that a given ACL has.
+ * This function returns an array of all the rights that a given ACL has.
  * @param theACL The ACL to get the rights from
  * @param allowedType The allowed right type. Possible values are general, function, resource and command
- * @returns Returns a table over the rights as strings in the given ACL. This table might be empty. Returns false or undefined if theACL is invalid or it fails for some other reason.
+ * @returns Returns an array over the rights as strings in the given ACL. This array might be empty. Returns false or undefined if theACL is invalid or it fails for some other reason.
  * @see https://wiki.mtasa.com/wiki/AclListRights
  **/
 declare function aclListRights(theACL: Acl, allowedType: string): string[] | false | undefined;

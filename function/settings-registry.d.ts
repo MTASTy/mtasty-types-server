@@ -13,7 +13,7 @@ declare function set(settingName: string, value: any): boolean;
  * This function gets a setting's value, or a group of settings' values, from the settings registry.
  * - Note: Your settings cannot have a period (.) in them. This character is reserved. Read below for more details.
  * @param settingName The name of the setting you want to get. See setting names for information on settings names: https://wiki.mtasa.com/wiki/Settings_system#Setting_names
- * @returns Returns the value of the setting if a single setting was specified and found, or a table (in associative-array form) containing: It returns false if the specified setting or settings group doesn't exist, or if the settings group you are trying to retrieve doesn't have any public or protected settings.
+ * @returns Returns the value of the setting if a single setting was specified and found, or an array (in associative-array form). It returns false if the specified setting or settings group doesn't exist, or if the settings group you are trying to retrieve doesn't have any public or protected settings.
  * @see https://wiki.mtasa.com/wiki/Get
  **/
 declare function get(settingName: string): any;

@@ -73,7 +73,7 @@ interface VersionInformation {
 
 /**
  * This function gives you various version information about MTA and the operating system.
- * @returns Returns a table with version information.
+ * @returns Returns an object with version information.
  * @see https://wiki.mtasa.com/wiki/GetVersion
  **/
 declare function getVersion(): VersionInformation;

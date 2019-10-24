@@ -3,7 +3,7 @@
  * This could be used for loading an external map, or part of another map.
  * @param node The node that you wish to load into the element tree.
  * @param parent The node you wish to be the parent of the new map data.
- * @returns Returns an element object that corresponds to the root of the new data added, i.e. an element that represents the node xmlnode passed to the function. Returns false if the arguments are invalid.
+ * @returns Returns an element that corresponds to the root of the new data added, i.e. an element that represents the node xmlnode passed to the function. Returns false if the arguments are invalid.
  * @see https://wiki.mtasa.com/wiki/LoadMapData
  **/
 declare function loadMapData(node: XML, parent: Element): Element | false;

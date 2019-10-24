@@ -29,7 +29,7 @@ declare function getPlayerTeam(thePlayer: Player): Team | false;
 /**
  * This function retrieves all the players of the specified team.
  * @param theTeam The team you wish to retrieve all the players from.
- * @returns Returns a object of all the players in the team, or an empty one if there are none else false if invalid arguments are passed.
+ * @returns Returns an array of all the players in the team, or an empty one if there are none else false if invalid arguments are passed.
  * @see https://wiki.mtasa.com/wiki/GetPlayersInTeam
  **/
 declare function getPlayersInTeam(theTeam: Team): Player[] | false;
@@ -45,7 +45,7 @@ declare function getTeamColor(theTeam: Team): [number, number, number] | [false]
 
 /**
  * This function tells you if friendly fire is turned on for the specified team.
- * @param theTeam The team object that will be checked.
+ * @param theTeam The team element that will be checked.
  * @returns Returns true if friendly fire is on for the specified team, false if it is turned off or if invalid arguments are specified.
  * @see https://wiki.mtasa.com/wiki/GetTeamFriendlyFire
  **/
@@ -60,7 +60,7 @@ declare function getTeamFriendlyFire(theTeam: Team): boolean;
 declare function getTeamFromName(teamName: string): Team | false;
 
 /**
- * This function gets the team name of a team object.
+ * This function gets the team name of a team element.
  * @param theTeam The team you want to retrieve the name of.
  * @returns Returns a string representing the team's name if the team element was valid, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GetTeamName

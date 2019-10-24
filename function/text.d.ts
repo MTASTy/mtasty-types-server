@@ -37,7 +37,7 @@ declare function textCreateTextItem(text: string, x: number, y: number, priority
 declare function textDestroyDisplay(display: TextDisplay): boolean;
 
 /**
- * This function destroys a textitem object.
+ * This function destroys a textitem element.
  * @param theTextitem The text item you wish to destroy.
  * @returns
  * @see https://wiki.mtasa.com/wiki/TextDestroyTextItem
@@ -67,7 +67,7 @@ declare function textDisplayAddText(displayToAddTo: TextDisplay, itemToAdd: Text
 /**
  * This function can be used to retrieve all the players currently observing a specified textdisplay.
  * @param theDisplay The textdisplay of which observers you want to get.
- * @returns Returns a object of players that are observers of the display or false if invalid textdisplay is passed.
+ * @returns Returns an array of players that are observers of the display or false if invalid textdisplay is passed.
  * @see https://wiki.mtasa.com/wiki/TextDisplayGetObservers
  **/
 declare function textDisplayGetObservers(theDisplay: TextDisplay): Player[] | false;

@@ -6,7 +6,7 @@ declare type EventHandler = (...args: any[]) => void;
  * @property totalSize A number representing how many bytes in total this transfer will transfer
  * @property percentComplete A number between 0-100 saying how much is done
  */
-declare type LatentEventStatus = {
+declare interface LatentEventStatus {
   tickStart: number;
   tickEnd: number;
   totalSize: number;
@@ -82,26 +82,26 @@ declare function getCancelReason(): string;
  * This function gets the attached functions from the event and attached element from current script.
  * @param eventName The name of the event. For example ("onPlayerWasted").
  * @param attachedTo The element attached to.
- * @returns Returns table with attached functions, empty table otherwise.
+ * @returns Returns an array with attached functions, empty array otherwise.
  * @see https://wiki.mtasa.com/wiki/GetEventHandlers
  **/
 declare function getEventHandlers(eventName: string, attachedTo: Element): EventHandler[];
 
 /**
  * Gets the currently queued latent events.
- * The last one in the table is always the latest event queued.
+ * The last one in the array is always the latest event queued.
  * Each returned handle can be used with getLatentEventStatus or cancelLatentEvent
  * @param thePlayer The player who is receiving the events.
- * @returns Returns a table of handles or false if invalid arguments were passed.
+ * @returns Returns an array of handles or false if invalid arguments were passed.
  * @see https://wiki.mtasa.com/wiki/GetLatentEventHandles
  **/
-declare function getLatentEventHandles(thePlayer: Player): EventHandler[] | false;
+declare function getLatentEventHandles(thePlayer: Player): number[] | false;
 
 /**
  * Gets the status of one queued latent event.
  * @param thePlayer The player who is receiving the event.
  * @param handle A handle previous got from getLatentEventHandles.
- * @returns {LatentEventStatus} Returns a table with the following info or false if invalid arguments were passed
+ * @returns Returns an object with the following info or false if invalid arguments were passed.
  * @see https://wiki.mtasa.com/wiki/GetLatentEventStatus
  **/
 declare function getLatentEventStatus(thePlayer: Player, handle: number): LatentEventStatus | false;
@@ -147,14 +147,14 @@ declare function triggerEvent(eventName: string, baseElement: Element, ...args: 
  * Keep in mind the bandwidth issues when using events - don't pass a large list of arguments unless you really need to. It is marginally more efficient to pass one large event than two smaller ones.
  * - Important note: Non-element MTA data types like xmlNodes or resource pointers will not be able to be passed as they do not necessarily have a valid representation on the client.
  * - Note: It is marginally more efficient to pass one large event than two smaller ones.
- * @param sendTo The event will be sent to all players that are children of the specified element. By default this is the root element, and hence the event is sent to all players. If you specify a single player it will just be sent to that player. This argument can also be a table of player elements.
+ * @param sendTo The event will be sent to all players that are children of the specified element. By default this is the root element, and hence the event is sent to all players. If you specify a single player it will just be sent to that player. This argument can also be an array of player elements.
  * @param name The name of the event to trigger client side. You should register this event with addEvent and add at least one event handler using addEventHandler.
  * @param sourceElement The element that is the source of the event.
  * @param args A list of arguments to trigger with the event. You can pass any lua data type (except functions). You can also pass elements.
  * @returns Returns true if the event trigger has been sent, false if invalid arguments were specified.
  * @see https://wiki.mtasa.com/wiki/TriggerClientEvent
  **/
-declare function triggerClientEvent(sendTo: Element, name: string, sourceElement: Element, ...args: any[]): boolean;
+declare function triggerClientEvent(sendTo: Element | Element[], name: string, sourceElement: Element, ...args: any[]): boolean;
 
 /**
  * This function triggers an event previously registered on a client.
@@ -180,7 +180,7 @@ declare function triggerClientEvent(name: string, sourceElement: Element, ...arg
  * This function is the same as triggerClientEvent except the transmission rate of the data contained in the arguments can be limited
  * and other network traffic is not blocked while the data is being transferred.
  * - Note: You should avoid triggering events on the root element unless you really need to. Doing this triggers the event on every element in the element tree, which is potentially very CPU intensive. Use as specific (i.e. low down the tree) element as you can.
- * @param sendTo The event will be sent to all players that are children of the specified element. By default this is the root element, and hence the event is sent to all players. If you specify a single player it will just be sent to that player. This argument can also be a table of player elements.
+ * @param sendTo The event will be sent to all players that are children of the specified element. By default this is the root element, and hence the event is sent to all players. If you specify a single player it will just be sent to that player. This argument can also be an array of player elements.
  * @param name The name of the event to trigger client side. You should register this event with addEvent and add at least one event handler using addEventHandler.
  * @param bandwidth The bytes per second rate to send the data contained in the arguments.
  * @param persist A bool indicating whether the transmission should be allowed to continue even after the resource that triggered it has since stopped.
@@ -195,7 +195,7 @@ declare function triggerLatentClientEvent(sendTo: Element | Element[], name: str
  * This function is the same as triggerClientEvent except the transmission rate of the data contained in the arguments can be limited
  * and other network traffic is not blocked while the data is being transferred.
  * - Note: You should avoid triggering events on the root element unless you really need to. Doing this triggers the event on every element in the element tree, which is potentially very CPU intensive. Use as specific (i.e. low down the tree) element as you can.
- * @param sendTo The event will be sent to all players that are children of the specified element. By default this is the root element, and hence the event is sent to all players. If you specify a single player it will just be sent to that player. This argument can also be a table of player elements.
+ * @param sendTo The event will be sent to all players that are children of the specified element. By default this is the root element, and hence the event is sent to all players. If you specify a single player it will just be sent to that player. This argument can also be an array of player elements.
  * @param name The name of the event to trigger client side. You should register this event with addEvent and add at least one event handler using addEventHandler.
  * @param bandwidth The bytes per second rate to send the data contained in the arguments.
  * @param theElement The element that is the source of the event. This could be another player, or if this isn't relevant, use the root element.
@@ -209,7 +209,7 @@ declare function triggerLatentClientEvent(sendTo: Element | Element[], name: str
  * This function is the same as triggerClientEvent except the transmission rate of the data contained in the arguments can be limited
  * and other network traffic is not blocked while the data is being transferred.
  * - Note: You should avoid triggering events on the root element unless you really need to. Doing this triggers the event on every element in the element tree, which is potentially very CPU intensive. Use as specific (i.e. low down the tree) element as you can.
- * @param sendTo The event will be sent to all players that are children of the specified element. By default this is the root element, and hence the event is sent to all players. If you specify a single player it will just be sent to that player. This argument can also be a table of player elements.
+ * @param sendTo The event will be sent to all players that are children of the specified element. By default this is the root element, and hence the event is sent to all players. If you specify a single player it will just be sent to that player. This argument can also be an array of player elements.
  * @param name The name of the event to trigger client side. You should register this event with addEvent and add at least one event handler using addEventHandler.
  * @param persist  A bool indicating whether the transmission should be allowed to continue even after the resource that triggered it has since stopped.
  * @param theElement The element that is the source of the event. This could be another player, or if this isn't relevant, use the root element.
@@ -223,7 +223,7 @@ declare function triggerLatentClientEvent(sendTo: Element | Element[], name: str
  * This function is the same as triggerClientEvent except the transmission rate of the data contained in the arguments can be limited
  * and other network traffic is not blocked while the data is being transferred.
  * - Note: You should avoid triggering events on the root element unless you really need to. Doing this triggers the event on every element in the element tree, which is potentially very CPU intensive. Use as specific (i.e. low down the tree) element as you can.
- * @param sendTo The event will be sent to all players that are children of the specified element. By default this is the root element, and hence the event is sent to all players. If you specify a single player it will just be sent to that player. This argument can also be a table of player elements.
+ * @param sendTo The event will be sent to all players that are children of the specified element. By default this is the root element, and hence the event is sent to all players. If you specify a single player it will just be sent to that player. This argument can also be an array of player elements.
  * @param name The name of the event to trigger client side. You should register this event with addEvent and add at least one event handler using addEventHandler.
  * @param theElement The element that is the source of the event. This could be another player, or if this isn't relevant, use the root element.
  * @param args A list of arguments to trigger with the event. You can pass any Lua data type (except functions). You can also pass elements. The total amount of data should not exceed 100MB.
