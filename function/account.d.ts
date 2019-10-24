@@ -81,7 +81,7 @@ declare function getAccountsBySerial(serial: string): Account[] | false;
 /**
  * This function returns an array containing all the user data for the account provided
  * @param theAccount The account you wish to retrieve all data from.
- * @returns An array containing all the user data. This array might be empty.
+ * @returns An object containing all the user data. This object might be empty.
  * @see https://wiki.mtasa.com/wiki/GetAllAccountData
  **/
 declare function getAllAccountData(theAccount: Account): {[key: string]: any};

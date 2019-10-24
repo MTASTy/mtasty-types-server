@@ -95,7 +95,7 @@ interface UTF8Interface {
    * @see https://wiki.mtasa.com/wiki/Utf8.gsub
    * @tupleReturn
    **/
-  gsub(input: string, pattern: string, replace: string | { [key: string]: string } | ((match: string) => string), match_limit?: number): [string, number];
+  gsub(input: string, pattern: string, replace: string | {[key: string]: string} | ((match: string) => string), match_limit?: number): [string, number];
 
 
   /**

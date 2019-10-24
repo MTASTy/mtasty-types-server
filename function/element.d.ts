@@ -100,7 +100,7 @@ declare function detachElements(theElement: Element, theAttachToElement: Element
 /**
  * Returns an array of all element data of an element.
  * @param theElement the element you want to get the element data of.
- * @returns If successful, returns an array with as keys the names of the element data and as values the corresponding element data values. Returns false in case of failure.
+ * @returns If successful, returns an object with as keys the names of the element data and as values the corresponding element data values. Returns false in case of failure.
  * @see https://wiki.mtasa.com/wiki/GetAllElementData
  **/
 declare function getAllElementData(theElement: Element): {[key: string]: any} | false;
@@ -260,10 +260,10 @@ declare function getElementInterior(theElement: Element): number | false;
  * - Tip: For matrix manipulation which goes beyond the basic examples given on this page, see the Lua matrix library. If you are using MTA: SA 1.4 or higher, using the built-in matrix class is also recommended.
  * @param theElement The element which you wish to retrieve the matrix for.
  * @param [legacy=true] Set to false to return correctly setup matrix (i.e. Last column in the first 3 rows set to zero).
- * @returns Returns a multi-dimensional array (which can be transformed into a proper matrix class using Matrix.create method) containing a 4x4 matrix. Returns false if the element is not streamed in, and not a vehicle, ped or object.
+ * @returns Returns a multi-dimensional object (which can be transformed into a proper matrix class using Matrix.create method) containing a 4x4 matrix. Returns false if the element is not streamed in, and not a vehicle, ped or object.
  * @see https://wiki.mtasa.com/wiki/GetElementMatrix
  **/
-declare function getElementMatrix(theElement: Element, legacy?: boolean): { [key: number]: number } | false;
+declare function getElementMatrix(theElement: Element, legacy?: boolean): {[key: number]: number} | false;
 
 /**
  * Returns the model ID of a given element.

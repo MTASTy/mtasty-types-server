@@ -298,8 +298,8 @@ interface FetchRemoteOptions {
   // A string specifying the request method. (Defaults to GET or POST)
   method?: string;
 
-  // An array containing HTTP request headers. e.g.{ Pragma="no-cache" }
-  headers?: { [key: string]: string }
+  // An object containing HTTP request headers. e.g.{ Pragma="no-cache" }
+  headers?: {[key: string]: string};
 
   // An integer limiting the number of HTTP redirections to automatically follow. (Defaults to 8)
   maxRedirects?: number;
@@ -310,8 +310,8 @@ interface FetchRemoteOptions {
   // A string specifying the password for protected pages.
   password?: string;
 
-  // An array containing form items to submit. e.g.{ name="bob", email="bob@example.com" }
-  formFields: { [key: string]: string };
+  // An object containing form items to submit. e.g.{ name="bob", email="bob@example.com" }
+  formFields: {[key: string]: string};
 }
 
 /**
@@ -641,7 +641,7 @@ interface RemoteRequestInfo {
   // A string containing the request post data as declared in the fetchRemote call
   postData: string;
 
-  // An array containing the request HTTP headers as declared in the fetchRemote call
+  // An object containing the request HTTP headers as declared in the fetchRemote call
   headers: {[key: string]: string};
 }
 
