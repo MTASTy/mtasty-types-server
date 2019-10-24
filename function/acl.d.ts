@@ -102,7 +102,7 @@ declare function aclGroupAddObject(theGroup: AclGroup, theObjectName: string): b
 declare function aclGroupGetName(aclGroup: AclGroup): string | false | undefined;
 
 /**
- * This function returns a a of all the ACL groups.
+ * This function returns an array of all the ACL groups.
  * @returns Returns an array of all the ACL groups if successful, returns an empty array if no ACL groups exist. false/undefined can be returned if this function fails for some other reason.
  * @see https://wiki.mtasa.com/wiki/AclGroupList
  **/
