@@ -629,13 +629,13 @@ declare function setElementID(theElement: Element, name: string): boolean;
  * - Note: If passing the same interior as the element is in, the call will be ignored and position (optional arguments) will not be set either. Use setElementPosition separately to be sure the position will be set.
  * @param theElement The element in which you'd like to set the interior of.
  * @param interior The interior you want to set the element to. Valid values are 0 to 255.
- * @param x A number representing the X coordinate on the map.
- * @param y A number representing the Y coordinate on the map.
- * @param z A number representing the Z coordinate on the map.
+ * @param [x] A number representing the X coordinate on the map.
+ * @param [y] A number representing the Y coordinate on the map.
+ * @param [z] A number representing the Z coordinate on the map.
  * @returns Returns true if theElement and interior are valid arguments, false otherwise.
  * @see https://wiki.mtasa.com/wiki/SetElementInterior
  **/
-declare function setElementInterior(theElement: Element, interior: number, x: number, y: number, z: number): boolean;
+declare function setElementInterior(theElement: Element, interior: number, x?: number, y?: number, z?: number): boolean;
 
 /**
  * Sets the model of a given element.
