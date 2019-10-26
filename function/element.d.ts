@@ -93,11 +93,11 @@ declare function destroyElement(elementToDestroy: Element): boolean;
 /**
  * This function detaches attached elements from one another.
  * @param theElement The element to be detached (the "child")
- * @param theAttachToElement The element you wish to detach from, will detach from the attached element if this isn't specified.
+ * @param [theAttachToElement] The element you wish to detach from, will detach from the attached element if this isn't specified.
  * @returns Returns true if the detaching was successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/DetachElements
  **/
-declare function detachElements(theElement: Element, theAttachToElement: Element): boolean;
+declare function detachElements(theElement: Element, theAttachToElement?: Element): boolean;
 
 /**
  * Returns an array of all element data of an element.
