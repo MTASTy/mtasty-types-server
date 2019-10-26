@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function can be used to create custom radar areas on the radar.
  * @param startPosX A number representing the origin 'x' position of the radar area.

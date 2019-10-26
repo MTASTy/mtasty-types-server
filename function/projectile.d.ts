@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function can be used to detonate a players satchels.
  * @param Player The player whose satchels to detonate.

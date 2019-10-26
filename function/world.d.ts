@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * Gets whether the traffic lights are currently locked or not.
  * If the lights are locked, it means they won't change unless you do setTrafficLightState.

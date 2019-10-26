@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * Creates an explosion of a certain type at a specified point in the world.
  * If creator is specified, the explosion will occur only in its dimension.

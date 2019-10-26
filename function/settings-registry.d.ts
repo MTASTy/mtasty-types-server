@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function is used to save arbitrary data under a certain name on the settings registry.
  * It's important to note that set always writes to the settings.xml file, even if get read the value from a resource's meta.xml.

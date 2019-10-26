@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function creates a pickup element, which is placed in the GTA world and can be picked up to retrieve a health, armour or a weapon.
  * @param x A number representing the X coordinate on the map.

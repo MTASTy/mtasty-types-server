@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function creates a collision circle.
  * This is a shape that has a position and a radius and infinite height that you can use to detect a player's presence.

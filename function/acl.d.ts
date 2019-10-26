@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function creates an ACL entry in the Access Control List system with the specified name.
  * @param aclName The name of the ACL entry to add.

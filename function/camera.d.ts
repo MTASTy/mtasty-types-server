@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function will fade a player's camera to a color or back to normal over a specified time period.
  * This will also affect the sound volume for the player (50% faded = 50% volume, full fade = no sound).

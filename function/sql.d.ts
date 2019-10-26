@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 type DbQueryResult = {[column: string]: string | number}[];
 type DbQueryParams = (string | number)[];
 type DbQueryCallbackFunction = (queryHandle: QueryHandle, ...args: any[]) => void;

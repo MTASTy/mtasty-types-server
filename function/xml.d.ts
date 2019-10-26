@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function copies all contents of a certain node in a XML document to a new document file, so the copied node becomes the new file's root node.
  * The new file will not be saved to file system until xmlSaveFile() is called.

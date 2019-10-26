@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function retrieves the maximum FPS (Frames per second) that players on the server can run their game at.
  * @returns Returns an integer between 25 and 100 of the maximum FPS that players can run their game at.

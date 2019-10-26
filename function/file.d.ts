@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * Closes a file handle obtained by fileCreate or fileOpen.
  * @param theFile The file handle to close.

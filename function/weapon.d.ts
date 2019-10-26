@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function gets the original weapon property of the specified weapons specified weapon type.
  * @param weaponID The ID of the weapon you want to get info of.

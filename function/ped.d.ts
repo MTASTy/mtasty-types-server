@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function is used to set the current clothes on a ped.
  * - Note: This function only works with peds using CJ skin (ID 0).

@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function creates a marker.
  * A marker is a 3D model in the world that can highlight a particular point or area, often used to instruct players where to go to perform actions such as entering buildings.

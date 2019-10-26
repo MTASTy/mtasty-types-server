@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function returns all the currently loaded modules of the server.
  * @returns Returns an array of all the currently loaded modules. If no modules are loaded, the array will be empty.

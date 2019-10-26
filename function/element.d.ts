@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function attaches one element to another, so that the first one follows the second whenever it moves.
  * If an attempt is made to attach two elements that are already attached the opposite way (eg theElement becomes theAttachToElement and vice versa), the 1st attachment order is automatically detached in favor of the 2nd attachment order.

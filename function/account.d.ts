@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function adds an account to the list of registered accounts of the current server.
  * @param name The name of the account you wish to make, this normally is the player's name.

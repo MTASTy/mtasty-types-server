@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * Creates an area of water.
  * The largest possible size of a water area is 5996×5996.

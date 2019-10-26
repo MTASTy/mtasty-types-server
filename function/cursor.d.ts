@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function is used to determine whether or not a player's cursor is showing.
  * - Note: This retrieves the cursor state that has been set using showCursor, and thus doesn't take into account the cursor shown while the chatbox, menu or console are open. Also, keep in mind that while the client is aware of cursor states set from the server, the server doesn't know about cursor states set from the client.

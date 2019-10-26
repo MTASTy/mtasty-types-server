@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function plays a frontend sound for the specified player.
  * @param player The player you want the sound to play for.

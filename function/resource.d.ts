@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function adds a new empty config file to an existing resource.
  * @param filePath The filepath of the file to be created in the following format ":resourceName/path". 'resourceName' is the name of the resource the file is in, and 'path' is the path from the root directory of the resource to the file.

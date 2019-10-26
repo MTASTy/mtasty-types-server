@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function will add a ban for the specified IP/username/serial to the server.
  * - Note: One of the three: IP, Username or Serial have to be specified.

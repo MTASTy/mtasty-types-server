@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function is used to forcefully show a player's radar map.
  * @param thePlayer A player element referencing the specified player.

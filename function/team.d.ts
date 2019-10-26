@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function is for returning the number of players in the specified team.
  * @param theTeam The team you wish to retrieve the player count of.

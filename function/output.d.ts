@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function clears the chatbox.
  * It does not clear the console (F8).

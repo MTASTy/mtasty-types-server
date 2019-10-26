@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function allows tracing of MTA functions and events.
  * It should only be used when debugging scripts as it may degrade script performance.

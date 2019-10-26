@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function is used to get the name of a body part on a player.
  * @param bodyPartID An integer representing the body part ID you wish to retrieve the name of.

@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 declare interface VehicleHandling {
   // Value: from 1 to 100000
   mass: number;

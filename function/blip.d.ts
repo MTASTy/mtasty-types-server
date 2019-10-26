@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function creates a blip element, which is displayed as an icon on the client's radar.
  * @param x The x position of the blip, in world coordinates.

@@ -1,4 +1,5 @@
-/** @noSelf **/
+/** @noSelfInFile */
+
 interface UTF8Interface {
   /**
    * Returns the codepoints for the i-th through j-th character of the string passed.

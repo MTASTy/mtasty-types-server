@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function is intended to load data from a loaded XML file into the element tree.
  * This could be used for loading an external map, or part of another map.

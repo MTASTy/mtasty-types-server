@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 declare type CommandHandler = (thePlayer: Player, commandName: string, ...args: any[]) => void;
 declare type BindHandler = (thePlayer: Player, key: string, keyState: string, ...args: any[]) => void;
 declare type SimpleHandler = () => void;

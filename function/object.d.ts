@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * Creates an map object in the GTA world.
  * - Note: Dynamic objects do not automatically have physics applied to them. Use setElementVelocity(MapObject, 0, 0, 0) to fix this.

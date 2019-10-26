@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * A text display is like a canvas that can contain many items of text.
  * Each display can be seen by multiple observers (players) and each player can see multiple displays.

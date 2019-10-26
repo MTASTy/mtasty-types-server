@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * This function retrieves the current gametype as set by setGameType.
  * The game type is displayed in the server browser next to the server's name.
