@@ -1,6 +1,15 @@
-/// <reference path="./class/account.d.ts" />
 /// <reference path="./class/acl/acl-group.d.ts" />
 /// <reference path="./class/acl/acl.d.ts" />
+
+/// <reference path="./class/text/text-display.d.ts" />
+/// <reference path="./class/text/text-item.d.ts" />
+
+/// <reference path="./class/oop/matrix.d.ts" />
+/// <reference path="./class/oop/vector2.d.ts" />
+/// <reference path="./class/oop/vector3.d.ts" />
+/// <reference path="./class/oop/vector4.d.ts" />
+
+/// <reference path="./class/account.d.ts" />
 /// <reference path="./class/ban.d.ts" />
 /// <reference path="./class/blip.d.ts" />
 /// <reference path="./class/colshape.d.ts" />
@@ -23,6 +32,7 @@
 /// <reference path="./class/vehicle.d.ts" />
 /// <reference path="./class/water.d.ts" />
 /// <reference path="./class/xml.d.ts" />
+
 /// <reference path="./function/account.d.ts" />
 /// <reference path="./function/acl.d.ts" />
 /// <reference path="./function/admin.d.ts" />
