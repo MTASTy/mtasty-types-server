@@ -257,7 +257,7 @@ declare function getVehicleDoorOpenRatio(theVehicle: Vehicle, door: 0 | 1 | 2 | 
  * @returns If successful, one of the following numbers will be returned: 0, 1, 2, 3, 4.
  * @see https://wiki.mtasa.com/wiki/GetVehicleDoorState
  **/
-declare function getVehicleDoorState(theVehicle: Vehicle, door: 0 | 1 | 2 | 3 | 4 | 5): number | false;
+declare function getVehicleDoorState(theVehicle: Vehicle, door: 0 | 1 | 2 | 3 | 4 | 5): 0 | 1 | 2 | 3 | 4 | false;
 
 /**
  * This function returns a vehicle's engine state (on or off).
@@ -359,7 +359,7 @@ declare function getVehicleOccupants(theVehicle: Vehicle): {[seat: number]: Ped}
  * @returns Returns an number value: 0 (No override), 1 (Force off) or 2 (Force on).
  * @see https://wiki.mtasa.com/wiki/GetVehicleOverrideLights
  **/
-declare function getVehicleOverrideLights(theVehicle: Vehicle): number | false;
+declare function getVehicleOverrideLights(theVehicle: Vehicle): 0 | 1 | 2 | false;
 
 /**
  * This function gets the current paintjob on the specified vehicle.
@@ -367,7 +367,7 @@ declare function getVehicleOverrideLights(theVehicle: Vehicle): number | false;
  * @returns Returns an number representing the current paintjob on the vehicle.
  * @see https://wiki.mtasa.com/wiki/GetVehiclePaintjob
  **/
-declare function getVehiclePaintjob(theVehicle: Vehicle): number | false;
+declare function getVehiclePaintjob(theVehicle: Vehicle): 0 | 1 | 2 | 3 | false;
 
 /**
  * This function returns the current state of a specifed panel on the vehicle.
@@ -377,7 +377,7 @@ declare function getVehiclePaintjob(theVehicle: Vehicle): number | false;
  * @returns Returns an number indicating the state of the specified the panel. This is a value between 0 and 3, with 0 indicating the panel is undamaged and 3 indicating it is very damaged.
  * @see https://wiki.mtasa.com/wiki/GetVehiclePanelState
  **/
-declare function getVehiclePanelState(theVehicle: Vehicle, panel: number): number | false;
+declare function getVehiclePanelState(theVehicle: Vehicle, panel: number): 0 | 1 | 2 | 3 | false;
 
 /**
  * This function is used to retrieve the text on the number plate of a specified vehicle.
