@@ -18,7 +18,7 @@ declare class Vehicle extends Element {
   paintjob: 0 | 1 | 2 | 3;
   readonly occupants: {[seat: number]: Ped} | false; // Contain false if this is trailer
   readonly compatibleUpgrades: number[];
-  doorsUndamageable: boolean; // Change only
+  // doorsUndamageable: boolean; // Change only
   readonly towingVehicle: Vehicle | false;
   readonly towedByVehicle: Vehicle | false;
   landingGearDown: boolean;
@@ -27,7 +27,7 @@ declare class Vehicle extends Element {
   turretPosition: Vector2;
   readonly turnVelocity: Vector3; // Set turn velocity is deprecated
   overrideLights: boolean;
-  idleRespawnDelay: number; // Change only
+  // idleRespawnDelay: number; // Change only
   readonly respawnDelay: number;
   respawnPosition: Vector3;
   respawnRotation: Vector3;
