@@ -377,7 +377,7 @@ declare function getVehiclePaintjob(theVehicle: Vehicle): 0 | 1 | 2 | 3 | false;
  * @returns Returns an number indicating the state of the specified the panel. This is a value between 0 and 3, with 0 indicating the panel is undamaged and 3 indicating it is very damaged.
  * @see https://wiki.mtasa.com/wiki/GetVehiclePanelState
  **/
-declare function getVehiclePanelState(theVehicle: Vehicle, panel: number): 0 | 1 | 2 | 3 | false;
+declare function getVehiclePanelState(theVehicle: Vehicle, panel: 0 | 1 | 2 | 3 | 4 | 5 | 6): 0 | 1 | 2 | 3 | false;
 
 /**
  * This function is used to retrieve the text on the number plate of a specified vehicle.
@@ -487,6 +487,15 @@ declare function getVehicleTurretPosition(turretVehicle: Vehicle): [number, numb
  * @see https://wiki.mtasa.com/wiki/GetVehicleType
  **/
 declare function getVehicleType(theVehicle: Vehicle): string | false;
+
+/**
+ * This function is used to retrieve a vehicle's turning velocity for each axis.
+ * @param theVehicle The vehicle you wish to get the turning velocities of.
+ * @returns Returns 3 floats that represent the vehicle's turning velocity on the x, y and z axis or false if wrong arguments were passed.
+ * @see https://wiki.multitheftauto.com/wiki/GetVehicleTurnVelocity
+ * @tupleReturn
+ **/
+declare function getVehicleTurnVelocity(theVehicle: Vehicle): [number, number, number] | [false];
 
 /**
  * This function retrieves the type of a vehicle (such as if it is a car or a boat).
