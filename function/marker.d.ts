@@ -52,7 +52,7 @@ declare function getMarkerIcon(theMarker: Marker): string | false;
  * @returns Returns a number containing the size of the specified marker.
  * @see https://wiki.mtasa.com/wiki/GetMarkerSize
  **/
-declare function getMarkerSize(myMarker: Marker): number;
+declare function getMarkerSize(myMarker: Marker): number | false;
 
 /**
  * This function returns the position of the specified marker's target, the position it points to. This only works for checkpoint markers and ring markers.
@@ -63,7 +63,7 @@ declare function getMarkerSize(myMarker: Marker): number;
  * @see https://wiki.mtasa.com/wiki/GetMarkerTarget
  * @tupleReturn
  **/
-declare function getMarkerTarget(theMarker: Marker): [number, number, number] | [false | undefined];
+declare function getMarkerTarget(theMarker: Marker): [number, number, number] | [false];
 
 /**
  * This function returns a marker's type.
