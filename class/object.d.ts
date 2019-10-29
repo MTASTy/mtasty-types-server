@@ -1,5 +1,10 @@
 /** @customConstructor Object */
 declare class MapObject extends Element {
+  scale: number;
+
+  // static move(theObject: MapObject, time: number, targetX: number, targetY: number, targetZ: number, moveRX?: number, moveRY?: number, moveRZ?: number, strEasingType?: string, fEasingPeriod?: number, fEasingAmplitude?: number, fEasingOvershoot?: number): boolean;
+  // static stop(theObject: MapObject): boolean;
+
   /**
    * Creates an object in the GTA world.
    * - Note: Dynamic objects do not automatically have physics applied to them. Use setElementVelocity(object, 0, 0, 0) to fix this.
@@ -11,8 +16,26 @@ declare class MapObject extends Element {
    * @param ry a floating point number representing the rotation about the Y axis in degrees.
    * @param rz a floating point number representing the rotation about the Z axis in degrees.
    * @param [isLowLOD=false] a bool value specifying if the object will be low LOD. A low LOD object has no collision and a longer draw distance.
-   * @returns The object element if creation was successful, false otherwise.
    * @see https://wiki.mtasa.com/wiki/CreateObject
    **/
   constructor(modelid: number, x: number, y: number, z: number, rx: number, ry: number, rz: number, isLowLOD?: boolean);
+
+  /**
+   * This function returns the visible size of map object.
+   * @returns Three number indicating the scale of the map object on the x, y, and z axis.
+   * @see https://wiki.mtasa.com/wiki/GetObjectScale
+   * @tupleReturn
+   **/
+  getScale(): [number, number, number];
+
+  /**
+   * This function changes the visible size of map object.
+   * - Note: setObjectScale does not affect the collision models for the map object, as such is unsuitable for use for interaction with players, vehicles or other map objects.
+   * @param scale a number containing the new scale. 1.0 is the standard scale, with 0.5 being half the size and 2.0 being twice the size. If the scaleY is set, this will be scaleX.
+   * @param [scaleY=1] a number containing the new scale on the Y axis.
+   * @param [scaleZ=1] a number containing the new scale on the Z axis.
+   * @returns Return true if the scale was set properly, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/SetObjectScale
+   **/
+  setScale(scale: number, scaleY?: number, scaleZ?: number): boolean;
 }
