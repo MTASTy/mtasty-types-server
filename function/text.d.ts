@@ -128,7 +128,7 @@ declare function textItemGetPosition(theTextItem: TextItem): [number, number] | 
  * @returns Returns a number of the priority of a text item, 0 = low, 1 = medium, 2 = high.
  * @see https://wiki.mtasa.com/wiki/TextItemGetPriority
  **/
-declare function textItemGetPriority(textitemToCheck: TextItem): number;
+declare function textItemGetPriority(textitemToCheck: TextItem): 0 | 1 | 2;
 
 /**
  * This function allows retrieval of the scale or size of a text item.
@@ -178,7 +178,7 @@ declare function textItemSetPosition(theTextItem: TextItem, x: number, y: number
  * @returns
  * @see https://wiki.mtasa.com/wiki/TextItemSetPriority
  **/
-declare function textItemSetPriority(theTextItem: TextItem, priority: string): void;
+declare function textItemSetPriority(theTextItem: TextItem, priority: "high" | "medium" | "low"): void;
 
 /**
  * This function allows the setting of the scale of a text item.
