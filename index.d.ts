@@ -1,6 +1,9 @@
 /// <reference path="./class/acl/acl-group.d.ts" />
 /// <reference path="./class/acl/acl.d.ts" />
 
+/// <reference path="./class/element/abstract-element.d.ts" />
+/// <reference path="./class/element/element.d.ts" />
+
 /// <reference path="./class/text/text-display.d.ts" />
 /// <reference path="./class/text/text-item.d.ts" />
 
@@ -14,7 +17,6 @@
 /// <reference path="./class/blip.d.ts" />
 /// <reference path="./class/colshape.d.ts" />
 /// <reference path="./class/connection.d.ts" />
-/// <reference path="./class/element.d.ts" />
 /// <reference path="./class/file.d.ts" />
 /// <reference path="./class/marker.d.ts" />
 /// <reference path="./class/object.d.ts" />

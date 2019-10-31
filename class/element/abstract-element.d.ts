@@ -1,5 +1,4 @@
-/** @customConstructor Element */
-declare class Element {
+declare abstract class AbstractElement {
   id: string;
   callPropagationEnabled: boolean;
   readonly parent: Element | false;
@@ -27,12 +26,6 @@ declare class Element {
   velocity: Vector3;
   angularVelocity: Vector3;
   readonly isElement: boolean;
-
-  // static getByID(id: string): Element | false;
-  // static getAllByType(type: string): Element[];
-  // static getByIndex(type: string, index: number): Element | false;
-  // static getWithinRange(x: number, y: number, z: number, range: number, elemType?: string): Element[] | false;
-  // static create(elementType: string, elementID?: string): Element | false;
 
   /**
    * This function is used to create a new dummy element in the element tree which do not necessarily represent an entity within the San Andreas world.

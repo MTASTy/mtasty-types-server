@@ -1,4 +1,4 @@
-declare class RadarArea extends Element {
+declare class RadarArea extends AbstractElement {
   size: Vector2;
   flashing: boolean;
 

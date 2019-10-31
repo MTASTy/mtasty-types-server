@@ -1,4 +1,4 @@
-declare class Blip extends Element {
+declare class Blip extends AbstractElement {
   icon: number;
   size: number;
   ordering: number;

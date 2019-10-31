@@ -1,4 +1,4 @@
-declare class Pickup extends Element {
+declare class Pickup extends AbstractElement {
   readonly ammo: number; // 0 if it's no weapon pickup
   readonly amount: number; // 0 if it's no health or amor pickup
   readonly spawned: boolean;

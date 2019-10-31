@@ -1,4 +1,4 @@
-declare class Team extends Element {
+declare class Team extends AbstractElement {
   name: string;
   readonly playerCount: number;
   friendlyFire: boolean;

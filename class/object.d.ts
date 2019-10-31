@@ -1,5 +1,5 @@
 /** @customConstructor Object */
-declare class MapObject extends Element {
+declare class MapObject extends AbstractElement {
   scale: number;
 
   // static move(theObject: MapObject, time: number, targetX: number, targetY: number, targetZ: number, moveRX?: number, moveRY?: number, moveRZ?: number, strEasingType?: string, fEasingPeriod?: number, fEasingAmplitude?: number, fEasingOvershoot?: number): boolean;

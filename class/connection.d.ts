@@ -1,4 +1,4 @@
-declare class Connection extends Element {
+declare class Connection extends AbstractElement {
   // static exec(databaseConnection: Connection, query: string, ...params: DbQueryParams): boolean;
   // static prepareString(databaseConnection: Connection, query: string, ...params: DbQueryParams): string | false;
   // static query(callbackFunction: DbQueryCallbackFunction, callbackArguments: any[], databaseConnection: Connection, query: string, ...params: DbQueryParams): QueryHandle | false;
