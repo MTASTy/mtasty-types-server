@@ -274,7 +274,7 @@ interface NetworkStatsFormant {
  * @returns Returns an object.
  * @see https://wiki.mtasa.com/wiki/GetNetworkStats
  **/
-declare function getNetworkStats(thePlayer?: Element): NetworkStatsFormant | false;
+declare function getNetworkStats(thePlayer?: BaseElement): NetworkStatsFormant | false;
 
 /**
  * This function returns an object containing network usage information about inbound and outbound packets.

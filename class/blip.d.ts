@@ -1,10 +1,10 @@
-declare class Blip extends AbstractElement {
+declare class Blip extends BaseElement {
   icon: number;
   size: number;
   ordering: number;
   visibleDistance: number;
 
-  // static createAttachedTo(elementToAttachTo: Element, icon?: number, size?: number, r?: number, g?: number, b?: number, a?: number, ordering?: number, visibleDistance?: number, visibleTo?: Player): Blip | false;
+  // static createAttachedTo(elementToAttachTo: BaseElement, icon?: number, size?: number, r?: number, g?: number, b?: number, a?: number, ordering?: number, visibleDistance?: number, visibleTo?: Player): Blip | false;
 
   /**
    * This function creates a blip element, which is displayed as an icon on the client's radar.

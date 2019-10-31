@@ -1,12 +1,13 @@
-declare abstract class AbstractElement {
+/** @customConstructor Element */
+declare class BaseElement {
   id: string;
   callPropagationEnabled: boolean;
-  readonly parent: Element | false;
+  readonly parent: BaseElement | false;
   readonly zoneName: string;
-  readonly attachedTo: Element | false;
-  readonly children: Element[];
+  readonly attachedTo: BaseElement | false;
+  readonly children: BaseElement[];
   frozen: boolean;
-  readonly attachedElements: Element[];
+  readonly attachedElements: BaseElement[];
   inWater: boolean;
   health: number;
   alpha: number;
@@ -14,7 +15,7 @@ declare abstract class AbstractElement {
   dimension: number;
   doubleSided: boolean;
   model: number;
-  readonly lowLOD: Element | false;
+  readonly lowLOD: BaseElement | false;
   readonly syncer: Player | false;
   readonly childrenCount: number;
   interior: number;
@@ -52,7 +53,7 @@ declare abstract class AbstractElement {
    * @returns Returns the handle of the new cloned element of the parent, false if invalid arguments were passed.
    * @see https://wiki.mtasa.com/wiki/CloneElement
    **/
-  clone(xPos?: number, yPos?: number, zPos?: number, cloneChildren?: boolean): Element;
+  clone(xPos?: number, yPos?: number, zPos?: number, cloneChildren?: boolean): BaseElement;
 
   /**
    * This function destroys an element and all elements within it in the hierarchy (its children, the children of those children etc).
@@ -98,7 +99,7 @@ declare abstract class AbstractElement {
    * @returns Returns true if the attaching process was successful, false otherwise.
    * @see https://wiki.mtasa.com/wiki/AttachElements
    **/
-  attach(theAttachToElement: Element, xPosOffset?: number, yPosOffset?: number, zPosOffset?: number, xRotOffset?: number, yRotOffset?: number, zRotOffset?: number): boolean;
+  attach(theAttachToElement: BaseElement, xPosOffset?: number, yPosOffset?: number, zPosOffset?: number, xRotOffset?: number, yRotOffset?: number, zRotOffset?: number): boolean;
 
   /**
    * This function detaches attached elements from one another.
@@ -106,7 +107,7 @@ declare abstract class AbstractElement {
    * @returns Returns true if the detaching was successful, false otherwise.
    * @see https://wiki.mtasa.com/wiki/DetachElements
    **/
-  detach(theAttachToElement?: Element): boolean;
+  detach(theAttachToElement?: BaseElement): boolean;
 
   /**
    * This function removes the element data with the given key for that element.
@@ -128,7 +129,7 @@ declare abstract class AbstractElement {
    * @returns Returns true if both elements are valid, false otherwise.
    * @see https://wiki.mtasa.com/wiki/SetElementParent
    **/
-  setParent(parent: Element): boolean;
+  setParent(parent: BaseElement): boolean;
 
   /**
    * This function freezes an element (stops it in its position and disables movement) or unfreezes it.
@@ -292,7 +293,7 @@ declare abstract class AbstractElement {
    * @returns Returns true if the element's visibility was changed successfully, false otherwise, for example if you are trying to change the visibility of a vehicle, player or object.
    * @see https://wiki.mtasa.com/wiki/SetElementVisibleTo
    **/
-  setVisibleTo(visibleTo: Element, visible: boolean): boolean;
+  setVisibleTo(visibleTo: BaseElement, visible: boolean): boolean;
 
   // TODO: setMatrix", "setElementMatrix"
 
@@ -336,7 +337,7 @@ declare abstract class AbstractElement {
    * @returns Returns true if the assignment was successful, false otherwise.
    * @see https://wiki.mtasa.com/wiki/SetLowLODElement
    **/
-  setLowLOD(lowLODElement: Element): boolean;
+  setLowLOD(lowLODElement: BaseElement): boolean;
 
   /**
    * This function updates the offsets of an element that has been attached to another element using attachElements.
@@ -374,7 +375,7 @@ declare abstract class AbstractElement {
    * @returns Returns the requested element if it exists, or false if it doesn't.
    * @see https://wiki.mtasa.com/wiki/GetElementChild
    **/
-  getChild(index: number): Element | false;
+  getChild(index: number): BaseElement | false;
 
   /**
    * This function is used to retrieve a list of the child elements of a given parent element.
@@ -383,28 +384,28 @@ declare abstract class AbstractElement {
    * @returns This function returns an array that contains a list of elements that the parent has. If the element has no children, it will return an empty array.
    * @see https://wiki.mtasa.com/wiki/GetElementChildren
    **/
-  getChildren(theType?: string): Element[];
+  getChildren(theType?: string): BaseElement[];
 
   /**
    * This function is used to determine the parent of an element.
    * @returns This returns the parent as an element. It returns false if theElement is the root node.
    * @see https://wiki.mtasa.com/wiki/GetElementParent
    **/
-  getParent(): Element | false;
+  getParent(): BaseElement | false;
 
   /**
    * This function returns an array of all the elements attached to the specified element
    * @returns Returns an array of all the elements attached to the specified element.
    * @see https://wiki.mtasa.com/wiki/GetAttachedElements
    **/
-  getAttachedElements(): Element[];
+  getAttachedElements(): BaseElement[];
 
   /**
    * This function determines the element that the specified element is attached to.
    * @returns Returns the element that the chosen element is attached to, or false if the element isn't attached to another element.
    * @see https://wiki.mtasa.com/wiki/GetElementAttachedTo
    **/
-  getAttachedTo(): Element | false;
+  getAttachedTo(): BaseElement | false;
 
   getVelocity(): Vector3;
 
@@ -465,7 +466,7 @@ declare abstract class AbstractElement {
    * @returns Returns the element that is the syncer of theElement or false if the element does not have a syncer.
    * @see https://wiki.mtasa.com/wiki/GetElementSyncer
    **/
-  getSyncer(): Element | false;
+  getSyncer(): BaseElement | false;
 
   /**
    * Returns an array of all element data of an element.
@@ -525,7 +526,7 @@ declare abstract class AbstractElement {
    * @returns Returns a low LOD element if successful, false otherwise.
    * @see https://wiki.mtasa.com/wiki/GetLowLODElement
    **/
-  getLowLOD(): Element | false;
+  getLowLOD(): BaseElement | false;
 
   /**
    * This function indicates if a specific element is set to have collisions disabled.
@@ -590,7 +591,7 @@ declare abstract class AbstractElement {
    * @returns Returns true if element is visible to the specified player, false if not or an invalid argument was passed to the function.
    * @see https://wiki.mtasa.com/wiki/IsElementVisibleTo
    **/
-  isVisibleTo(visibleTo: Element): boolean;
+  isVisibleTo(visibleTo: BaseElement): boolean;
 
   /**
    * This function reveals if an element is low LOD.

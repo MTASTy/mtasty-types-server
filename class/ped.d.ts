@@ -1,4 +1,4 @@
-declare class Ped extends AbstractElement {
+declare class Ped extends BaseElement {
   readonly inVehicle: boolean;
   readonly ducked: boolean;
   readonly inWater: boolean;

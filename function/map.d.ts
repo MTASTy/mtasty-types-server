@@ -8,7 +8,7 @@
  * @returns Returns an element that corresponds to the root of the new data added, i.e. an element that represents the node xmlnode passed to the function. Returns false if the arguments are invalid.
  * @see https://wiki.mtasa.com/wiki/LoadMapData
  **/
-declare function loadMapData(node: XML, parent: Element): Element | false;
+declare function loadMapData(node: XML, parent: BaseElement): BaseElement | false;
 
 /**
  * This function is used to reset the state of a player.
@@ -29,4 +29,4 @@ declare function resetMapInfo(thePlayer?: Player): boolean;
  * @returns Returns true if the map was saved successfully, otherwise false.
  * @see https://wiki.mtasa.com/wiki/SaveMapData
  **/
-declare function saveMapData(node: XML, baseElement: Element, childrenOnly?: boolean): boolean;
+declare function saveMapData(node: XML, baseElement: BaseElement, childrenOnly?: boolean): boolean;

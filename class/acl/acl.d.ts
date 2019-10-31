@@ -5,7 +5,7 @@ declare class Acl {
   // static get(aclName: string): Acl | false | undefined;
   // static reload(): boolean;
   // static list(): Acl[] | false | undefined;
-  // static hasObjectPermissionTo(element: string | Element, theAction: string, defaultPermission?: boolean): boolean | undefined;
+  // static hasObjectPermissionTo(element: string | BaseElement, theAction: string, defaultPermission?: boolean): boolean | undefined;
 
   /**
    * This function creates an ACL entry in the Access Control List system with the specified name.

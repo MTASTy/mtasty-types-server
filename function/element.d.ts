@@ -22,7 +22,7 @@
  * @returns Returns true if the attaching process was successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/AttachElements
  **/
-declare function attachElements(theElement: Element, theAttachToElement: Element, xPosOffset?: number, yPosOffset?: number, zPosOffset?: number, xRotOffset?: number, yRotOffset?: number, zRotOffset?: number): boolean;
+declare function attachElements(theElement: BaseElement, theAttachToElement: BaseElement, xPosOffset?: number, yPosOffset?: number, zPosOffset?: number, xRotOffset?: number, yRotOffset?: number, zRotOffset?: number): boolean;
 
 /**
  * This function is used to retrieve a list of all elements of specified type within a range of 3D coordinates.
@@ -35,7 +35,7 @@ declare function attachElements(theElement: Element, theAttachToElement: Element
  * @returns Returns a object containing all the elements of the specified type within range. Returns an empty object if there are no elements within range. Returns false if the arguments are invalid.
  * @see https://wiki.mtasa.com/wiki/GetElementsWithinRange
  **/
-declare function getElementsWithinRange(x: number, y: number, z: number, range: number, elemType?: string): Element[] | false;
+declare function getElementsWithinRange(x: number, y: number, z: number, range: number, elemType?: string): BaseElement[] | false;
 
 /**
  * This function clears any settings added by setElementVisibleTo and restores an element to its default visibility.
@@ -46,7 +46,7 @@ declare function getElementsWithinRange(x: number, y: number, z: number, range: 
  * @returns Returns true if the operation was successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/ClearElementVisibleTo
  **/
-declare function clearElementVisibleTo(theElement: Element): boolean;
+declare function clearElementVisibleTo(theElement: BaseElement): boolean;
 
 /**
  * This function clones (creates an exact copy of) an already existing element.
@@ -63,7 +63,7 @@ declare function clearElementVisibleTo(theElement: Element): boolean;
  * @returns Returns the handle of the new cloned element of the parent, false if invalid arguments were passed.
  * @see https://wiki.mtasa.com/wiki/CloneElement
  **/
-declare function cloneElement(theElement: Element, xPos?: number, yPos?: number, zPos?: number, cloneChildren?: boolean): Element | false;
+declare function cloneElement(theElement: BaseElement, xPos?: number, yPos?: number, zPos?: number, cloneChildren?: boolean): BaseElement | false;
 
 /**
  * This function is used to create a new dummy element in the element tree which do not necessarily represent an entity within the San Andreas world.
@@ -74,7 +74,7 @@ declare function cloneElement(theElement: Element, xPos?: number, yPos?: number,
  * @returns Returns the element if it was successfully created. Returns false if the arguments are wrong.
  * @see https://wiki.mtasa.com/wiki/CreateElement
  **/
-declare function createElement(elementType: string, elementID?: string): Element | false;
+declare function createElement(elementType: string, elementID?: string): BaseElement | false;
 
 /**
  * This function destroys an element and all elements within it in the hierarchy (its children, the children of those children etc).
@@ -88,7 +88,7 @@ declare function createElement(elementType: string, elementID?: string): Element
  * @returns Returns true if the element was destroyed successfully, false if either the element passed to it was invalid or it could not be destroyed for some other reason (for example, clientside destroyElement can't destroy serverside elements).
  * @see https://wiki.mtasa.com/wiki/DestroyElement
  **/
-declare function destroyElement(elementToDestroy: Element): boolean;
+declare function destroyElement(elementToDestroy: BaseElement): boolean;
 
 /**
  * This function detaches attached elements from one another.
@@ -97,7 +97,7 @@ declare function destroyElement(elementToDestroy: Element): boolean;
  * @returns Returns true if the detaching was successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/DetachElements
  **/
-declare function detachElements(theElement: Element, theAttachToElement?: Element): boolean;
+declare function detachElements(theElement: BaseElement, theAttachToElement?: BaseElement): boolean;
 
 /**
  * Returns an array of all element data of an element.
@@ -105,7 +105,7 @@ declare function detachElements(theElement: Element, theAttachToElement?: Elemen
  * @returns If successful, returns an object with as keys the names of the element data and as values the corresponding element data values. Returns false in case of failure.
  * @see https://wiki.mtasa.com/wiki/GetAllElementData
  **/
-declare function getAllElementData(theElement: Element): {[key: string]: any} | false;
+declare function getAllElementData(theElement: BaseElement): {[key: string]: any} | false;
 
 /**
  * This function returns an array of all the elements attached to the specified element
@@ -113,7 +113,7 @@ declare function getAllElementData(theElement: Element): {[key: string]: any} | 
  * @returns Returns an array of all the elements attached to the specified element.
  * @see https://wiki.mtasa.com/wiki/GetAttachedElements
  **/
-declare function getAttachedElements(theElement: Element): Element[] | false;
+declare function getAttachedElements(theElement: BaseElement): BaseElement[] | false;
 
 /**
  * This function returns the alpha (transparency) value for the specified element.
@@ -122,7 +122,7 @@ declare function getAttachedElements(theElement: Element): Element[] | false;
  * @returns Returns a number (0-255; 0 = transparent) indicating the element's alpha, or false if invalid arguments were passed.
  * @see https://wiki.mtasa.com/wiki/GetElementAlpha
  **/
-declare function getElementAlpha(theElement: Element): number | false;
+declare function getElementAlpha(theElement: BaseElement): number | false;
 
 /**
  * This function returns the offsets of an element that has been attached to another element using attachElements.
@@ -131,7 +131,7 @@ declare function getElementAlpha(theElement: Element): number | false;
  * @see https://wiki.mtasa.com/wiki/GetElementAttachedOffsets
  * @tupleReturn
  **/
-declare function getElementAttachedOffsets(theElement: Element): [number, number, number, number, number, number] | [false];
+declare function getElementAttachedOffsets(theElement: BaseElement): [number, number, number, number, number, number] | [false];
 
 /**
  * This function determines the element that the specified element is attached to.
@@ -139,7 +139,7 @@ declare function getElementAttachedOffsets(theElement: Element): [number, number
  * @returns Returns the element that the chosen element is attached to, or false if the element isn't attached to another element.
  * @see https://wiki.mtasa.com/wiki/GetElementAttachedTo
  **/
-declare function getElementAttachedTo(theElement: Element): Element | false;
+declare function getElementAttachedTo(theElement: BaseElement): BaseElement | false;
 
 /**
  * This function indicates if a specific element is set to have collisions disabled.
@@ -148,7 +148,7 @@ declare function getElementAttachedTo(theElement: Element): Element | false;
  * @returns Returns true if the collisions are enabled, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GetElementCollisionsEnabled
  **/
-declare function getElementCollisionsEnabled(theElement: Element): boolean;
+declare function getElementCollisionsEnabled(theElement: BaseElement): boolean;
 
 /**
  * This function returns an element from the specified ID. If more than one element with the same ID exists, only the first one in the order it appears in the XML tree will be returned by this function.
@@ -158,7 +158,7 @@ declare function getElementCollisionsEnabled(theElement: Element): boolean;
  * @returns Returns the element with the given ID, or false if no such element exists.
  * @see https://wiki.mtasa.com/wiki/GetElementByID
  **/
-declare function getElementByID(id: string, index?: number): Element | false;
+declare function getElementByID(id: string, index?: number): BaseElement | false;
 
 /**
  * This function returns an element of the specified type with the specified index.
@@ -167,7 +167,7 @@ declare function getElementByID(id: string, index?: number): Element | false;
  * @returns Returns the requested element, or false if it doesn't exist.
  * @see https://wiki.mtasa.com/wiki/GetElementByIndex
  **/
-declare function getElementByIndex(theType: string, index: number): Element | false;
+declare function getElementByIndex(theType: string, index: number): BaseElement | false;
 
 /**
  * This function returns one of the child elements of a given parent element.
@@ -177,7 +177,7 @@ declare function getElementByIndex(theType: string, index: number): Element | fa
  * @returns Returns the requested element if it exists, or false if it doesn't.
  * @see https://wiki.mtasa.com/wiki/GetElementChild
  **/
-declare function getElementChild(parent: Element, index: number): Element | false;
+declare function getElementChild(parent: BaseElement, index: number): BaseElement | false;
 
 /**
  * This function is used to retrieve a list of the child elements of a given parent element.
@@ -187,7 +187,7 @@ declare function getElementChild(parent: Element, index: number): Element | fals
  * @returns This function returns an array that contains a list of elements that the parent has. If the element has no children, it will return an empty array. It will return false if the parent element does not exist.
  * @see https://wiki.mtasa.com/wiki/GetElementChildren
  **/
-declare function getElementChildren(parent: Element, theType?: string): Element[] | false;
+declare function getElementChildren(parent: BaseElement, theType?: string): BaseElement[] | false;
 
 /**
  * This function returns the number of children an element has.
@@ -196,7 +196,7 @@ declare function getElementChildren(parent: Element, theType?: string): Element[
  * @returns Returns a number with the number of child elements, or false if the parent element does not exist.
  * @see https://wiki.mtasa.com/wiki/GetElementChildrenCount
  **/
-declare function getElementChildrenCount(parent: Element): number | false;
+declare function getElementChildrenCount(parent: BaseElement): number | false;
 
 /**
  * Some elements have an associated colshape, for example Marker and Pickup.
@@ -205,7 +205,7 @@ declare function getElementChildrenCount(parent: Element): number | false;
  * @returns Returns colshape of the element, false if not or an invalid argument was passed to the function.
  * @see https://wiki.mtasa.com/wiki/GetElementColShape
  **/
-declare function getElementColShape(theElement: Element): ColShape | false;
+declare function getElementColShape(theElement: BaseElement): ColShape | false;
 
 /**
  * This function retrieves element data attached to an element under a certain key.
@@ -215,7 +215,7 @@ declare function getElementColShape(theElement: Element): ColShape | false;
  * @returns This function returns a variable containing the requested element data, or false if the element or the element data does not exist. When getting data corresponding to a XML attribute, this is always a string.
  * @see https://wiki.mtasa.com/wiki/GetElementData
  **/
-declare function getElementData(theElement: Element, key: string, inherit?: boolean): any | false;
+declare function getElementData(theElement: BaseElement, key: string, inherit?: boolean): any | false;
 
 /**
  * This function allows you to retrieve the dimension of any element.
@@ -224,7 +224,7 @@ declare function getElementData(theElement: Element, key: string, inherit?: bool
  * @returns Returns a number for the dimension if theElement is valid, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GetElementDimension
  **/
-declare function getElementDimension(theElement: Element): number | false;
+declare function getElementDimension(theElement: BaseElement): number | false;
 
 /**
  * This function returns the current health for the specified element.
@@ -233,7 +233,7 @@ declare function getElementDimension(theElement: Element): number | false;
  * @returns Returns a number indicating the element's health, or false if invalid arguments were passed.
  * @see https://wiki.mtasa.com/wiki/GetElementHealth
  **/
-declare function getElementHealth(theElement: Element): number | false;
+declare function getElementHealth(theElement: BaseElement): number | false;
 
 /**
  * This function gets the ID of an element.
@@ -242,7 +242,7 @@ declare function getElementHealth(theElement: Element): number | false;
  * @returns This returns a string containing the element ID. It will return an empty string if it has no ID. It will return false if the element is invalid.
  * @see https://wiki.mtasa.com/wiki/GetElementID
  **/
-declare function getElementID(theElement: Element): string | false;
+declare function getElementID(theElement: BaseElement): string | false;
 
 /**
  * This function allows you to retrieve the interior of any element.
@@ -251,7 +251,7 @@ declare function getElementID(theElement: Element): string | false;
  * @returns Returns a number for the interior if theElement is valid, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GetElementInterior
  **/
-declare function getElementInterior(theElement: Element): number | false;
+declare function getElementInterior(theElement: BaseElement): number | false;
 
 /**
  * This function gets an element's transform matrix.
@@ -265,7 +265,7 @@ declare function getElementInterior(theElement: Element): number | false;
  * @returns Returns a multi-dimensional object (which can be transformed into a proper matrix class using Matrix.create method) containing a 4x4 matrix. Returns false if the element is not streamed in, and not a vehicle, ped or object.
  * @see https://wiki.mtasa.com/wiki/GetElementMatrix
  **/
-declare function getElementMatrix(theElement: Element, legacy?: boolean): {[key: number]: number} | false;
+declare function getElementMatrix(theElement: BaseElement, legacy?: boolean): {[key: number]: number} | false;
 
 /**
  * Returns the model ID of a given element.
@@ -274,7 +274,7 @@ declare function getElementMatrix(theElement: Element, legacy?: boolean): {[key:
  * @returns Returns the model ID if successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GetElementModel
  **/
-declare function getElementModel(theElement: Element): number | false;
+declare function getElementModel(theElement: BaseElement): number | false;
 
 /**
  * This function is used to determine the parent of an element.
@@ -282,7 +282,7 @@ declare function getElementModel(theElement: Element): number | false;
  * @returns This returns the parent as an element. It returns false if theElement is invalid, or is the root node.
  * @see https://wiki.mtasa.com/wiki/GetElementParent
  **/
-declare function getElementParent(theElement: Element): Element | false;
+declare function getElementParent(theElement: BaseElement): BaseElement | false;
 
 /**
  * The getElementPosition function allows you to retrieve the position coordinates of an element.
@@ -292,7 +292,7 @@ declare function getElementParent(theElement: Element): Element | false;
  * @see https://wiki.mtasa.com/wiki/GetElementPosition
  * @tupleReturn
  **/
-declare function getElementPosition(theElement: Element): [number, number, number] | [false, undefined, undefined];
+declare function getElementPosition(theElement: BaseElement): [number, number, number] | [false, undefined, undefined];
 
 /**
  * Retrieve the rotation of elements.
@@ -302,7 +302,7 @@ declare function getElementPosition(theElement: Element): [number, number, numbe
  * @see https://wiki.mtasa.com/wiki/GetElementRotation
  * @tupleReturn
  **/
-declare function getElementRotation(theElement: Element, rotOrder?: string): [number, number, number] | [false, undefined, undefined];
+declare function getElementRotation(theElement: BaseElement, rotOrder?: string): [number, number, number] | [false, undefined, undefined];
 
 /**
  * This function gets the syncer of an element.
@@ -311,7 +311,7 @@ declare function getElementRotation(theElement: Element, rotOrder?: string): [nu
  * @returns Returns the element that is the syncer of theElement or false if the element does not have a syncer.
  * @see https://wiki.mtasa.com/wiki/GetElementSyncer
  **/
-declare function getElementSyncer(theElement: Element): Element | false;
+declare function getElementSyncer(theElement: BaseElement): BaseElement | false;
 
 /**
  * This function is used to retrieve the type of an element.
@@ -319,7 +319,7 @@ declare function getElementSyncer(theElement: Element): Element | false;
  * @returns Returns a string containing the element type, false if invalid arguments were passed.
  * @see https://wiki.mtasa.com/wiki/GetElementType
  **/
-declare function getElementType(theElement: Element): string | false;
+declare function getElementType(theElement: BaseElement): string | false;
 
 /**
  * This function returns three numbers containing the velocity (movement speeds) along the X, Y, and Z axis respectively.
@@ -329,7 +329,7 @@ declare function getElementType(theElement: Element): string | false;
  * @see https://wiki.mtasa.com/wiki/GetElementVelocity
  * @tupleReturn
  **/
-declare function getElementVelocity(theElement: Element): [number, number, number] | [false];
+declare function getElementVelocity(theElement: BaseElement): [number, number, number] | [false];
 
 /**
  * This function allows you to retrieve the zone name of an element (eg. Verdant Bluffs or Ocean Docks)
@@ -339,7 +339,7 @@ declare function getElementVelocity(theElement: Element): [number, number, numbe
  * @returns Returns the string of the elements zone name.
  * @see https://wiki.mtasa.com/wiki/GetElementZoneName
  **/
-declare function getElementZoneName(theElement: Element, citiesonly?: boolean): string | false;
+declare function getElementZoneName(theElement: BaseElement, citiesonly?: boolean): string | false;
 
 /**
  * This function is used to retrieve a list of all elements of the specified type. This can be useful, as it disregards where in the element tree it is. It can be used with either the built in types (listed below) or with any custom type used in a .map file. For example, if there is an element of type "flag" (e.g. <flag />) in the .map file, the using "flag" as the type argument would find it.
@@ -348,7 +348,7 @@ declare function getElementZoneName(theElement: Element, citiesonly?: boolean): 
  * @returns Returns an array containing all the elements of the specified type. Returns an empty array if there are no elements of the specified type. Returns false if the string specified is invalid (or not a string).
  * @see https://wiki.multitheftauto.com/wiki/GetElementsByType
  **/
-declare function getElementsByType(theType: string, startat?: Element): Element[] | false;
+declare function getElementsByType(theType: string, startat?: BaseElement): BaseElement[] | false;
 
 /**
  * This function is used to retrieve a list of all elements in a colshape, of the specified type.
@@ -359,7 +359,7 @@ declare function getElementsByType(theType: string, startat?: Element): Element[
  * @returns Returns an array containing all the elements inside the colshape, of the specified type. Returns an empty array if there are no elements inside. Returns false if the colshape is invalid.
  * @see https://wiki.mtasa.com/wiki/GetElementsWithinColShape
  **/
-declare function getElementsWithinColShape(theShape: ColShape, elemType?: string): Element[] | false;
+declare function getElementsWithinColShape(theShape: ColShape, elemType?: string): BaseElement[] | false;
 
 /**
  * This function return the low LOD element that an element is associated with.
@@ -367,7 +367,7 @@ declare function getElementsWithinColShape(theShape: ColShape, elemType?: string
  * @returns Returns a low LOD element if successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/GetLowLODElement
  **/
-declare function getLowLODElement(theElement: Element): Element | false;
+declare function getLowLODElement(theElement: BaseElement): BaseElement | false;
 
 // TODO: Fix types
 /**
@@ -379,7 +379,7 @@ declare function getLowLODElement(theElement: Element): Element | false;
  * @returns Returns the root element.
  * @see https://wiki.mtasa.com/wiki/GetRootElement
  **/
-declare function getRootElement(): Element;
+declare function getRootElement(): BaseElement;
 
 /**
  * This function checks if a value is an element or not.
@@ -396,7 +396,7 @@ declare function isElement(theValue: any): boolean;
  * @returns Returns true if the specified element is attached to another element, false if it is not attached or undefined if an improper argument was passed.
  * @see https://wiki.mtasa.com/wiki/IsElementAttached
  **/
-declare function isElementAttached(theElement: Element): boolean | undefined;
+declare function isElementAttached(theElement: BaseElement): boolean | undefined;
 
 /**
  * This functions checks if certain element has call propagation enabled.
@@ -404,7 +404,7 @@ declare function isElementAttached(theElement: Element): boolean | undefined;
  * @returns Returns true if the propagation is enabled, false if disabled or invalid arguments have been passed.
  * @see https://wiki.mtasa.com/wiki/IsElementCallPropagationEnabled
  **/
-declare function isElementCallPropagationEnabled(theElement: Element): boolean;
+declare function isElementCallPropagationEnabled(theElement: BaseElement): boolean;
 
 /**
  * This function checks whether an element is double-sided as set by setElementDoubleSided or not.
@@ -412,7 +412,7 @@ declare function isElementCallPropagationEnabled(theElement: Element): boolean;
  * @returns Returns true if the theElement is double-sided, false otherwise.
  * @see https://wiki.mtasa.com/wiki/IsElementDoubleSided
  **/
-declare function isElementDoubleSided(theElement: Element): boolean;
+declare function isElementDoubleSided(theElement: BaseElement): boolean;
 
 /**
  * This function checks if element has been frozen.
@@ -420,7 +420,7 @@ declare function isElementDoubleSided(theElement: Element): boolean;
  * @returns Returns true if the element is frozen, false if it isn't or if invalid arguments were passed.
  * @see https://wiki.mtasa.com/wiki/IsElementFrozen
  **/
-declare function isElementFrozen(theElement: Element): boolean;
+declare function isElementFrozen(theElement: BaseElement): boolean;
 
 /**
  * This function checks whether an element is submerged in water.
@@ -428,7 +428,7 @@ declare function isElementFrozen(theElement: Element): boolean;
  * @returns Returns true if the passed element is in water, false if it isn't, or if the element is invalid.
  * @see https://wiki.mtasa.com/wiki/IsElementInWater
  **/
-declare function isElementInWater(theElement: Element): boolean;
+declare function isElementInWater(theElement: BaseElement): boolean;
 
 /**
  * This function reveals if an element is low LOD.
@@ -436,7 +436,7 @@ declare function isElementInWater(theElement: Element): boolean;
  * @returns Returns true if the element is low LOD, false otherwise.
  * @see https://wiki.mtasa.com/wiki/IsElementLowLOD
  **/
-declare function isElementLowLOD(theElement: Element): boolean;
+declare function isElementLowLOD(theElement: BaseElement): boolean;
 
 /**
  * This checks if an element is visible to a player.
@@ -447,7 +447,7 @@ declare function isElementLowLOD(theElement: Element): boolean;
  * @returns Returns true if element is visible to the specified player, false if not or an invalid argument was passed to the function.
  * @see https://wiki.mtasa.com/wiki/IsElementVisibleTo
  **/
-declare function isElementVisibleTo(theElement: Element, visibleTo: Element): boolean;
+declare function isElementVisibleTo(theElement: BaseElement, visibleTo: BaseElement): boolean;
 
 /**
  * This function is used to determine if an element is within a collision shape.
@@ -459,7 +459,7 @@ declare function isElementVisibleTo(theElement: Element, visibleTo: Element): bo
  * @returns Returns true if the element is within the colshape, false otherwise
  * @see https://wiki.mtasa.com/wiki/IsElementWithinColShape
  **/
-declare function isElementWithinColShape(theElement: Element, theShape: ColShape): boolean;
+declare function isElementWithinColShape(theElement: BaseElement, theShape: ColShape): boolean;
 
 /**
  * This function is used to determine if an element is within a marker.
@@ -468,7 +468,7 @@ declare function isElementWithinColShape(theElement: Element, theShape: ColShape
  * @returns Returns true if the element is within the marker, false otherwise
  * @see https://wiki.mtasa.com/wiki/IsElementWithinMarker
  **/
-declare function isElementWithinMarker(theElement: Element, theMarker: Marker): boolean;
+declare function isElementWithinMarker(theElement: BaseElement, theMarker: Marker): boolean;
 
 /**
  * This function removes the element data with the given key for that element.
@@ -478,7 +478,7 @@ declare function isElementWithinMarker(theElement: Element, theMarker: Marker): 
  * @returns Returns true if the data was removed successfully, false if the given key does not exist in the element or the element is invalid.
  * @see https://wiki.mtasa.com/wiki/RemoveElementData
  **/
-declare function removeElementData(theElement: Element, key: string): boolean;
+declare function removeElementData(theElement: BaseElement, key: string): boolean;
 
 /**
  * This function sets the alpha (transparency) value for the specified element.
@@ -488,7 +488,7 @@ declare function removeElementData(theElement: Element, key: string): boolean;
  * @returns Returns true or false if invalid arguments were passed.
  * @see https://wiki.mtasa.com/wiki/SetElementAlpha
  **/
-declare function setElementAlpha(theElement: Element, alpha: number): boolean;
+declare function setElementAlpha(theElement: BaseElement, alpha: number): boolean;
 
 /**
  * Sets the angular velocity of a specified, supported element (Applies a spin to it).
@@ -499,7 +499,7 @@ declare function setElementAlpha(theElement: Element, alpha: number): boolean;
  * @returns Returns true if it was successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/SetElementAngularVelocity
  **/
-declare function setElementAngularVelocity(theElement: Element, rx: number, ry: number, rz: number): boolean;
+declare function setElementAngularVelocity(theElement: BaseElement, rx: number, ry: number, rz: number): boolean;
 
 /**
  * Gets the current angular velocity of a specified, supported element.
@@ -522,7 +522,7 @@ declare function getElementAngularVelocity(theElement: Vehicle): [number, number
  * @returns Returns true if the attaching process was successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/SetElementAttachedOffsets
  **/
-declare function setElementAttachedOffsets(theElement: Element, xPosOffset?: number, yPosOffset?: number, zPosOffset?: number, xRotOffset?: number, yRotOffset?: number, zRotOffset?: number): boolean;
+declare function setElementAttachedOffsets(theElement: BaseElement, xPosOffset?: number, yPosOffset?: number, zPosOffset?: number, xRotOffset?: number, yRotOffset?: number, zRotOffset?: number): boolean;
 
 /**
  * This function enables/disables call propagation on a certain element. Look at the example for a practical application.
@@ -531,7 +531,7 @@ declare function setElementAttachedOffsets(theElement: Element, xPosOffset?: num
  * @returns Returns true, if the propagation behaviour has been changed successfully, false otherwise.
  * @see https://wiki.mtasa.com/wiki/SetElementCallPropagationEnabled
  **/
-declare function setElementCallPropagationEnabled(theElement: Element, enabled: boolean): boolean;
+declare function setElementCallPropagationEnabled(theElement: BaseElement, enabled: boolean): boolean;
 
 /**
  * This function can disable or enable an element's collisions.
@@ -544,7 +544,7 @@ declare function setElementCallPropagationEnabled(theElement: Element, enabled: 
  * @returns Returns true if the collisions were set successfully, false otherwise.
  * @see https://wiki.mtasa.com/wiki/SetElementCollisionsEnabled
  **/
-declare function setElementCollisionsEnabled(theElement: Element, enabled: boolean): boolean;
+declare function setElementCollisionsEnabled(theElement: BaseElement, enabled: boolean): boolean;
 
 /**
  * This function stores element data under a certain key, attached to an element.
@@ -563,7 +563,7 @@ declare function setElementCollisionsEnabled(theElement: Element, enabled: boole
  * @returns Returns true if the data was set successfully, false otherwise.
  * @see https://wiki.mtasa.com/wiki/SetElementData
  **/
-declare function setElementData(theElement: Element, key: string, value: any, synchronize?: boolean): boolean;
+declare function setElementData(theElement: BaseElement, key: string, value: any, synchronize?: boolean): boolean;
 
 /**
  * This function allows you to set the dimension of any element.
@@ -573,7 +573,7 @@ declare function setElementData(theElement: Element, key: string, value: any, sy
  * @returns Returns true if theElement and dimension are valid, false otherwise. Also returns false if theElement is a player and it's not alive.
  * @see https://wiki.mtasa.com/wiki/SetElementDimension
  **/
-declare function setElementDimension(theElement: Element, dimension: number): boolean;
+declare function setElementDimension(theElement: BaseElement, dimension: number): boolean;
 
 /**
  * This function allows you to set the double-sidedness of an element's model.
@@ -585,7 +585,7 @@ declare function setElementDimension(theElement: Element, dimension: number): bo
  * @returns Returns true if theElement is valid, false otherwise.
  * @see https://wiki.mtasa.com/wiki/SetElementDoubleSided
  **/
-declare function setElementDoubleSided(theElement: Element, enable: boolean): boolean;
+declare function setElementDoubleSided(theElement: BaseElement, enable: boolean): boolean;
 
 /**
  * This function freezes an element (stops it in its position and disables movement) or unfreezes it.
@@ -595,7 +595,7 @@ declare function setElementDoubleSided(theElement: Element, enable: boolean): bo
  * @returns Returns true if the element was frozen, false if it wasn't or if invalid arguments are passed.
  * @see https://wiki.mtasa.com/wiki/SetElementFrozen
  **/
-declare function setElementFrozen(theElement: Element, freezeStatus: boolean): boolean;
+declare function setElementFrozen(theElement: BaseElement, freezeStatus: boolean): boolean;
 
 /**
  * This function sets the health for the specified element.
@@ -610,7 +610,7 @@ declare function setElementFrozen(theElement: Element, freezeStatus: boolean): b
  * @returns Returns true if the new health was set successfully, or false if invalid arguments were passed.
  * @see https://wiki.mtasa.com/wiki/SetElementHealth
  **/
-declare function setElementHealth(theElement: Element, newHealth: number): boolean;
+declare function setElementHealth(theElement: BaseElement, newHealth: number): boolean;
 
 /**
  * This function sets the ID of an element to a string.
@@ -621,7 +621,7 @@ declare function setElementHealth(theElement: Element, newHealth: number): boole
  * @returns This returns true if successful. It will return false if theElement is invalid, or does not exist, or if name is invalid, or is not a string.
  * @see https://wiki.mtasa.com/wiki/SetElementID
  **/
-declare function setElementID(theElement: Element, name: string): boolean;
+declare function setElementID(theElement: BaseElement, name: string): boolean;
 
 /**
  * This function allows you to set the interior of any element.
@@ -635,7 +635,7 @@ declare function setElementID(theElement: Element, name: string): boolean;
  * @returns Returns true if theElement and interior are valid arguments, false otherwise.
  * @see https://wiki.mtasa.com/wiki/SetElementInterior
  **/
-declare function setElementInterior(theElement: Element, interior: number, x?: number, y?: number, z?: number): boolean;
+declare function setElementInterior(theElement: BaseElement, interior: number, x?: number, y?: number, z?: number): boolean;
 
 /**
  * Sets the model of a given element.
@@ -645,7 +645,7 @@ declare function setElementInterior(theElement: Element, interior: number, x?: n
  * @returns Returns true if successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/SetElementModel
  **/
-declare function setElementModel(theElement: Element, model: number): boolean;
+declare function setElementModel(theElement: BaseElement, model: number): boolean;
 
 /**
  * This function is used for setting an element as the parent of another element.
@@ -659,7 +659,7 @@ declare function setElementModel(theElement: Element, model: number): boolean;
  * @returns Returns true if both elements are valid, false otherwise.
  * @see https://wiki.mtasa.com/wiki/SetElementParent
  **/
-declare function setElementParent(theElement: Element, parent: Element): boolean;
+declare function setElementParent(theElement: BaseElement, parent: BaseElement): boolean;
 
 /**
  * This function sets the position of an element to the specified coordinates.
@@ -672,7 +672,7 @@ declare function setElementParent(theElement: Element, parent: Element): boolean
  * @returns Returns true if the function was successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/SetElementPosition
  **/
-declare function setElementPosition(theElement: Element, x: number, y: number, z: number, warp?: boolean): boolean;
+declare function setElementPosition(theElement: BaseElement, x: number, y: number, z: number, warp?: boolean): boolean;
 
 /**
  * Sets the rotation of elements according to the world (does not work with players that are on the ground).
@@ -686,7 +686,7 @@ declare function setElementPosition(theElement: Element, x: number, y: number, z
  * @returns Returns true if the element rotation was successfully set and false otherwise.
  * @see https://wiki.mtasa.com/wiki/SetElementRotation
  **/
-declare function setElementRotation(theElement: Element, rotX: number, rotY: number, rotZ: number, rotOrder?: "default" | "ZXY" | "ZYX", conformPedRotation?: boolean): boolean;
+declare function setElementRotation(theElement: BaseElement, rotX: number, rotY: number, rotZ: number, rotOrder?: "default" | "ZXY" | "ZYX", conformPedRotation?: boolean): boolean;
 
 /**
  * This function can be used to change the syncer (player) of an element.
@@ -706,7 +706,7 @@ declare function setElementRotation(theElement: Element, rotX: number, rotY: num
  * @returns Returns true if the syncer was changed successfully, false if the element passed was not a ped or vehicle.
  * @see https://wiki.mtasa.com/wiki/SetElementSyncer
  **/
-declare function setElementSyncer(theElement: Element, thePlayer: Player): boolean;
+declare function setElementSyncer(theElement: BaseElement, thePlayer: Player): boolean;
 
 /**
  * This function sets the velocity (movement speeds) along each axis, for an element.
@@ -736,7 +736,7 @@ declare function setElementVelocity(theElement: Ped | Vehicle | MapObject, speed
  * @returns Returns true if the element's visibility was changed successfully, false otherwise, for example if you are trying to change the visibility of a vehicle, player or object.
  * @see https://wiki.mtasa.com/wiki/SetElementVisibleTo
  **/
-declare function setElementVisibleTo(theElement: Element, visibleTo: Element, visible: boolean): boolean;
+declare function setElementVisibleTo(theElement: BaseElement, visibleTo: BaseElement, visible: boolean): boolean;
 
 /**
  * This function assigns a low LOD element to an element.
@@ -747,4 +747,4 @@ declare function setElementVisibleTo(theElement: Element, visibleTo: Element, vi
  * @returns Returns true if the assignment was successful, false otherwise.
  * @see https://wiki.mtasa.com/wiki/SetLowLODElement
  **/
-declare function setLowLODElement(theElement: Element, lowLODElement: Element): boolean;
+declare function setLowLODElement(theElement: BaseElement, lowLODElement: BaseElement): boolean;

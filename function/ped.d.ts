@@ -109,7 +109,7 @@ declare function getPedStat(thePed: Ped, stat: number): number | false;
  * @returns Returns the element that's being targeted, or false if there isn't one. This is only effective on physical GTA elements, namely: Players, Peds, Vehicles, Objects.
  * @see https://wiki.mtasa.com/wiki/GetPedTarget
  **/
-declare function getPedTarget(thePed: Ped): Element | false;
+declare function getPedTarget(thePed: Ped): BaseElement | false;
 
 /**
  * This function returns an integer that contains the total ammo in a specified ped's weapon.

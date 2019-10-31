@@ -198,7 +198,7 @@ declare class Player extends Ped {
    * @returns Returns true if the event trigger has been sent, false if invalid arguments were specified.
    * @see https://wiki.mtasa.com/wiki/TriggerClientEvent
    **/
-  triggerEvent(name: string, sourceElement: Element, ...args: any[]): boolean;
+  triggerEvent(name: string, sourceElement: BaseElement, ...args: any[]): boolean;
 
   // TODO: need test
   /**
@@ -348,7 +348,7 @@ declare class Player extends Ped {
    * @returns Returns true if the value was set successfully, false otherwise.
    * @see https://wiki.mtasa.com/wiki/SetPlayerVoiceBroadcastTo
    **/
-  setVoiceBroadcastTo(broadcastTo: Element | Element[]): boolean;
+  setVoiceBroadcastTo(broadcastTo: BaseElement | BaseElement[]): boolean;
 
   /**
    * This function allows you to mute voices for a player.
@@ -357,7 +357,7 @@ declare class Player extends Ped {
    * @returns Returns true if the value was set successfully, false otherwise.
    * @see https://wiki.mtasa.com/wiki/SetPlayerVoiceIgnoreFrom
    **/
-  setVoiceIgnoreFrom(ignoreFrom: Element | Element[]): boolean;
+  setVoiceIgnoreFrom(ignoreFrom: BaseElement | BaseElement[]): boolean;
 
   /**
    * This function will show or hide a part of the player's HUD.

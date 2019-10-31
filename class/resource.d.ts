@@ -1,12 +1,12 @@
 declare class Resource {
-  readonly dynamicElementRoot: Element | false;
+  readonly dynamicElementRoot: BaseElement | false;
   readonly exportedFunctions: string[];
   readonly organizationalPath: string;
   readonly lastStartTime: number;
   readonly aclRequests: Request[];
   readonly loadTime: number;
   name: string;
-  readonly rootElement: Element;
+  readonly rootElement: BaseElement;
   state: ResourceState;
   readonly archived: boolean;
   readonly loadFailureReason: string;
@@ -150,7 +150,7 @@ declare class Resource {
    * @returns Returns an element of the resource's dynamic element root if the resource specified was valid and active (currently running), false otherwise.
    * @see https://wiki.mtasa.com/wiki/GetResourceDynamicElementRoot
    **/
-  getDynamicElementRoot(): Element | false;
+  getDynamicElementRoot(): BaseElement | false;
 
   /**
    * This function retrieves a resource's root element.
@@ -160,7 +160,7 @@ declare class Resource {
    * @returns Returns an element representing the resource's root.
    * @see https://wiki.mtasa.com/wiki/GetResourceRootElement
    **/
-  getResourceRootElement(): Element;
+  getResourceRootElement(): BaseElement;
 
   /**
    * Returns an array containing the names of the functions that a resource exports.
@@ -212,7 +212,7 @@ declare class Resource {
    * @returns Returns an the resource's map root element if the map exists and resource specified was valid and active (currently running), false otherwise.
    * @see https://wiki.mtasa.com/wiki/GetResourceMapRootElement
    **/
-  getMapRootElement(mapName: string): Element | false;
+  getMapRootElement(mapName: string): BaseElement | false;
 
   /**
    * This function gets the name of the specified resource.

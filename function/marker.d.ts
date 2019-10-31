@@ -138,4 +138,4 @@ declare function setMarkerType(theMarker: Marker, markerType: "checkpoint" | "ri
  * @returns Returns true if the element is within the marker, false otherwise
  * @see https://wiki.mtasa.com/wiki/IsElementWithinMarker
  **/
-declare function isElementWithinMarker(theElement: Element, theMarker: Marker): boolean;
+declare function isElementWithinMarker(theElement: BaseElement, theMarker: Marker): boolean;

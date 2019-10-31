@@ -223,7 +223,7 @@ declare function aclSetRight(theAcl: Acl, rightName: string, hasAccess: boolean)
  * @returns Returns true if the given object has permission to perform the given action, false otherwise. Returns undefined if the function failed because of bad arguments.
  * @see https://wiki.mtasa.com/wiki/HasObjectPermissionTo
  **/
-declare function hasObjectPermissionTo(element: string | Element, theAction: string, defaultPermission?: boolean): boolean | undefined;
+declare function hasObjectPermissionTo(element: string | BaseElement, theAction: string, defaultPermission?: boolean): boolean | undefined;
 
 /**
  * This function is used to determine if an object is in a group.

@@ -1,7 +1,6 @@
 /// <reference path="./class/acl/acl-group.d.ts" />
 /// <reference path="./class/acl/acl.d.ts" />
 
-/// <reference path="./class/colshape/abstract-colshape.d.ts" />
 /// <reference path="./class/colshape/colshape.d.ts" />
 /// <reference path="./class/colshape/colshape-circle.d.ts" />
 /// <reference path="./class/colshape/colshape-cuboid.d.ts" />
@@ -10,7 +9,7 @@
 /// <reference path="./class/colshape/colshape-sphere.d.ts" />
 /// <reference path="./class/colshape/colshape-tube.d.ts" />
 
-/// <reference path="./class/element/abstract-element.d.ts" />
+/// <reference path="./class/element/base-element.d.ts" />
 /// <reference path="./class/element/element.d.ts" />
 
 /// <reference path="./class/text/text-display.d.ts" />

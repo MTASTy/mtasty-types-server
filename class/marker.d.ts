@@ -1,4 +1,4 @@
-declare class Marker extends AbstractElement {
+declare class Marker extends BaseElement {
   markerType: string;
   icon: string;
   size: number;

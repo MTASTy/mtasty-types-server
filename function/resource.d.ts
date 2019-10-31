@@ -370,7 +370,7 @@ declare function getResourceConfig(filePath: string): XML | false;
  * @returns Returns an element of the resource's dynamic element root if the resource specified was valid and active (currently running), false otherwise.
  * @see https://wiki.mtasa.com/wiki/GetResourceDynamicElementRoot
  **/
-declare function getResourceDynamicElementRoot(theResource: Resource): Element | false;
+declare function getResourceDynamicElementRoot(theResource: Resource): BaseElement | false;
 
 /**
  * Returns an array containing the names of the functions that a resource exports.
@@ -430,7 +430,7 @@ declare function getResourceLoadTime(theResource: Resource): number | false;
  * @returns Returns an the resource's map root element if the map exists and resource specified was valid and active (currently running), false otherwise.
  * @see https://wiki.mtasa.com/wiki/GetResourceMapRootElement
  **/
-declare function getResourceMapRootElement(theResource: Resource, mapName: string): Element | false;
+declare function getResourceMapRootElement(theResource: Resource, mapName: string): BaseElement | false;
 
 /**
  * This function gets the name of the specified resource.
@@ -457,7 +457,7 @@ declare function getResourceOrganizationalPath(theResource: Resource): string | 
  * @returns Returns an element representing the resource's root, false if the specified resource doesn't exist.
  * @see https://wiki.mtasa.com/wiki/GetResourceRootElement
  **/
-declare function getResourceRootElement(theResource?: Resource): Element | false;
+declare function getResourceRootElement(theResource?: Resource): BaseElement | false;
 
 declare enum ResourceState {
   Loaded = "loaded",

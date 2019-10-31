@@ -40,7 +40,7 @@ declare function getCameraMatrix(thePlayer: Player): [number, number, number, nu
  * @returns Returns an element of the target if the function was successful, or false if bad arguments were specified.
  * @see https://wiki.mtasa.com/wiki/GetCameraTarget
  **/
-declare function getCameraTarget(thePlayer: Player): Element | false;
+declare function getCameraTarget(thePlayer: Player): BaseElement | false;
 
 /**
  * Sets the interior of the local camera.

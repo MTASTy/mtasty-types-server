@@ -365,7 +365,7 @@ declare function setPlayerTeam(thePlayer: Player, theTeam: Team | undefined): bo
  * @returns Returns true if the value was set successfully, false otherwise.
  * @see https://wiki.mtasa.com/wiki/SetPlayerVoiceBroadcastTo
  **/
-declare function setPlayerVoiceBroadcastTo(thePlayer: Player, broadcastTo: Element | Element[]): boolean;
+declare function setPlayerVoiceBroadcastTo(thePlayer: Player, broadcastTo: BaseElement | BaseElement[]): boolean;
 
 /**
  * This function allows you to mute voices for a player.
@@ -375,7 +375,7 @@ declare function setPlayerVoiceBroadcastTo(thePlayer: Player, broadcastTo: Eleme
  * @returns Returns true if the value was set successfully, false otherwise.
  * @see https://wiki.mtasa.com/wiki/SetPlayerVoiceIgnoreFrom
  **/
-declare function setPlayerVoiceIgnoreFrom(thePlayer: Player, ignoreFrom: Element | Element[]): boolean;
+declare function setPlayerVoiceIgnoreFrom(thePlayer: Player, ignoreFrom: BaseElement | BaseElement[]): boolean;
 
 /**
  * This function is used to set a player's wanted level.

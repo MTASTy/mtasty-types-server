@@ -48,7 +48,7 @@ declare function addEvent(eventName: string, allowRemoteTrigger?: boolean): bool
  * @returns Returns true if the event handler was attached successfully. Returns false if the specified event could not be found or any parameters were invalid.
  * @see https://wiki.mtasa.com/wiki/AddEventHandler
  **/
-declare function addEventHandler(eventName: string, attachedTo: Element, handlerFunction: EventHandler, getPropagated?: boolean, priority?: "high" | "normal" | "low"): boolean;
+declare function addEventHandler(eventName: string, attachedTo: BaseElement, handlerFunction: EventHandler, getPropagated?: boolean, priority?: "high" | "normal" | "low"): boolean;
 
 /**
  * This function is used to stop the automatic internal handling of events, for example this can be used to prevent an item being given to a player when they walk over a pickup, by canceling the onPickupUse event.
@@ -87,7 +87,7 @@ declare function getCancelReason(): string;
  * @returns Returns an array with attached functions, empty array otherwise.
  * @see https://wiki.mtasa.com/wiki/GetEventHandlers
  **/
-declare function getEventHandlers(eventName: string, attachedTo: Element): EventHandler[];
+declare function getEventHandlers(eventName: string, attachedTo: BaseElement): EventHandler[];
 
 /**
  * Gets the currently queued latent events.
@@ -117,7 +117,7 @@ declare function getLatentEventStatus(thePlayer: Player, handle: number): Latent
  * @returns Returns true if the event handler was removed successfully. Returns false if the specified event handler could not be found or invalid parameters were passed.
  * @see https://wiki.mtasa.com/wiki/RemoveEventHandler
  **/
-declare function removeEventHandler(eventName: string, attachedTo: Element, functionVar: EventHandler): boolean;
+declare function removeEventHandler(eventName: string, attachedTo: BaseElement, functionVar: EventHandler): boolean;
 
 /**
  * This function will trigger a named event on a specific element in the element tree.
@@ -135,7 +135,7 @@ declare function removeEventHandler(eventName: string, attachedTo: Element, func
  * @returns Returns undefined if the arguments are invalid or the event could not be found. Returns true if the event was triggered successfully, and was not cancelled using cancelEvent. Returns false if the event was triggered successfully, and was cancelled using cancelEvent.
  * @see https://wiki.mtasa.com/wiki/TriggerEvent
  **/
-declare function triggerEvent(eventName: string, baseElement: Element, ...args: any[]): undefined | boolean;
+declare function triggerEvent(eventName: string, baseElement: BaseElement, ...args: any[]): undefined | boolean;
 
 /**
  * This function triggers an event previously registered on a client.
@@ -156,7 +156,7 @@ declare function triggerEvent(eventName: string, baseElement: Element, ...args: 
  * @returns Returns true if the event trigger has been sent, false if invalid arguments were specified.
  * @see https://wiki.mtasa.com/wiki/TriggerClientEvent
  **/
-declare function triggerClientEvent(sendTo: Element | Element[], name: string, sourceElement: Element, ...args: any[]): boolean;
+declare function triggerClientEvent(sendTo: BaseElement | BaseElement[], name: string, sourceElement: BaseElement, ...args: any[]): boolean;
 
 /**
  * This function triggers an event previously registered on a client.
@@ -176,7 +176,7 @@ declare function triggerClientEvent(sendTo: Element | Element[], name: string, s
  * @returns Returns true if the event trigger has been sent, false if invalid arguments were specified.
  * @see https://wiki.mtasa.com/wiki/TriggerClientEvent
  **/
-declare function triggerClientEvent(name: string, sourceElement: Element, ...args: any[]): boolean;
+declare function triggerClientEvent(name: string, sourceElement: BaseElement, ...args: any[]): boolean;
 
 /**
  * This function is the same as triggerClientEvent except the transmission rate of the data contained in the arguments can be limited
@@ -191,7 +191,7 @@ declare function triggerClientEvent(name: string, sourceElement: Element, ...arg
  * @returns Returns true if the event trigger has been sent, false if invalid arguments were specified.
  * @see https://wiki.mtasa.com/wiki/TriggerLatentClientEvent
  **/
-declare function triggerLatentClientEvent(sendTo: Element | Element[], name: string, bandwidth: number, persist: boolean, theElement: Element, ...args: any[]): boolean;
+declare function triggerLatentClientEvent(sendTo: BaseElement | BaseElement[], name: string, bandwidth: number, persist: boolean, theElement: BaseElement, ...args: any[]): boolean;
 
 /**
  * This function is the same as triggerClientEvent except the transmission rate of the data contained in the arguments can be limited
@@ -205,7 +205,7 @@ declare function triggerLatentClientEvent(sendTo: Element | Element[], name: str
  * @returns Returns true if the event trigger has been sent, false if invalid arguments were specified.
  * @see https://wiki.mtasa.com/wiki/TriggerLatentClientEvent
  **/
-declare function triggerLatentClientEvent(sendTo: Element | Element[], name: string, bandwidth: number, theElement: Element, ...args: any[]): boolean;
+declare function triggerLatentClientEvent(sendTo: BaseElement | BaseElement[], name: string, bandwidth: number, theElement: BaseElement, ...args: any[]): boolean;
 
 /**
  * This function is the same as triggerClientEvent except the transmission rate of the data contained in the arguments can be limited
@@ -219,7 +219,7 @@ declare function triggerLatentClientEvent(sendTo: Element | Element[], name: str
  * @returns Returns true if the event trigger has been sent, false if invalid arguments were specified.
  * @see https://wiki.mtasa.com/wiki/TriggerLatentClientEvent
  **/
-declare function triggerLatentClientEvent(sendTo: Element | Element[], name: string, persist: boolean, theElement: Element, ...args: any[]): boolean;
+declare function triggerLatentClientEvent(sendTo: BaseElement | BaseElement[], name: string, persist: boolean, theElement: BaseElement, ...args: any[]): boolean;
 
 /**
  * This function is the same as triggerClientEvent except the transmission rate of the data contained in the arguments can be limited
@@ -232,7 +232,7 @@ declare function triggerLatentClientEvent(sendTo: Element | Element[], name: str
  * @returns Returns true if the event trigger has been sent, false if invalid arguments were specified.
  * @see https://wiki.mtasa.com/wiki/TriggerLatentClientEvent
  **/
-declare function triggerLatentClientEvent(sendTo: Element | Element[], name: string, theElement: Element, ...args: any[]): boolean;
+declare function triggerLatentClientEvent(sendTo: BaseElement | BaseElement[], name: string, theElement: BaseElement, ...args: any[]): boolean;
 
 /**
  * This function is the same as triggerClientEvent except the transmission rate of the data contained in the arguments can be limited
@@ -246,7 +246,7 @@ declare function triggerLatentClientEvent(sendTo: Element | Element[], name: str
  * @returns Returns true if the event trigger has been sent, false if invalid arguments were specified.
  * @see https://wiki.mtasa.com/wiki/TriggerLatentClientEvent
  **/
-declare function triggerLatentClientEvent(name: string, bandwidth: number, persist: boolean, theElement: Element, ...args: any[]): boolean;
+declare function triggerLatentClientEvent(name: string, bandwidth: number, persist: boolean, theElement: BaseElement, ...args: any[]): boolean;
 
 /**
  * This function is the same as triggerClientEvent except the transmission rate of the data contained in the arguments can be limited
@@ -259,7 +259,7 @@ declare function triggerLatentClientEvent(name: string, bandwidth: number, persi
  * @returns Returns true if the event trigger has been sent, false if invalid arguments were specified.
  * @see https://wiki.mtasa.com/wiki/TriggerLatentClientEvent
  **/
-declare function triggerLatentClientEvent(name: string, bandwidth: number, theElement: Element, ...args: any[]): boolean;
+declare function triggerLatentClientEvent(name: string, bandwidth: number, theElement: BaseElement, ...args: any[]): boolean;
 
 /**
  * This function is the same as triggerClientEvent except the transmission rate of the data contained in the arguments can be limited
@@ -272,7 +272,7 @@ declare function triggerLatentClientEvent(name: string, bandwidth: number, theEl
  * @returns Returns true if the event trigger has been sent, false if invalid arguments were specified.
  * @see https://wiki.mtasa.com/wiki/TriggerLatentClientEvent
  **/
-declare function triggerLatentClientEvent(name: string, persist: boolean, theElement: Element, ...args: any[]): boolean;
+declare function triggerLatentClientEvent(name: string, persist: boolean, theElement: BaseElement, ...args: any[]): boolean;
 
 /**
  * This function is the same as triggerClientEvent except the transmission rate of the data contained in the arguments can be limited
@@ -284,7 +284,7 @@ declare function triggerLatentClientEvent(name: string, persist: boolean, theEle
  * @returns Returns true if the event trigger has been sent, false if invalid arguments were specified.
  * @see https://wiki.mtasa.com/wiki/TriggerLatentClientEvent
  **/
-declare function triggerLatentClientEvent(name: string, theElement: Element, ...args: any[]): boolean;
+declare function triggerLatentClientEvent(name: string, theElement: BaseElement, ...args: any[]): boolean;
 
 /**
  * This function checks if the last completed event was cancelled.

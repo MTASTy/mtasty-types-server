@@ -1,4 +1,4 @@
-declare class ColShapeTube extends AbstractColShape {
+declare class ColShapeTube extends ColShape {
   // lua_classfunction(luaVM, "Circle", "createColCircle");
   // lua_classfunction(luaVM, "Cuboid", "createColCuboid");
   // lua_classfunction(luaVM, "Rectangle", "createColRectangle");

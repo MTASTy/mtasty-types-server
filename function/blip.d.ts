@@ -34,7 +34,7 @@ declare function createBlip(x: number, y: number, z: number, icon?: number, size
  * @returns Returns an element of the blip if it was created successfully, false otherwise.
  * @see https://wiki.mtasa.com/wiki/CreateBlipAttachedTo
  **/
-declare function createBlipAttachedTo(elementToAttachTo: Element, icon?: number, size?: number, r?: number, g?: number, b?: number, a?: number, ordering?: number, visibleDistance?: number, visibleTo?: Player): Blip | false;
+declare function createBlipAttachedTo(elementToAttachTo: BaseElement, icon?: number, size?: number, r?: number, g?: number, b?: number, a?: number, ordering?: number, visibleDistance?: number, visibleTo?: Player): Blip | false;
 
 /**
  * This function will tell you what color a blip is. This color is only applicable to the default blip icon.

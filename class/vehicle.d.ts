@@ -1,4 +1,4 @@
-declare class Vehicle extends AbstractElement {
+declare class Vehicle extends BaseElement {
   damageProof: boolean;
   locked: boolean;
   derailable: boolean;

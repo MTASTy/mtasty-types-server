@@ -50,7 +50,7 @@ declare class XML {
    * @returns Returns an element that corresponds to the root of the new data added, i.e. an element that represents the node xmlnode passed to the function. Returns false if the argument are invalid.
    * @see https://wiki.mtasa.com/wiki/LoadMapData
    **/
-  loadMapData(parent: Element): Element | false;
+  loadMapData(parent: BaseElement): BaseElement | false;
 
   /**
    * This converts a set of elements in the element tree into XML.
@@ -61,7 +61,7 @@ declare class XML {
    * @returns Returns true if the map was saved successfully, otherwise false.
    * @see https://wiki.mtasa.com/wiki/SaveMapData
    **/
-  saveMapData(baseElement: Element, childrenOnly?: boolean): boolean;
+  saveMapData(baseElement: BaseElement, childrenOnly?: boolean): boolean;
 
   /**
    * This function is made to be able to read tag values in XML files (eg. <something>anything</something>).

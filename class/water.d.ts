@@ -1,4 +1,4 @@
-declare class Water extends AbstractElement {
+declare class Water extends BaseElement {
   // level: number; // Change only
 
   // static resetColor(): boolean;
