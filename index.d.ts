@@ -1,6 +1,15 @@
 /// <reference path="./class/acl/acl-group.d.ts" />
 /// <reference path="./class/acl/acl.d.ts" />
 
+/// <reference path="./class/colshape/abstract-colshape.d.ts" />
+/// <reference path="./class/colshape/colshape.d.ts" />
+/// <reference path="./class/colshape/colshape-circle.d.ts" />
+/// <reference path="./class/colshape/colshape-cuboid.d.ts" />
+/// <reference path="./class/colshape/colshape-polygon.d.ts" />
+/// <reference path="./class/colshape/colshape-rectangle.d.ts" />
+/// <reference path="./class/colshape/colshape-sphere.d.ts" />
+/// <reference path="./class/colshape/colshape-tube.d.ts" />
+
 /// <reference path="./class/element/abstract-element.d.ts" />
 /// <reference path="./class/element/element.d.ts" />
 
@@ -15,7 +24,6 @@
 /// <reference path="./class/account.d.ts" />
 /// <reference path="./class/ban.d.ts" />
 /// <reference path="./class/blip.d.ts" />
-/// <reference path="./class/colshape.d.ts" />
 /// <reference path="./class/connection.d.ts" />
 /// <reference path="./class/file.d.ts" />
 /// <reference path="./class/marker.d.ts" />

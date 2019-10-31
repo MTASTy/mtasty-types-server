@@ -1,6 +1,4 @@
-declare class ColShape extends AbstractElement {
-  readonly shapeType: number;
-
+declare class ColShapeTube extends AbstractColShape {
   // lua_classfunction(luaVM, "Circle", "createColCircle");
   // lua_classfunction(luaVM, "Cuboid", "createColCuboid");
   // lua_classfunction(luaVM, "Rectangle", "createColRectangle");
