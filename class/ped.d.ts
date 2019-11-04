@@ -1,3 +1,4 @@
+/** @customConstructor Ped */
 declare class Ped extends BaseElement {
   readonly inVehicle: boolean;
   readonly ducked: boolean;
@@ -20,7 +21,13 @@ declare class Ped extends BaseElement {
   walkingStyle: number;
   jetpack: boolean;
 
-  // static getValidModels(): number[];
+  // TODO: check
+  /**
+   * This function returns all valid ped models.
+   * @returns Returns an array with all valid ped models.
+   * @see https://wiki.mtasa.com/wiki/GetValidPedModels
+   **/
+  static getValidModels(): number[];
 
   /**
    * Creates a Ped in the GTA world.
