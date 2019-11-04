@@ -1,4 +1,7 @@
+/** @customConstructor QueryHandle */
 declare class QueryHandle {
+  protected constructor();
+
   /**
    * This function checks the progress of a database query.
    * @param timeout How many milliseconds to wait for a result. Use 0 for an instant response (which may return nil). Use -1 to wait until a result is ready. Note: A wait here will freeze the entire server just like the executeSQL* functions.
