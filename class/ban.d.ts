@@ -1,3 +1,4 @@
+/** @customConstructor Ban */
 declare class Ban {
   admin: string | false;
   readonly IP: string | false;
@@ -7,8 +8,19 @@ declare class Ban {
   reason: string | false;
   nick: string | false;
 
-  // static getList(): Ban[];
-  // static reload(): boolean;
+  /**
+   * This function will return an array containing all the bans present in the server's banlist.xml.
+   * @returns Returns an array containing all the bans.
+   * @see https://wiki.mtasa.com/wiki/GetBans
+   **/
+  static getList(): Ban[];
+
+  /**
+   * This function will reload the server ban list file.
+   * @returns Returns true if the ban list was reloaded successfully, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/ReloadBans
+   **/
+  static reload(): boolean;
 
   /**
    * This function will add a ban for the specified IP/username/serial to the server.
