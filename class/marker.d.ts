@@ -1,10 +1,16 @@
+/** @customConstructor Marker */
 declare class Marker extends BaseElement {
   markerType: string;
   icon: string;
   size: number;
   target: Vector3 | false;
 
-  // static getCount(): number;
+  /**
+   * Returns the number of markers that currently exist in the world.
+   * @returns Returns the number of markers that currently exist.
+   * @see https://wiki.mtasa.com/wiki/GetMarkerCount
+   **/
+  static getCount(): number;
 
   /**
    * This function creates a marker.
