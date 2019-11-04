@@ -1,3 +1,4 @@
+/** @customConstructor Vehicle */
 declare class Vehicle extends BaseElement {
   damageProof: boolean;
   locked: boolean;
@@ -38,13 +39,65 @@ declare class Vehicle extends BaseElement {
   readonly handling: VehicleHandling;
   readonly occupant: Player; // Seat: 0
 
-  // static getModelFromName(name: string): number | false;
-  // static getNameFromModel(model: number): string | false;
-  // static getAllOfType(model: number): Vehicle[];
-  // static getModelHandling(modelId: number): VehicleHandling | false;
-  // static setModelHandling(modelID: number, property: string, value: any): boolean;
-  // static getOriginalHandling(modelID: number): VehicleHandling | false;
-  // static getUpgradeSlotName(slotOrUpgrade: number): string | false;
+  /**
+   * This function retrieves the model ID of a vehicle as an number value from its name.
+   * @param name A string containing the name of the vehicle.
+   * @returns Returns an number if the name exists, false otherwise. If you use this function on vehicles with shared names, such as "police", it will return the earliest occurrence of that vehicle's ID.
+   * @see https://wiki.mtasa.com/wiki/GetVehicleModelFromName
+   **/
+  static getModelFromName(name: string): number | false;
+
+  /**
+   * Gets the name of a vehicle by its model ID.
+   * @param model This is the vehicle model ID.
+   * @returns Returns the name of the vehicle if the model ID was valid, empty string otherwise.
+   * @see https://wiki.mtasa.com/wiki/GetVehicleNameFromModel
+   **/
+  static getNameFromModel(model: number): string | false;
+
+  /**
+   * This function scans through all the current vehicles and returns the ones matching the given model.
+   * @param model The model of vehicles you want.
+   * @returns Returns an array of existing vehicles matching the specified model.
+   * @see https://wiki.mtasa.com/wiki/GetVehiclesOfType
+   **/
+  static getAllOfType(model: number): Vehicle[];
+
+  /**
+   * This function returns an object containing the handling data of the specified vehicle model.
+   * - Note: the data returned may not reflect the actual handling of a particular vehicle, since this may be overriden by the setVehicleHandling function.
+   * @param modelId the vehicle model you wish to get the handling data of.
+   * @returns Returns an object containing all the handling data, false if an invalid vehicle model is specified.
+   * @see https://wiki.mtasa.com/wiki/GetModelHandling
+   **/
+  static getModelHandling(modelId: number): VehicleHandling | false;
+
+  /**
+   * This function is used to change the handling data of all vehicles of a specified model.
+   * @param modelID The vehicle model you wish to set the handling of.
+   * @param property The property you wish to set the handling of the vehicle to, or undefined if you want to reset the all the handling properties.
+   * @param value The value of the models's handling property you wish to set, or undefined if you want to reset the handling property to its default value.
+   * @returns Returns true if the handling was set successfully, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/SetModelHandling
+   **/
+  static setModelHandling(modelID: number, property: string, value: any): boolean;
+
+  /**
+   * This function returns an object of the original vehicle handling.
+   * Use getVehicleHandling if you wish to get the current handling of a vehicle, or getModelHandling for a specific vehicle model.
+   * @param modelID The vehicle ID you wish to get the original handling from.
+   * @returns Returns an object containing all the handling data, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/GetOriginalHandling
+   **/
+  static getOriginalHandling(modelID: number): VehicleHandling | false;
+
+  /**
+   * This function returns the name of an upgrade slot name (e.g. roof, spoiler).
+   * @param slotOrUpgrade the slot ID or corresponding upgrade ID of which you want the name.
+   * @returns Returns a string with the slot name if a valid slot or upgrade ID was given, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/GetVehicleUpgradeSlotName
+   **/
+  static getUpgradeSlotName(slotOrUpgrade: number): string | false;
 
   /**
    * This function creates a vehicle at the specified location.
@@ -70,7 +123,7 @@ declare class Vehicle extends BaseElement {
    * This function will blow up a vehicle.
    * This will cause an explosion and will kill the driver and any passengers inside it.
    * @param [explode=true] if this argument is true then the vehicle will explode, otherwise it will just be blown up silently.
-   * @returns Returns true if the vehicle was blown up, false if invalid arguments were passed to the function.
+   * @returns Returns true if the vehicle was blown up.
    * @see https://wiki.mtasa.com/wiki/BlowVehicle
    **/
   blow(explode?: boolean): boolean;
@@ -78,7 +131,7 @@ declare class Vehicle extends BaseElement {
   /**
    * This function will set a vehicle's health to full and fix its damage model.
    * If you wish to only change the vehicle's health, without affecting its damage model, use setElementHealth.
-   * @returns Returns true if the vehicle was fixed, false if theVehicle is invalid.
+   * @returns Returns true if the vehicle was fixed.
    * @see https://wiki.mtasa.com/wiki/FixVehicle
    **/
   fix(): boolean;
@@ -132,14 +185,14 @@ declare class Vehicle extends BaseElement {
 
   /**
    * This function respawns a vehicle according to its set respawn position, set by setVehicleRespawnPosition or the position and rotation it was created on. To spawn a vehicle to a specific location just once, spawnVehicle can be used.
-   * @returns Returns true if the vehicle respawned successfully, false if the passed argument does not exist or is not a vehicle.
+   * @returns Returns true if the vehicle respawned successfully.
    * @see https://wiki.mtasa.com/wiki/RespawnVehicle
    **/
   respawn(): boolean;
 
   /**
    * This function respawns a vehicle according to its set respawn position, set by setVehicleRespawnPosition or the position and rotation it was created on. To spawn a vehicle to a specific location just once, spawnVehicle can be used.
-   * @returns Returns true if the vehicle respawned successfully, false if the passed argument does not exist or is not a vehicle.
+   * @returns Returns true if the vehicle respawned successfully.
    * @see https://wiki.mtasa.com/wiki/RespawnVehicle
    **/
   spawn(): boolean;
@@ -174,7 +227,7 @@ declare class Vehicle extends BaseElement {
 
   /**
    * This function checks if a vehicle is damage proof (set with setVehicleDamageProof).
-   * @returns Returns true if the vehicle is damage proof, false if it isn't or if invalid arguments were passed.
+   * @returns Returns true if the vehicle is damage proof.
    * @see https://wiki.mtasa.com/wiki/IsVehicleDamageProof
    **/
   isDamageProof(): boolean;
@@ -216,7 +269,7 @@ declare class Vehicle extends BaseElement {
 
   /**
    * This function allows you to determine whether a vehicle is blown or still intact.
-   * @returns Returns true if the vehicle specified has blown up, false if it is still intact or the vehicle specified is invalid.
+   * @returns Returns true if the vehicle specified has blown up, false if it is still intact.
    * @see https://wiki.mtasa.com/wiki/IsVehicleBlown
    **/
   isBlown(): boolean;
@@ -239,7 +292,7 @@ declare class Vehicle extends BaseElement {
    * This function gets the variant of a specified vehicle.
    * In GTA SA some vehicles are different for example the labelling on trucks or the contents of a pick-up truck and the varying types of a motor bike.
    * Variants list: https://wiki.mtasa.com/wiki/Vehicle_variants
-   * @returns Two numbers of vehicle variant or false because the specified vehicle didn't exist.
+   * @returns Two numbers of vehicle variant or false.
    * @see https://wiki.mtasa.com/wiki/GetVehicleVariant
    * @tupleReturn
    **/
@@ -363,7 +416,7 @@ declare class Vehicle extends BaseElement {
 
   /**
    * This function gets all peds sitting in the specified vehicle.
-   * @returns Returns an object with seat ID as an index and the occupant as an element. Returns false if an invalid vehicle was passed or if the vehicle has no seats (like a trailer).
+   * @returns Returns an object with seat ID as an index and the occupant as an element. Returns false if the vehicle has no seats (like a trailer).
    * @see https://wiki.mtasa.com/wiki/GetVehicleOccupants
    **/
   getOccupants(): {[seat: number]: Ped} | false;
@@ -400,7 +453,7 @@ declare class Vehicle extends BaseElement {
 
   /**
    * This function returns whether the sirens are turned on for the specified vehicle.
-   * @returns Returns true if the sirens are turned on for the specified vehicle, false if the sirens are turned off for the specified vehicle, if the vehicle doesn't have sirens or if invalid arguments are specified.
+   * @returns Returns true if the sirens are turned on for the specified vehicle, false if the sirens are turned off for the specified vehicle, if the vehicle doesn't have sirens.
    * @see https://wiki.mtasa.com/wiki/GetVehicleSirensOn
    **/
   areSirensOn(): boolean;
@@ -436,7 +489,7 @@ declare class Vehicle extends BaseElement {
 
   /**
    * This function retrieves the type of a vehicle (such as if it is a car or a boat).
-   * @returns Returns a string with vehicle type or false if an invalid modelID has been supplied, or an empty string if the vehicle is blocked internally (some trailers).
+   * @returns Returns a string with vehicle type or an empty string if the vehicle is blocked internally (some trailers).
    * @see https://wiki.mtasa.com/wiki/GetVehicleType
    **/
   getVehicleType(): string; // This isn't "getType" because it would overwrite Element.getType
