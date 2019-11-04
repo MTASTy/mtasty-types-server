@@ -1,3 +1,4 @@
+/** @customConstructor Account */
 declare class Account {
   readonly serial: string;
   readonly name: string;
@@ -8,13 +9,64 @@ declare class Account {
   // password: string; // Change only
   readonly data: {[key: string]: any};
 
-  // static getAll(): Account[];
-  // static getAllByData(dataName: string, value: string | number | boolean): Account[] | false;
-  // static getAllBySerial(serial: string): Account[] | false;
-  // static getAllByIP(ip: string): Account[] | false;
-  // static getFromPlayer(thePlayer: Player): Account | false;
-  // static logPlayerOut(thePlayer: Player): boolean | undefined;
-  // static create(username: string, password: string, caseSensitive?: boolean): Account | false;
+  /**
+   * This function returns an array over all the accounts that exist in the server internal.db file.
+   * - (Note: accounts.xml is no longer used after version 1.0.4).
+   * @returns An array over the accounts that exist in the server internal.db file. This array might be empty.
+   * @see https://wiki.mtasa.com/wiki/GetAccounts
+   **/
+  static getAll(): Account[];
+
+  /**
+   * This function returns an array containing all accounts with specified dataName and value (set with setAccountData).
+   * @param dataName The name of the data.
+   * @param value The value the dataName should have.
+   * @returns Returns array containing the accounts associated with specified value at dataName. Returns false if invalid arguments were specified.
+   * @see https://wiki.mtasa.com/wiki/GetAccountsByData
+   **/
+  static getAllByData(dataName: string, value: string | number | boolean): Account[] | false;
+
+  /**
+   * This function returns an array containing all accounts that were logged onto from specified serial. If the serial is empty string, it will return all accounts that were never logged onto.
+   * @param serial The serial to get accounts from.
+   * @returns Returns array containing the accounts associated with specified serial. Returns false if invalid arguments were specified.
+   * @see https://wiki.mtasa.com/wiki/GetAccountsBySerial
+   **/
+  static getAllBySerial(serial: string): Account[] | false;
+
+  /**
+   * This function returns an array containing all accounts that were logged onto from specified IP-address.
+   * @param ip The IP to get accounts from.
+   * @returns Returns array containing the accounts associated with specified IP-address. Returns false if invalid arguments were specified.
+   * @see https://wiki.mtasa.com/wiki/GetAccountsByIP
+   **/
+  static getAllByIP(ip: string): Account[] | false;
+
+  /**
+   * This function returns the specified player's account.
+   * @param thePlayer The player element you want to get the account of.
+   * @returns Returns the player's account or false if the player passed to the function is invalid.
+   * @see https://wiki.mtasa.com/wiki/GetPlayerAccount
+   **/
+  static getFromPlayer(thePlayer: Player): Account | false;
+
+  /**
+   * This function logs the given player out of his current account.
+   * @param thePlayer The player to log out of his current account.
+   * @returns Returns true if the player was successfully logged out, false or undefined if it failed for some reason, ie. the player was never logged in.
+   * @see https://wiki.mtasa.com/wiki/LogOut
+   **/
+  static logPlayerOut(thePlayer: Player): boolean | undefined;
+
+  /**
+   * This function returns an account for a specific user.
+   * @param username The username of the account you want to retrieve.
+   * @param password The password for the account.If this argument is not specified, you can get the account whatever password it is, otherwise the password must match the account's.
+   * @param [caseSensitive=true] Specifies whether to ignore the case when searching for an account.
+   * @returns Returns an account or false if an account matching the username specified (and password, if specified) could not be found.
+   * @see https://wiki.mtasa.com/wiki/GetAccount
+   **/
+  static create(username: string, password: string, caseSensitive?: boolean): Account | false;
 
   /**
    * This function adds an account to the list of registered accounts of the current server.
