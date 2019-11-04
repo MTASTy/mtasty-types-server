@@ -1,3 +1,4 @@
+/** @customConstructor Resource */
 declare class Resource {
   readonly dynamicElementRoot: BaseElement | false;
   readonly exportedFunctions: string[];
@@ -11,17 +12,95 @@ declare class Resource {
   readonly archived: boolean;
   readonly loadFailureReason: string;
 
-  // static addConfig(filePath: string, filetype?: string): XML | false;
-  // static addMap(filePath: string, dimension?: number): XML | false;
-  // static getConfig(filePath: string): XML | false;
+  /**
+   * This function adds a new empty config file to an existing resource.
+   * @param filePath The filepath of the file to be created in the following format ":resourceName/path". 'resourceName' is the name of the resource the file is in, and 'path' is the path from the root directory of the resource to the file.
+   * @param [filetype=server] a string indicating whether the file is serverside ("server") or clientside ("client").
+   * @returns Returns the new config's root xmlnode if the config was added successfully, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/AddResourceConfig
+   **/
+  static addConfig(filePath: string, filetype?: string): XML | false;
 
-  // static getFromName(resourceName: string): Resource | false;
-  // static getAll(): Resource[];
-  // static getThis(): Resource;
-  // static refresh(refreshAll?: boolean, targetResource?: Resource): boolean;
-  // static rename(resourceName: string, newResourceName: string, organizationalPath?: string): boolean;
-  // static delete(resourceName: string): boolean;
-  // static call(...arguments: any[]): any;
+  /**
+   * This function adds a new empty mapfile to an existing resource.
+   * - Note: You can't add a map to a running resource.
+   * @param filePath The filepath of the resource map in the following format
+   * @param [dimension=0] the dimension in which the map's objects will be placed.
+   * @returns Returns the new map's root xmlnode if the map was added successfully, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/AddResourceMap
+   **/
+  static addMap(filePath: string, dimension?: number): XML | false;
+
+  /**
+   * This function is used to return the root node of a configuration file. Config files must be predefined in a resource's meta file. An alternative way to load XML files is to use xmlLoadFile.
+   * @param filePath The filepath of the file in the following format: ":resourceName/path". 'resourceName' is the name of the resource the file is in, and 'path' is the path from the root directory of the resource to the file.
+   * @returns Returns the root node of the specified configuration file. If the file is corrupted, not defined in the meta file or doesn't exist, returns false.
+   * @see https://wiki.multitheftauto.com/wiki/GetResourceConfig
+   **/
+  static getConfig(filePath: string): XML | false;
+
+  /**
+   * This function is used to retrieve a resource from its name.
+   * A resource's name is the same as its folder or file archive name on the server (without the extension).
+   * @param resourceName the name of the resource you wish to get.
+   * @returns Returns the resource with the specified name, or false if no resource of that name exists.
+   * @see https://wiki.mtasa.com/wiki/GetResourceFromName
+   **/
+  static getFromName(resourceName: string): Resource | false;
+
+  /**
+   * This function retrieves an array of all the resources that exist on the server.
+   * @returns Returns an array of resources.
+   * @see https://wiki.mtasa.com/wiki/GetResources
+   **/
+  static getAll(): Resource[];
+
+  /**
+   * This function retrieves the resource from which the function call was made.
+   * - Note: Every resource has a predefined global variable called resource that contains the resource pointer for that resource, in other words, the value that this function returns.
+   * @returns Returns the resource in which the current script is.
+   * @see https://wiki.mtasa.com/wiki/GetThisResource
+   **/
+  static getThis(): Resource;
+
+  /**
+   * This function finds new resources and checks for changes to the current ones.
+   * @param [refreshAll=false] If true MTA will check for changes in all resources. If false, MTA will only check for new resources and try to reload resources with errorsNote: Checking for changes in all resources can result in lag for a short period of time. It should generally be avoided to set refreshAll to true.
+   * @param [targetResource=undefined] If set, the refresh is restricted to the supplied resource only.
+   * @returns Returns true if refresh was successful, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/RefreshResources
+   **/
+  static refresh(refreshAll?: boolean, targetResource?: Resource): boolean;
+
+  /**
+   * This function renames a resource.
+   * @param resourceName The name of resource to rename.
+   * @param newResourceName The name of what the resource should be renamed to.
+   * @param organizationalPath If you want to store the new resource inside a category.
+   * @returns Returns true if the resource has been renamed successfully, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/RenameResource
+   **/
+  static rename(resourceName: string, newResourceName: string, organizationalPath?: string): boolean;
+
+  /**
+   * This function deletes a resource from the MTA memory and moves it to the /resources-cache/trash/ directory.
+   * @param resourceName The name of resource to delete.
+   * @returns Returns true if the resource has been deleted successfully, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/DeleteResource
+   **/
+  static delete(resourceName: string): boolean;
+
+  /**
+   * This function is used to call a function from another resource (which must be running).
+   * The function which you wish to call must first be exported within the resource's meta.
+   * You cannot call a server function from the client or vice versa. See triggerServerEvent and triggerClientEvent for possibilities to do that.
+   * - Note: Calls may incur a performance overhead - they are not equivalent in performance to calling functions in the same resource.
+   * - Important note: The sourceResource and sourceResourceRoot "hidden" variables are available even if you use exports.*:*
+   * @param arguments Any arguments you may want to pass to the function when it is called.Any number of arguments of can be specified, each being passed to the designated function.
+   * @returns Returns anything that the designated function has returned, if the function has no return, undefined is returned. If the function does not exist, is not exported, or the call was not successful it will return false.Returns anything that the designated function has returned, if the function has no return, undefined is returned. If the function does not exist, is not exported, or the call was not successful it will return false.
+   * @see https://wiki.mtasa.com/wiki/Call
+   **/
+  static call(...arguments: any[]): any;
 
   /**
    * This function creates an new, empty resource.
