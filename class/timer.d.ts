@@ -1,3 +1,4 @@
+/** @customConstructor Timer */
 declare class Timer {
   readonly valid: boolean;
 
