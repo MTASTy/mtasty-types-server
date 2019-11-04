@@ -11,14 +11,14 @@ declare class AclGroup {
    * @returns Returns the ACL group if it could be found. Returns false/undefined if it did not exist or failed for some reason.
    * @see https://wiki.mtasa.com/wiki/AclGetGroup
    **/
-  static aclGetGroup(groupName: string): AclGroup | false | undefined;
+  static get(groupName: string): AclGroup | false | undefined;
 
   /**
    * This function returns an array of all the ACL groups.
    * @returns Returns an array of all the ACL groups if successful, returns an empty array if no ACL groups exist. false/undefined can be returned if this function fails for some other reason.
    * @see https://wiki.mtasa.com/wiki/AclGroupList
    **/
-  static aclGroupList(): AclGroup[] | false | undefined;
+  static list(): AclGroup[] | false | undefined;
 
   /**
    * This function creates a group in the ACL.

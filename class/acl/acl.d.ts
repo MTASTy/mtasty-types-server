@@ -8,7 +8,7 @@ declare class Acl {
    * @returns Returns true if the ACL was successfully changed, false or undefined if it could not be saved for some reason, ie. file in use.
    * @see https://wiki.mtasa.com/wiki/AclSave
    **/
-  static aclSave(): boolean | undefined;
+  static save(): boolean | undefined;
 
   /**
    * Get the ACL with the given name.
@@ -17,7 +17,7 @@ declare class Acl {
    * @returns Returns the ACL with that name if it could be retrieved, false/undefined if the ACL does not exist or it fails for some other reason.
    * @see https://wiki.mtasa.com/wiki/AclGet
    **/
-  static aclGet(aclName: string): Acl | false | undefined;
+  static get(aclName: string): Acl | false | undefined;
 
   /**
    * This function reloads the ACL's and the ACL groups from the ACL XML file.
@@ -25,14 +25,14 @@ declare class Acl {
    * @returns Returns true if the XML was successfully reloaded from the file, false or undefined if the XML was invalid, didn't exist or could not be loaded for some other reason.
    * @see https://wiki.mtasa.com/wiki/AclReload
    **/
-  static aclReload(): boolean;
+  static reload(): boolean;
 
   /**
    * This function returns a list of all the ACLs.
    * @returns Returns an array of all the ACLs. This array can be empty if no ACLs exist. It can also return false/undefined if it failed for some reason.
    * @see https://wiki.mtasa.com/wiki/AclList
    **/
-  static aclList(): Acl[] | false | undefined;
+  static list(): Acl[] | false | undefined;
 
   /**
    * This function returns whether or not the given object has access to perform the given action.
