@@ -1,14 +1,58 @@
+/** @customConstructor File */
 declare class File {
   pos: number;
   readonly size: number;
   readonly eof: boolean;
   readonly path: string;
 
-  // static open(filePath: string, readOnly?: boolean): File | false;
-  // static exists(filePath: string): boolean;
-  // static copy(filePath: string, copyToFilePath: string, overwrite?: boolean): boolean;
-  // static rename(filePath: string, newFilePath: string): boolean;
-  // static delete(filePath: string): boolean;
+  /**
+   * Opens an existing file for reading and writing.
+   * - Note: To prevent memory leaks, ensure each successful call to fileOpen has a matching call to fileClose.
+   * - Tip: The file functions should not be used to implement configuration files. It is encouraged to use the XML functions for this instead.
+   * @param filePath The filepath of the file in the following format
+   * @param [readOnly=false] By default, the file is opened with reading and writing access.You can specify true for this parameter if you only need reading access.
+   * @returns If successful, returns a file handle for the file. Otherwise returns false (f.e. if the file doesn't exist).
+   * @see https://wiki.mtasa.com/wiki/FileOpen
+   **/
+  static open(filePath: string, readOnly?: boolean): File | false;
+
+  /**
+   * This functions checks whether a specified file exists inside a resource.
+   * @param filePath The filepath of the file, whose existence is going to be checked, in the following format
+   * @returns Returns true if the file exists, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/FileExists
+   **/
+  static exists(filePath: string): boolean;
+
+  /**
+   * This function copies a file.
+   * - Note: The file functions should not be used to implement configuration files. It is encouraged to use the XML functions for this instead.
+   * - Tip: If you do not want to share the content of the created file with other servers, prepend the file path with @ (See filepath for more information)
+   * @param filePath The path of the file you want to copy.
+   * @param copyToFilePath Where to copy the specified file to.
+   * @param [overwrite=false] If set to true it will overwrite a file that already exists at copyToFilePath.
+   * @returns Return true if the file was copied, else false if the 'filePath' doesn't exist.
+   * @see https://wiki.mtasa.com/wiki/FileCopy
+   **/
+  static copy(filePath: string, copyToFilePath: string, overwrite?: boolean): boolean;
+
+  /**
+   * Renames the specified file.
+   * - Note: Also with this function you can move specified file to a new location, new folder or even to another resource's folder. But for this action executing resource must have 'ModifyOtherObjects' ACL right set to true.
+   * @param filePath The filepath of the source file in the following format
+   * @param newFilePath Destination filepath for the specified source file in the same format.
+   * @returns If successful, returns true. Otherwise returns false.
+   * @see https://wiki.mtasa.com/wiki/FileRename
+   **/
+  static rename(filePath: string, newFilePath: string): boolean;
+
+  /**
+   * Deletes the specified file.
+   * @param filePath The filepath of the file to delete in the following format
+   * @returns Returns true if successful, false otherwise (for example if there exists no file with the given name, or it does exist but is in use).
+   * @see https://wiki.mtasa.com/wiki/FileDelete
+   **/
+  static delete(filePath: string): boolean;
 
   /**
    * Creates a new file in a directory of a resource.
