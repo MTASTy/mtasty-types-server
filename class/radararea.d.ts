@@ -1,3 +1,4 @@
+/** @customConstructor RadarArea */
 declare class RadarArea extends BaseElement {
   size: Vector2;
   flashing: boolean;
