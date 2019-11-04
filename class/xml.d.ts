@@ -1,3 +1,4 @@
+/** @customConstructor XML */
 declare class XML {
   value: string;
   name: string;
@@ -5,8 +6,24 @@ declare class XML {
   readonly children: XML[];
   readonly parent: XML;
 
-  // static load(filePath: string, readOnly?: boolean): XML | false;
-  // static loadstring(xmlString: string): XML | false;
+  /**
+   * This function provides an alternative way to load XML files to getResourceConfig.
+   * This function loads an XML file and returns the node by specifying a specific file path, while getResourceConfig allows for loading an XML file from a resource.
+   * - Note: To prevent memory leaks, ensure each call to xmlLoadFile has a matching call to xmlUnloadFile.
+   * @param filePath The filepath of the file in the following format: ":resourceName/path". 'resourceName' is the name of the resource the file is in, and 'path' is the path from the root directory of the resource to the file.
+   * @param [readOnly=false] By default, the XML file is opened with reading and writing access.You can specify true for this parameter if you only need reading access.
+   * @returns Returns the root xmlnode element of an xml file if successful, or false otherwise.
+   * @see https://wiki.mtasa.com/wiki/XmlLoadFile
+   **/
+  static load(filePath: string, readOnly?: boolean): XML | false;
+
+  /**
+   * This function creates an Xmlnode from a string input.
+   * @param xmlString A string containing XML data.
+   * @returns Returns the root xmlnode element of an xml string if successful, or false otherwise (invalid XML string).
+   * @see https://wiki.mtasa.com/wiki/XmlLoadString
+   **/
+  static loadstring(xmlString: string): XML | false;
 
   /**
    * This function creates a new XML document, which can later be saved to a file by using xmlSaveFile.
