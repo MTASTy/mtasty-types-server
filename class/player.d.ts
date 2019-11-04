@@ -1,3 +1,4 @@
+/** @customConstructor Player */
 declare class Player extends Ped {
   readonly account: Account;
   cameraInterior: number;
@@ -19,11 +20,41 @@ declare class Player extends Ped {
   nametagShowing: boolean;
   scriptDebugLevel: number;
 
-  // static getAllAlive(): Player[];
-  // static getAllDead(): Player[];
-  // static getRandom(): Player | false;
-  // static getCount(): number;
-  // static isVoiceEnabled(): boolean;
+  /**
+   * This function returns an array of all the alive players on the server.
+   * Opposite function of getDeadPlayers.
+   * @returns Returns an array of all the alive players.
+   * @see https://wiki.mtasa.com/wiki/GetAlivePlayers
+   **/
+  static getAllAlive(): Player[];
+
+  /**
+   * This function returns an array of all currently dead players on the server.
+   * @returns Returns an array of all the dead players.
+   * @see https://wiki.mtasa.com/wiki/GetDeadPlayers
+   **/
+  static getAllDead(): Player[];
+
+  /**
+   * This function returns a random player.
+   * @returns Returns a random player, false if the server is empty.
+   * @see https://wiki.mtasa.com/wiki/GetRandomPlayer
+   **/
+  static getRandom(): Player | false;
+
+  /**
+   * This function returns the number of players currently connected to the server.
+   * @returns Returns the number of players connected to the server as a number.
+   * @see https://wiki.mtasa.com/wiki/GetPlayerCount
+   **/
+  static getCount(): number;
+
+  /**
+   * This function allows you to make the server reveal whether or not voice is currently enabled.
+   * @returns Returns true if the voice is enabled on the server, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/IsVoiceEnabled
+   **/
+  static isVoiceEnabled(): boolean;
 
   /**
    * This function returns a player element for the player with the name passed to the function.
