@@ -1,10 +1,17 @@
+/** @customConstructor Team */
 declare class Team extends BaseElement {
   name: string;
   readonly playerCount: number;
   friendlyFire: boolean;
   readonly players: Player[];
 
-  // static getFromName(teamName: string): Team | false;
+  /**
+   * This function finds a team element using the provided team name.
+   * @param teamName A string determining the name of the team you wish to find.
+   * @returns Returns the team element if it was found, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/GetTeamFromName
+   **/
+  static getFromName(teamName: string): Team | false;
 
   /**
    * This function is for creating a new team, which can be used to group players.
