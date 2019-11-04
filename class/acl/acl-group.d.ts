@@ -1,10 +1,24 @@
+/** @customConstructor AclGroup */
 declare class AclGroup {
   readonly name: string;
   readonly objects: string[];
   readonly aclList: Acl[];
 
-  // static get(groupName: string): AclGroup | false | undefined;
-  // static list(): AclGroup[] | false | undefined;
+  /**
+   * This function is used to get the ACL group with the given name.
+   * If you need most of the groups you should consider using aclGroupList instead to get an array containing them all.
+   * @param groupName The name to get the ACL group from
+   * @returns Returns the ACL group if it could be found. Returns false/undefined if it did not exist or failed for some reason.
+   * @see https://wiki.mtasa.com/wiki/AclGetGroup
+   **/
+  static aclGetGroup(groupName: string): AclGroup | false | undefined;
+
+  /**
+   * This function returns an array of all the ACL groups.
+   * @returns Returns an array of all the ACL groups if successful, returns an empty array if no ACL groups exist. false/undefined can be returned if this function fails for some other reason.
+   * @see https://wiki.mtasa.com/wiki/AclGroupList
+   **/
+  static aclGroupList(): AclGroup[] | false | undefined;
 
   /**
    * This function creates a group in the ACL.
