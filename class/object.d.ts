@@ -1,9 +1,6 @@
-/** @customConstructor Object */
+/** @customConstructor MapObject */
 declare class MapObject extends BaseElement {
   scale: number;
-
-  // static move(theObject: MapObject, time: number, targetX: number, targetY: number, targetZ: number, moveRX?: number, moveRY?: number, moveRZ?: number, strEasingType?: string, fEasingPeriod?: number, fEasingAmplitude?: number, fEasingOvershoot?: number): boolean;
-  // static stop(theObject: MapObject): boolean;
 
   /**
    * Creates an object in the GTA world.
@@ -38,4 +35,29 @@ declare class MapObject extends BaseElement {
    * @see https://wiki.mtasa.com/wiki/SetObjectScale
    **/
   setScale(scale: number, scaleY?: number, scaleZ?: number): boolean;
+
+  /**
+   * This function will smoothly move map object from its current position to a specified rotation and position.
+   * @param time the time in milliseconds the map object will arrive at the destination.
+   * @param targetX the X value of the target position.
+   * @param targetY the Y value of the target position.
+   * @param targetZ the Z value of the target position.
+   * @param moveRX the rotation along the X axis relative to its current rotation, which is its starting angle.
+   * @param moveRY the rotation along the Y axis relative to its current rotation, which is its starting angle.
+   * @param moveRZ the rotation along the Z axis relative to its current rotation, which is its starting angle.
+   * @param [strEasingType="Linear"] the easing function to use for the interpolation.
+   * @param fEasingPeriod the period of the easing function (only some easing functions use this parameter).
+   * @param fEasingAmplitude the amplitude of the easing function (only some easing functions use this parameter).
+   * @param fEasingOvershoot the overshoot of the easing function (only some easing functions use this parameter).
+   * @returns Return true if the function moved the map object succesfully, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/MoveObject
+   **/
+  move(time: number, targetX: number, targetY: number, targetZ: number, moveRX?: number, moveRY?: number, moveRZ?: number, strEasingType?: string, fEasingPeriod?: number, fEasingAmplitude?: number, fEasingOvershoot?: number): boolean;
+
+  /**
+   * This will allow you to stop map object that is currently moving.
+   * @returns Return true if successful, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/StopObject
+   **/
+  stop(): boolean;
 }
