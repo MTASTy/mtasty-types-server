@@ -1,13 +1,67 @@
+/** @customConstructor Water */
 declare class Water extends BaseElement {
   // level: number; // Change only
 
-  // static resetColor(): boolean;
-  // static resetLevel(): boolean;
-  // static getWaveHeight(): number;
-  // static getColor(): [number, number, number, number];
-  // static setWaveHeight(height: number): boolean;
-  // static setColor(red: number, green: number, blue: number, alpha?: number): boolean;
-  // static setLevel(level: number, includeWaterFeatures?: boolean, includeWaterElements?: boolean): boolean;
+  /**
+   * This function reset the water color of the GTA world to default.
+   * @returns Returns true if water color was reset correctly, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/ResetWaterColor
+   **/
+  static resetColor(): boolean;
+
+  /**
+   * This function resets the water of the GTA world back to its default level.
+   * Water elements are not affected.
+   * @returns Returns true if water level was reset correctly, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/ResetWaterLevel
+   **/
+  static resetLevel(): boolean;
+
+  /**
+   * This function returns the current wave height.
+   * @returns Returns the height as a number, false otherwise.
+   * @see https://wiki.mtasa.com/wiki/GetWaveHeight
+   **/
+  static getWaveHeight(): number | false;
+
+  /**
+   * This function sets the wave height to the desired value, the default is 0.
+   * @param height A float between 0 and 100.
+   * @returns Returns a boolean value true or false that tells you if it was successful or not.
+   * @see https://wiki.mtasa.com/wiki/SetWaveHeight
+   **/
+  static setWaveHeight(height: number): boolean;
+
+  /**
+   * This function returns the water color of the GTA world.
+   * - Note: The server can only return the water color, if it has actually been set by script.
+   * @returns Returns 4 numbers, indicating the color of the water (RGBA).
+   * @see https://wiki.mtasa.com/wiki/GetWaterColor
+   * @tupleReturn
+   **/
+  static getColor(): [number, number, number, number];
+
+  /**
+   * This function changes the water color of the GTA world.
+   * @param red The red value of the water, from 0 to 255.
+   * @param green The green value of the water, from 0 to 255.
+   * @param blue The blue value of the water, from 0 to 255.
+   * @param [alpha=200] The alpha (visibility) value of the water, from 0 to 255.Defaults to 200 if not declared.
+   * @returns Returns true if water color was set correctly, false if invalid values were passed.
+   * @see https://wiki.mtasa.com/wiki/SetWaterColor
+   **/
+  static setColor(red: number, green: number, blue: number, alpha?: number): boolean;
+
+  /**
+   * Sets the height of some or all the water in the game world.
+   * - Note: When the water level is 0, the standard GTA rendering is performed so that water is visible when viewed through translucent surfaces, such as vehicle windows. However, some MTA custom objects placed underwater will appear in front of the water. Setting the water level to any non-zero value (i.e. setWaterLevel(0.001)) forces alternative rendering and MTA custom objects placed underwater will be drawn correctly.
+   * @param level the new Z coordinate of the water surface.
+   * @param [includeWaterFeatures=true] a boolean indicating whether to also set the level of water features such as ponds and pools.
+   * @param [includeWaterElements=true] a boolean indicating whether to also set the level of all water elements.
+   * @returns Returns true if successful, false in case of failure. Returns true if successful, false in case of failure (there is no water at the specified coordinates).
+   * @see https://wiki.mtasa.com/wiki/SetWaterLevel
+   **/
+  static setLevel(level: number, includeWaterFeatures?: boolean, includeWaterElements?: boolean): boolean;
 
   /**
    * Creates an area of water.
