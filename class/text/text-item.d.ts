@@ -1,3 +1,4 @@
+/** @customConstructor TextItem */
 declare class TextItem {
   // position: [number, number]; // TODO: fix type
   text: string;

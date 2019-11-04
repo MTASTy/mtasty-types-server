@@ -1,3 +1,4 @@
+/** @customConstructor TextDisplay */
 declare class TextDisplay {
   readonly observers: Player[];
 
