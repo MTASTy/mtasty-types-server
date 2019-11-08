@@ -79,3 +79,36 @@
 /// <reference path="./function/water.d.ts" />
 /// <reference path="./function/weapon.d.ts" />
 /// <reference path="./function/world.d.ts" />
+
+// Global Lua namespace
+declare const _G: any;
+
+// Table of resource names containing all export functions
+declare const exports: Record<string, Function>;
+
+// Resource element of the resource the snippet was executed in
+declare const resource: Resource;
+
+// Resource root element of the resource the snippet was executed in
+declare const resourceRoot: BaseElement;
+
+// The root element of the server
+declare const root: BaseElement;
+
+// The player or element the event was attached to
+declare const source: BaseElement;
+
+// The name of the event ("onResourceStart", "onPlayerWasted" etc.)
+declare const eventName: string;
+
+// The client that called the event
+declare const client: Player;
+
+// The root of the resource that called the event
+declare const sourceResourceRoot: BaseElement;
+
+// The resource that called the event
+declare const sourceResource: Resource;
+
+// Current timer in callback function
+declare const sourceTimer: Timer;
