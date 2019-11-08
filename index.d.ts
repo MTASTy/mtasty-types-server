@@ -83,9 +83,6 @@
 // Global Lua namespace
 declare const _G: any;
 
-// Table of resource names containing all export functions
-declare const exports: Record<string, Function>;
-
 // Resource element of the resource the snippet was executed in
 declare const resource: Resource;
 
