@@ -57,8 +57,9 @@ declare function dbFree(queryHandle: QueryHandle): boolean;
  * @param [multipleResults=false] Set to true to enable the return values from multiple queries.
  * @returns Result, false or undefined.
  * @see https://wiki.mtasa.com/wiki/DbPoll
+ * @tupleReturn
  **/
-declare function dbPoll(queryHandle: QueryHandle, timeout: number, multipleResults?: boolean): DbQueryResult | undefined | false;
+declare function dbPoll(queryHandle: QueryHandle, timeout: number, multipleResults?: boolean): [DbQueryResult | undefined | false, number, string];
 
 /**
  * This function escapes arguments in the same way as dbQuery, except dbPrepareString returns the query string instead of processing the query. This allows you to safely build complex query strings from component parts and help prevent (one class of) SQL injection.
