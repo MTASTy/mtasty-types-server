@@ -1,12 +1,14 @@
 /** @customConstructor Vector2 */
 declare class Vector2 {
-  readonly length: number;
-  readonly squaredLength: number;
-  readonly normalized: Vector2;
   x: number;
   y: number;
 
-  constructor(position: [number, number]);
+  readonly length: number;
+  readonly squaredLength: number;
+  readonly normalized: Vector2;
+
+  constructor(x: number, y: number);
+  constructor(vector: Vector2);
 
   normalize(): Vector2;
 
@@ -22,7 +24,7 @@ declare class Vector2 {
 
   getY(): number;
 
-  setX(x: number);
+  setX(x: number): boolean;
 
-  setY(y: number);
+  setY(y: number): boolean;
 }

@@ -1,14 +1,16 @@
 /** @customConstructor Vector4 */
 declare class Vector4 {
-  readonly length: number;
-  readonly squaredLength: number;
-  readonly normalized: Vector4;
   x: number;
   y: number;
   z: number;
   w: number;
 
-  constructor(position: [number, number, number, number]);
+  readonly length: number;
+  readonly squaredLength: number;
+  readonly normalized: Vector4;
+
+  constructor(x: number, y: number, z: number, w: number);
+  constructor(vector: Vector4);
 
   normalize(): Vector4;
 
@@ -28,11 +30,11 @@ declare class Vector4 {
 
   getW(): number;
 
-  setX(x: number);
+  setX(x: number): boolean;
 
-  setY(y: number);
+  setY(y: number): boolean;
 
-  setZ(z: number);
+  setZ(z: number): boolean;
 
-  setW(w: number);
+  setW(w: number): boolean;
 }
