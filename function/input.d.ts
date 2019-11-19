@@ -2,7 +2,7 @@
 
 declare type CommandHandler = (thePlayer: Player, commandName: string, ...args: any[]) => void;
 declare type BindHandler = (thePlayer: Player, key: string, keyState: string, ...args: any[]) => void;
-declare type SimpleHandler = () => void;
+declare type SimpleHandler = (...args: any[]) => void;
 
 /**
  * This function will attach a scripting function (handler) to a console command, so that whenever a player or administrator uses the command the function is called.

@@ -1,4 +1,4 @@
-/** @customConstructor MapObject */
+/** @customConstructor Object */
 declare class MapObject extends BaseElement {
   scale: number;
 
