@@ -179,7 +179,7 @@ declare function encodeString(algorithm: string, input: string, options: any[]):
  * @returns Returns variables read from the JSON string.
  * @see https://wiki.mtasa.com/wiki/FromJSON
  **/
-declare function fromJSON(json: string): Object;
+declare function fromJSON<T extends Object>(json: string): T | false;
 
 /**
  * This function will extract Red, Green, Blue and Alpha values from a hex string you provide it. These strings follow the same format as used in HTML, with addition of the Alpha values.
