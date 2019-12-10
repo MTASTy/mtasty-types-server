@@ -1,9 +1,12 @@
 {
   "name": "@mtasty/types-server",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "files": ["tsconfig.json", "**/*.d.ts"],
+  "files": [
+    "tsconfig.json",
+    "**/*.d.ts"
+  ],
   "license": "MIT"
 }
