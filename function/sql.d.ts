@@ -75,6 +75,18 @@ declare function dbPrepareString(databaseConnection: Connection, query: string, 
  * This function starts a database query using the supplied connection.
  * Use the returned query handle with dbPoll to get the result, or dbFree if you don't want the result.
  * - Tip: The server command debugdb 2 will output verbose information on each query to a logging file (usually logs/db.log).
+ * @param databaseConnection A database connection element previously returned from dbConnect.
+ * @param query An SQL query. Positions where parameter values will be inserted are marked with a "?".
+ * @param params Params in SQL query.
+ * @returns Returns a query handle unless the connection is incorrect, in which case it return false.
+ * @see https://wiki.mtasa.com/wiki/DbQuery
+ **/
+declare function dbQuery(databaseConnection: Connection, query: string, ...params: DbQueryParams): QueryHandle | false;
+
+/**
+ * This function starts a database query using the supplied connection.
+ * Use the returned query handle with dbPoll to get the result, or dbFree if you don't want the result.
+ * - Tip: The server command debugdb 2 will output verbose information on each query to a logging file (usually logs/db.log).
  * @param callbackFunction An optional function to be called when a result is ready. The function will only be called if the result has not already been read with dbPoll. The function is called with the query handle as the first argument. (Notice
  * @param callbackArguments An optional array containing extra arguments to be sent to the callback function.
  * @param databaseConnection A database connection element previously returned from dbConnect.
