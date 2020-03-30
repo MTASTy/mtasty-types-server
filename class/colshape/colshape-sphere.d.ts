@@ -1,4 +1,4 @@
-/** @customConstructor ColShapeSphere */
+/** @customConstructor ColShape.Sphere */
 declare class ColShapeSphere extends ColShape {
   /**
    * This function creates a collision sphere.

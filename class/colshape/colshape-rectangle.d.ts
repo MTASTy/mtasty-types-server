@@ -1,4 +1,4 @@
-/** @customConstructor ColShapeRectangle */
+/** @customConstructor ColShape.Rectangle */
 declare class ColShapeRectangle extends ColShape {
   /**
    * This function creates a collision rectangle.

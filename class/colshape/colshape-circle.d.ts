@@ -1,4 +1,4 @@
-/** @customConstructor ColShapeCircle */
+/** @customConstructor ColShape.Circle */
 declare class ColShapeCircle extends ColShape {
   /**
    * This function creates a collision circle.

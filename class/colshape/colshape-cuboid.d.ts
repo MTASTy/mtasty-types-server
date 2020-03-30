@@ -1,4 +1,4 @@
-/** @customConstructor ColShapeCuboid */
+/** @customConstructor ColShape.Cuboid */
 declare class ColShapeCuboid extends ColShape {
   /**
    * This function creates a collision cuboid.

@@ -1,4 +1,4 @@
-/** @customConstructor ColShapeTube */
+/** @customConstructor ColShape.Tube */
 declare class ColShapeTube extends ColShape {
   /**
    * This function creates a collision tube.

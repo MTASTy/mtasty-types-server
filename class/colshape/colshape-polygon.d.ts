@@ -1,4 +1,4 @@
-/** @customConstructor ColShapePolygon */
+/** @customConstructor ColShape.Polygon */
 declare class ColShapePolygon extends ColShape {
   /**
    * This function creates a collision polygon.
