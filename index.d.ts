@@ -80,9 +80,6 @@
 /// <reference path="./function/weapon.d.ts" />
 /// <reference path="./function/world.d.ts" />
 
-// Global Lua namespace
-declare const _G: any;
-
 // Resource element of the resource the snippet was executed in
 declare const resource: Resource;
 
